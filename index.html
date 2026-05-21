@@ -1,136 +1,150 @@
-export default function RujalCounsellingLanding() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#fff7f2] via-[#f7f4ff] to-[#eefcf8] text-gray-800 overflow-hidden relative">
-      {/* Background Blurs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-pink-200/40 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-cyan-200/40 blur-3xl rounded-full" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/50 border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-500 flex items-center justify-center text-white text-xl shadow-lg">
-              🧠
-            </div>
+  <title>Rujal Counselling</title>
 
-            <div>
-              <p className="text-sm text-gray-500">
-                Ms. Saloni Suryawanshi's
-              </p>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-              <h1 className="text-2xl font-bold text-[#43206b] tracking-wide">
-                Rujal Counselling
-              </h1>
-            </div>
-          </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-            <a href="#" className="hover:text-purple-700 transition">Home</a>
-            <a href="#" className="hover:text-purple-700 transition">Services</a>
-            <a href="#" className="hover:text-purple-700 transition">Therapies</a>
-            <a href="#" className="hover:text-purple-700 transition">Contact</a>
-          </div>
+  <style>
+    body{
+      font-family:'Poppins',sans-serif;
+    }
+  </style>
+</head>
 
-          <button className="bg-gradient-to-r from-purple-600 to-teal-500 text-white px-6 py-3 rounded-full shadow-xl hover:scale-105 transition duration-300">
-            Book Session
-          </button>
+<body class="bg-gradient-to-br from-[#fff7f2] via-[#f7f4ff] to-[#eefcf8] text-gray-800 overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/50 border-b border-white/20">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <div class="flex items-center gap-4">
+
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-500 flex items-center justify-center text-white text-2xl shadow-lg">
+          🧠
         </div>
-      </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-32 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-sm text-gray-500">
+            Ms. Saloni Suryawanshi's
+          </p>
 
-          {/* Left Side */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-lg border border-white/30 rounded-full px-5 py-2 shadow-md mb-8">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <p className="text-sm font-medium text-gray-700">
-                Professional • Confidential • Compassionate
-              </p>
+          <h1 class="text-2xl font-bold tracking-wide text-[#43206b]">
+            Rujal Counselling
+          </h1>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <a href="#" class="hover:text-purple-700 transition">Home</a>
+        <a href="#" class="hover:text-purple-700 transition">Services</a>
+        <a href="#" class="hover:text-purple-700 transition">Therapies</a>
+        <a href="#" class="hover:text-purple-700 transition">Contact</a>
+      </div>
+
+      <button class="bg-gradient-to-r from-purple-600 to-teal-500 text-white px-6 py-3 rounded-full shadow-xl hover:scale-105 transition duration-300">
+        Book Session
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center pt-32 px-6 relative overflow-hidden">
+
+    <div class="absolute top-0 left-0 w-96 h-96 bg-pink-200/40 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-cyan-200/40 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+
+      <!-- LEFT -->
+      <div>
+
+        <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-lg border border-white/30 rounded-full px-5 py-2 shadow-md mb-8">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+
+          <p class="text-sm font-medium text-gray-700">
+            Professional • Confidential • Compassionate
+          </p>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-tight text-[#38195d]">
+          You Don't Have
+
+          <span class="block mt-2 bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
+            To Face It Alone.
+          </span>
+        </h1>
+
+        <p class="mt-8 text-lg leading-relaxed text-gray-600 max-w-xl">
+          A safe and supportive space to heal, grow and rediscover yourself through compassionate counselling and emotional wellness support.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-5">
+
+          <button class="bg-gradient-to-r from-purple-600 to-teal-500 text-white px-8 py-4 rounded-2xl text-lg shadow-2xl hover:scale-105 transition duration-300">
+            Book Appointment
+          </button>
+
+          <button class="bg-white/70 backdrop-blur-lg border border-white/30 px-8 py-4 rounded-2xl text-lg hover:shadow-lg transition">
+            Explore Services
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="relative">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-300/20 via-purple-300/20 to-cyan-300/20 rounded-[50px] blur-3xl scale-110"></div>
+
+        <div class="relative bg-white/50 backdrop-blur-2xl border border-white/30 rounded-[40px] p-6 shadow-2xl overflow-hidden">
+
+          <img
+            src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-[680px] object-cover rounded-[30px]"
+          />
+
+          <div class="absolute bottom-10 left-10 bg-white/85 backdrop-blur-xl rounded-3xl p-6 shadow-2xl max-w-sm border border-white/30">
+
+            <div class="flex items-center gap-4 mb-4">
+
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
+                ♥
+              </div>
+
+              <div>
+                <h3 class="font-bold text-lg text-[#43206b]">
+                  Healing Minds
+                </h3>
+
+                <p class="text-sm text-gray-500">
+                  Empowering Lives
+                </p>
+              </div>
+
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black leading-tight text-[#38195d]">
-              You Don't Have
-              <span className="block mt-2 bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
-                To Face It Alone.
-              </span>
-            </h1>
-
-            <p className="mt-8 text-lg leading-relaxed text-gray-600 max-w-xl">
-              A safe and supportive space to heal, grow and rediscover yourself through compassionate counselling and emotional wellness support.
+            <p class="text-sm leading-relaxed text-gray-600">
+              Every step towards mental wellness is a step towards a healthier and happier life.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-5">
-              <button className="bg-gradient-to-r from-purple-600 to-teal-500 text-white px-8 py-4 rounded-2xl text-lg shadow-2xl hover:scale-105 transition duration-300">
-                Book Appointment
-              </button>
-
-              <button className="bg-white/70 backdrop-blur-lg border border-white/30 px-8 py-4 rounded-2xl text-lg hover:shadow-lg transition">
-                Explore Services
-              </button>
-            </div>
-
-            {/* Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-14 max-w-2xl">
-              <div className="bg-white/60 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg">
-                <div className="text-3xl mb-4">💜</div>
-                <h3 className="text-xl font-semibold text-[#43206b]">
-                  Emotional Wellness
-                </h3>
-                <p className="mt-2 text-gray-600 text-sm leading-relaxed">
-                  Support for anxiety, stress, emotional healing and self-growth.
-                </p>
-              </div>
-
-              <div className="bg-white/60 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg">
-                <div className="text-3xl mb-4">🌿</div>
-                <h3 className="text-xl font-semibold text-[#43206b]">
-                  Safe Space
-                </h3>
-                <p className="mt-2 text-gray-600 text-sm leading-relaxed">
-                  Confidential counselling tailored to your unique healing journey.
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Right Side */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-300/20 via-purple-300/20 to-cyan-300/20 rounded-[50px] blur-3xl scale-110"></div>
-
-            <div className="relative bg-white/50 backdrop-blur-2xl border border-white/30 rounded-[40px] p-6 shadow-2xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?q=80&w=1200&auto=format&fit=crop"
-                alt="Counselling"
-                className="w-full h-[680px] object-cover rounded-[30px]"
-              />
-
-              {/* Floating Card */}
-              <div className="absolute bottom-10 left-10 bg-white/85 backdrop-blur-xl rounded-3xl p-6 shadow-2xl max-w-sm border border-white/30">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
-                    ♥
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-lg text-[#43206b]">
-                      Healing Minds
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      Empowering Lives
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-sm leading-relaxed text-gray-600">
-                  Every step towards mental wellness is a step towards a healthier and happier life.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+
+      </div>
+
     </div>
-  )
-}
+
+  </section>
+
+</body>
+</html>
