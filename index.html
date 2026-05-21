@@ -13,44 +13,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      font-family:'Poppins',sans-serif;
-      scroll-behavior:smooth;
+    * {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
 
-    body{
-      overflow-x:hidden;
-      background:linear-gradient(to bottom right,#fff8fb,#f6f4ff,#eefaf8);
+    body {
+      overflow-x: hidden;
+      background: linear-gradient(to bottom right, #fff8fb, #f6f4ff, #eefaf8);
     }
 
-    .glass{
-      background:rgba(255,255,255,0.55);
-      backdrop-filter:blur(20px);
-      border:1px solid rgba(255,255,255,0.2);
+    .glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .gradient-text{
-      background:linear-gradient(to right,#d946ef,#7c3aed,#0f766e);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    .gradient-text {
+      background: linear-gradient(to right, #d946ef, #7c3aed, #0f766e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .floating{
-      animation:floating 5s ease-in-out infinite;
+    .floating {
+      animation: floating 5s ease-in-out infinite;
     }
 
-    @keyframes floating{
-      0%{transform:translateY(0px);}
-      50%{transform:translateY(-15px);}
-      100%{transform:translateY(0px);}
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
     }
 
-    .modal{
-      display:none;
+    .modal {
+      display: none;
     }
 
-    .modal.active{
-      display:flex;
+    .modal.active {
+      display: flex;
     }
   </style>
 </head>
@@ -70,8 +78,8 @@
         <!-- LOGO -->
         <img
           src="Screenshot 2026-05-21 131617(2).png"
-          alt="Rujal Counselling Logo"
-          class="w-16 h-16 rounded-3xl object-cover shadow-xl"
+          alt="Rujal Counselling Center Logo"
+          class="w-16 h-16 object-contain"
         />
 
         <div>
@@ -80,7 +88,7 @@
           </p>
 
           <h1 class="text-3xl font-black text-[#341254]">
-            Rujal Counselling
+            Rujal Counselling Center
           </h1>
         </div>
 
@@ -155,17 +163,11 @@
       <!-- RIGHT -->
       <div class="relative floating">
 
-        <div class="absolute inset-0 bg-gradient-to-br from-pink-300/20 via-purple-300/20 to-cyan-300/20 rounded-[50px] blur-3xl scale-110"></div>
-
-        <div class="relative glass rounded-[50px] p-8 shadow-2xl">
-
-          <img
-            src="Screenshot 2026-05-21 131617(2).png"
-            alt="Rujal Counselling"
-            class="w-full rounded-[40px]"
-          />
-
-        </div>
+        <img
+          src="Screenshot 2026-05-21 131617(2).png"
+          alt="Rujal Counselling Center"
+          class="w-full object-contain"
+        />
 
       </div>
 
@@ -416,14 +418,15 @@
   </div>
 
   <script>
-    function openModal(id){
-      document.getElementById(id).classList.add('active')
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
     }
 
-    function closeModal(id){
-      document.getElementById(id).classList.remove('active')
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
     }
   </script>
 
 </body>
+
 </html>
