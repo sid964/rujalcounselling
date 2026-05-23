@@ -3,46 +3,46 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f8f1e7" />
 
   <title>Rujal Counselling Center</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --ink: #14383f;
-      --teal: #2f6f67;
-      --teal-dark: #245852;
-      --mint: #e8f4ef;
-      --mint-strong: #cfe7dc;
-      --cream: #fff9ef;
-      --warm: #f5e5d3;
-      --peach: #eead91;
-      --coral: #d86f50;
+      --ink: #173f3b;
+      --text: #284a45;
+      --muted: #667974;
+      --sage: #6f9b8b;
+      --sage-soft: #dceee6;
+      --cream: #fff8ee;
+      --sand: #f1e2cf;
+      --peach: #d98a68;
       --white: #ffffff;
-      --muted: #647570;
-      --line: rgba(20, 56, 63, 0.12);
-      --shadow: 0 22px 55px rgba(20, 56, 63, 0.10);
+      --line: rgba(23, 63, 59, 0.14);
+      --shadow: 0 18px 45px rgba(23, 63, 59, 0.10);
     }
 
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       margin: 0;
       overflow-x: hidden;
+      color: var(--text);
       font-family: "Nunito Sans", sans-serif;
-      color: var(--ink);
       background:
-        radial-gradient(circle at 10% 8%, rgba(207, 231, 220, 0.95), transparent 30%),
-        radial-gradient(circle at 88% 18%, rgba(245, 229, 211, 0.95), transparent 28%),
-        linear-gradient(135deg, #fffaf2 0%, #edf7f3 48%, #fff4e8 100%);
+        radial-gradient(circle at 10% 6%, rgba(220, 238, 230, 0.95), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(241, 226, 207, 0.9), transparent 28%),
+        linear-gradient(135deg, #fffaf3 0%, #edf7f1 55%, #fff3e8 100%);
     }
 
     h1,
@@ -50,15 +50,32 @@
     h3,
     .serif {
       font-family: "Lora", serif;
+      color: var(--ink);
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 249, 239, 0.88);
-      backdrop-filter: blur(18px);
+    a,
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+
+    button,
+    a {
+      min-height: 44px;
+    }
+
+    .header {
+      background: rgba(255, 248, 238, 0.86);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
     }
 
     .panel {
@@ -69,133 +86,91 @@
     }
 
     .soft-card {
-      background: rgba(255, 255, 255, 0.68);
+      background: rgba(255, 255, 255, 0.72);
       border: 1px solid var(--line);
-      transition: 0.28s ease;
+      transition: 0.25s ease;
     }
 
     .soft-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--teal), var(--ink));
+      background: linear-gradient(135deg, var(--sage), var(--ink));
       color: white;
-      box-shadow: 0 15px 28px rgba(20, 56, 63, 0.20);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(23, 63, 59, 0.20);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
       color: var(--ink);
+      border: 1px solid var(--line);
     }
 
-    .section-label {
-      color: var(--coral);
+    .label {
+      color: #b96f51;
       font-size: 12px;
       font-weight: 800;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
     }
 
-    .hero-visual {
-      position: relative;
-      isolation: isolate;
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 8%;
-      z-index: -1;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(47, 111, 103, 0.18), rgba(238, 173, 145, 0.18));
-      filter: blur(18px);
-    }
-
-    .organic-shape {
-      border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-    }
-
-    .service-tab.active {
+    .service-btn.active {
       background: var(--ink);
       color: white;
       border-color: transparent;
     }
 
-    .service-tab.active p {
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .mood-chip.active {
-      background: var(--teal);
+    .service-btn.active h3 {
       color: white;
-      border-color: var(--teal);
     }
 
-    .breath-circle {
-      animation: breathe 5.6s ease-in-out infinite;
-      animation-play-state: paused;
-    }
-
-    .breathing .breath-circle {
-      animation-play-state: running;
-    }
-
-    @keyframes breathe {
-      0%, 100% {
-        transform: scale(0.78);
-        opacity: 0.65;
-      }
-
-      50% {
-        transform: scale(1.08);
-        opacity: 1;
-      }
+    .service-btn.active p {
+      color: rgba(255, 255, 255, 0.78);
     }
 
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.35s ease;
+      transition: max-height 0.3s ease;
     }
 
     .faq.open .faq-answer {
-      max-height: 220px;
-    }
-
-    .faq-icon {
-      transition: transform 0.25s ease;
+      max-height: 180px;
     }
 
     .faq.open .faq-icon {
       transform: rotate(45deg);
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: 0.7s ease;
+    .faq-icon {
+      transition: 0.25s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .mobile-menu {
+      display: none;
     }
 
-    @media (max-width: 768px) {
-      .mobile-menu {
-        display: none;
+    .mobile-menu.open {
+      display: grid;
+    }
+
+    .mobile-whatsapp {
+      padding-bottom: max(14px, env(safe-area-inset-bottom));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
       }
+    }
 
-      .mobile-menu.open {
-        display: grid;
+    @media (max-width: 640px) {
+      .hide-mobile-name {
+        display: none;
       }
     }
   </style>
@@ -203,47 +178,46 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
       <a href="#home" class="flex items-center gap-3">
         <img
           src="Screenshot 2026-05-21 131617(2).png"
           alt="Rujal Counselling Center Logo"
-          class="w-16 h-16 md:w-20 md:h-20 object-contain"
+          class="w-14 h-14 md:w-16 md:h-16 object-contain"
         />
 
         <div>
-          <p class="text-xs md:text-sm text-[var(--muted)]">
+          <p class="hide-mobile-name text-xs text-[var(--muted)]">
             Ms. Saloni Suryawanshi's
           </p>
 
-          <h1 class="text-xl md:text-2xl font-bold leading-tight">
+          <h1 class="text-lg md:text-2xl font-bold leading-tight">
             Rujal Counselling Center
           </h1>
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-7 text-sm font-bold text-[var(--muted)]">
-        <a href="#services" class="hover:text-[var(--ink)] transition">Services</a>
-        <a href="#approach" class="hover:text-[var(--ink)] transition">Approach</a>
-        <a href="#process" class="hover:text-[var(--ink)] transition">Process</a>
-        <a href="#location" class="hover:text-[var(--ink)] transition">Location</a>
-        <a href="#faq" class="hover:text-[var(--ink)] transition">FAQ</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-[var(--muted)]">
+        <a href="#services" class="hover:text-[var(--ink)]">Services</a>
+        <a href="#process" class="hover:text-[var(--ink)]">Sessions</a>
+        <a href="#location" class="hover:text-[var(--ink)]">Location</a>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
         <a
-          href="https://wa.me/918108719701"
+          href="https://wa.me/918108719701?text=Hello%2C%20I%20would%20like%20to%20book%20a%20counselling%20session."
           target="_blank"
           rel="noopener"
-          class="hidden md:inline-flex btn-primary px-5 py-3 rounded-full font-bold transition"
+          class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full font-bold items-center"
         >
-          Book Session
+          Book
         </a>
 
         <button
           onclick="toggleMenu()"
-          class="lg:hidden btn-secondary w-11 h-11 rounded-full font-bold transition"
+          class="md:hidden btn-secondary w-11 h-11 rounded-full font-bold"
           aria-label="Open menu"
         >
           =
@@ -251,504 +225,367 @@
       </div>
     </div>
 
-    <nav id="mobileMenu" class="mobile-menu lg:hidden px-5 pb-4 gap-3 text-sm font-bold text-[var(--muted)]">
+    <nav id="mobileMenu" class="mobile-menu md:hidden px-4 pb-4 gap-3 text-sm font-bold text-[var(--muted)]">
       <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#approach" onclick="toggleMenu()">Approach</a>
-      <a href="#process" onclick="toggleMenu()">Process</a>
+      <a href="#process" onclick="toggleMenu()">Sessions</a>
       <a href="#location" onclick="toggleMenu()">Location</a>
-      <a href="#faq" onclick="toggleMenu()">FAQ</a>
+      <a href="#book" onclick="toggleMenu()">Book on WhatsApp</a>
     </nav>
   </header>
 
   <main id="home">
 
-    <section class="px-5 py-16 md:py-20">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+    <!-- HERO -->
+    <section class="px-4 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
 
-        <div class="reveal">
-          <div class="inline-flex items-center gap-3 panel rounded-full px-4 py-2 mb-6">
-            <span class="w-2.5 h-2.5 rounded-full bg-[var(--teal)]"></span>
+        <div>
+          <div class="inline-flex items-center gap-2 panel rounded-full px-4 py-2 mb-5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[var(--sage)]"></span>
             <p class="text-sm font-bold text-[var(--muted)]">
-              Psychological counselling with warmth and privacy
+              Private psychological counselling
             </p>
           </div>
 
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
-            A calmer place to talk, understand, and heal.
+          <h2 class="text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
+            A safe space to talk, feel understood, and heal gently.
           </h2>
 
-          <p class="mt-6 text-base md:text-lg text-[var(--muted)] leading-relaxed max-w-2xl">
-            Rujal Counselling Center offers compassionate support for anxiety, stress,
-            low mood, grief, relationship concerns, self-esteem and personal growth.
-            Sessions are private, respectful and paced around your comfort.
+          <p class="mt-5 text-base md:text-lg text-[var(--muted)] leading-relaxed max-w-2xl">
+            Compassionate counselling for anxiety, stress, low mood, grief,
+            relationship concerns and personal growth.
           </p>
 
-          <div class="mt-8 flex flex-wrap gap-3">
+          <div class="mt-7 flex flex-wrap gap-3">
             <a
-              href="https://wa.me/918108719701"
+              href="https://wa.me/918108719701?text=Hello%2C%20I%20would%20like%20to%20book%20a%20counselling%20session."
               target="_blank"
               rel="noopener"
-              class="btn-primary px-7 py-3.5 rounded-full font-bold transition"
+              class="btn-primary px-6 py-3 rounded-full font-bold inline-flex items-center"
             >
               Book Appointment
             </a>
 
             <a
-              href="#mood"
-              class="btn-secondary px-7 py-3.5 rounded-full font-bold transition"
+              href="#services"
+              class="btn-secondary px-6 py-3 rounded-full font-bold inline-flex items-center"
             >
-              Find Support Area
+              Explore Services
             </a>
           </div>
 
-          <div class="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Safe</p>
-              <p class="text-sm text-[var(--muted)] mt-1">Confidential sessions</p>
+          <div class="mt-8 grid grid-cols-3 gap-3 max-w-xl">
+            <div class="soft-card rounded-2xl p-4">
+              <p class="font-extrabold text-[var(--ink)]">Private</p>
+              <p class="text-xs text-[var(--muted)] mt-1">Confidential care</p>
             </div>
 
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Gentle</p>
-              <p class="text-sm text-[var(--muted)] mt-1">Supportive pace</p>
+            <div class="soft-card rounded-2xl p-4">
+              <p class="font-extrabold text-[var(--ink)]">Gentle</p>
+              <p class="text-xs text-[var(--muted)] mt-1">No pressure</p>
             </div>
 
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Clear</p>
-              <p class="text-sm text-[var(--muted)] mt-1">Practical guidance</p>
+            <div class="soft-card rounded-2xl p-4">
+              <p class="font-extrabold text-[var(--ink)]">Helpful</p>
+              <p class="text-xs text-[var(--muted)] mt-1">Practical tools</p>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="panel organic-shape p-7 md:p-10">
+        <div>
+          <div class="panel rounded-[32px] p-6 md:p-8">
             <img
               src="Screenshot 2026-05-21 131617(2).png"
               alt="Rujal Counselling Center"
-              class="w-full max-w-[460px] mx-auto object-contain"
+              class="w-full max-w-[380px] mx-auto object-contain"
             />
-          </div>
 
-          <div class="panel rounded-3xl p-5 max-w-[280px] mt-5 md:absolute md:-bottom-8 md:left-0">
-            <p class="section-label">First step</p>
-            <p class="mt-2 font-bold leading-snug">
-              Message on WhatsApp, ask your questions, and begin when you feel ready.
-            </p>
+            <div class="mt-5 bg-[var(--cream)] border border-[var(--line)] rounded-3xl p-5">
+              <p class="label">First step</p>
+              <p class="mt-2 font-bold leading-relaxed">
+                Send a WhatsApp message. Ask your questions. Begin only when you feel ready.
+              </p>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <section class="px-5 pb-16">
-      <div class="max-w-7xl mx-auto panel rounded-[32px] p-6 grid md:grid-cols-4 gap-5 text-center reveal">
-        <div>
-          <p class="serif text-2xl font-bold">Anxiety</p>
-          <p class="text-sm text-[var(--muted)]">Overthinking and worry</p>
-        </div>
+    <!-- SERVICES -->
+    <section id="services" class="px-4 py-12 bg-white/35">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-2xl mb-7">
+          <p class="label">Services</p>
 
-        <div>
-          <p class="serif text-2xl font-bold">Stress</p>
-          <p class="text-sm text-[var(--muted)]">Pressure and burnout</p>
-        </div>
-
-        <div>
-          <p class="serif text-2xl font-bold">Grief</p>
-          <p class="text-sm text-[var(--muted)]">Loss and transitions</p>
-        </div>
-
-        <div>
-          <p class="serif text-2xl font-bold">Growth</p>
-          <p class="text-sm text-[var(--muted)]">Confidence and clarity</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="mood" class="px-5 py-16">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-        <div class="reveal">
-          <p class="section-label">Interactive Helper</p>
-
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            What are you carrying today?
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
+            Support for what feels heavy.
           </h2>
 
-          <p class="mt-4 text-[var(--muted)] leading-relaxed">
-            Choose what feels closest. This does not diagnose anything, but it can help
-            visitors understand which support area may fit them.
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Choose a concern to understand how counselling may help.
           </p>
         </div>
 
-        <div class="panel rounded-[32px] p-6 md:p-8 reveal">
-          <div class="flex flex-wrap gap-3">
-            <button class="mood-chip active btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(0, this)">Overthinking</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(1, this)">Low energy</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(2, this)">Emotional pain</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(3, this)">Self-doubt</button>
-          </div>
-
-          <div class="mt-7 bg-[var(--cream)] border border-[var(--line)] rounded-3xl p-6">
-            <p class="section-label" id="moodLabel">Suggested support</p>
-            <h3 class="mt-2 text-2xl font-bold" id="moodTitle">Anxiety & Stress Support</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed" id="moodText">
-              Counselling can help you slow down racing thoughts, understand triggers,
-              and build calming tools for daily pressure.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-10 reveal">
-          <p class="section-label">Services</p>
-
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Counselling support designed around real life.
-          </h2>
-
-          <p class="mt-4 text-[var(--muted)] leading-relaxed">
-            Click each service to see how sessions can help.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-7 items-start">
-          <div class="grid sm:grid-cols-2 gap-4 reveal">
-            <button class="service-tab active soft-card rounded-3xl p-5 text-left" onclick="showService(0, this)">
+        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-5">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <button class="service-btn active soft-card rounded-3xl p-5 text-left" onclick="showService(0, this)">
               <h3 class="text-xl font-bold">Anxiety & Stress</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Worry, panic, burnout and pressure.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">Overthinking, panic, pressure.</p>
             </button>
 
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(1, this)">
-              <h3 class="text-xl font-bold">Depression</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Low mood, numbness and hopelessness.</p>
+            <button class="service-btn soft-card rounded-3xl p-5 text-left" onclick="showService(1, this)">
+              <h3 class="text-xl font-bold">Low Mood</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">Sadness, numbness, low energy.</p>
             </button>
 
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(2, this)">
+            <button class="service-btn soft-card rounded-3xl p-5 text-left" onclick="showService(2, this)">
               <h3 class="text-xl font-bold">Grief & Loss</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Loss, change and emotional pain.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">Loss, change, emotional pain.</p>
             </button>
 
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(3, this)">
-              <h3 class="text-xl font-bold">Personal Growth</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Confidence, boundaries and clarity.</p>
+            <button class="service-btn soft-card rounded-3xl p-5 text-left" onclick="showService(3, this)">
+              <h3 class="text-xl font-bold">Self Growth</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">Confidence, boundaries, clarity.</p>
             </button>
           </div>
 
-          <div class="panel rounded-[32px] p-7 md:p-9 min-h-[340px] reveal">
-            <p class="section-label" id="serviceLabel">Anxiety & Stress</p>
+          <div class="panel rounded-[32px] p-6 md:p-8">
+            <p class="label" id="serviceLabel">Anxiety & Stress</p>
 
-            <h3 class="mt-3 text-3xl md:text-4xl font-bold leading-tight" id="serviceTitle">
-              Finding steadiness when your mind feels loud.
+            <h3 class="mt-2 text-2xl md:text-3xl font-bold leading-tight" id="serviceTitle">
+              When your mind feels too loud.
             </h3>
 
-            <p class="mt-5 text-[var(--muted)] leading-relaxed" id="serviceText">
-              Counselling helps you understand triggers, calm your body, reduce overthinking,
-              and build healthier responses to daily pressure.
+            <p class="mt-4 text-[var(--muted)] leading-relaxed" id="serviceText">
+              Counselling can help you understand triggers, slow racing thoughts,
+              calm your body and build healthy coping tools.
             </p>
 
-            <ul class="mt-6 grid gap-3 text-[var(--muted)]" id="serviceList">
-              <li>Calming and grounding techniques</li>
-              <li>Support with overthinking and panic</li>
-              <li>Tools for daily stress management</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="approach" class="px-5 py-16">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-        <div class="reveal">
-          <p class="section-label">Approach</p>
-
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            A professional space that still feels human.
-          </h2>
-
-          <p class="mt-5 text-[var(--muted)] leading-relaxed">
-            Therapy works best when people feel safe enough to be honest. The approach here
-            is compassionate, confidential and practical, with space for emotions and tools
-            for everyday coping.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-4 reveal">
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Compassionate listening</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              You are heard without judgment, pressure or labels.
-            </p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Emotional clarity</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              Sessions help you understand what you feel and why.
-            </p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Practical coping</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              Learn tools you can use outside the counselling room.
-            </p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Personal pace</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              You move forward gently and safely.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="calm" class="px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-2 gap-10 items-center reveal">
-        <div>
-          <p class="section-label">Calm Tool</p>
-
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Pause for one quiet breath.
-          </h2>
-
-          <p class="mt-5 text-[var(--muted)] leading-relaxed">
-            Visitors can use this simple breathing tool before booking or reading more.
-            It makes the website feel calmer and more interactive.
-          </p>
-
-          <button
-            onclick="toggleBreathing()"
-            class="mt-7 btn-primary px-7 py-3.5 rounded-full font-bold transition"
-            id="breathButton"
-          >
-            Start Breathing
-          </button>
-        </div>
-
-        <div id="breathBox" class="flex flex-col items-center justify-center min-h-[300px]">
-          <div class="relative w-64 h-64 flex items-center justify-center">
-            <div class="absolute inset-0 rounded-full bg-[rgba(47,111,103,0.10)]"></div>
-            <div class="breath-circle absolute w-52 h-52 rounded-full bg-[rgba(47,111,103,0.22)]"></div>
-            <div class="breath-circle absolute w-36 h-36 rounded-full bg-[rgba(238,173,145,0.25)]"></div>
-
-            <div class="relative text-center">
-              <p class="section-label">Breathe</p>
-              <p id="breathText" class="serif text-3xl font-bold mt-2">Ready</p>
+            <div class="mt-5 grid gap-2 text-sm text-[var(--muted)]" id="serviceList">
+              <p>Calming and grounding techniques</p>
+              <p>Support with overthinking and panic</p>
+              <p>Tools for daily stress</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process" class="px-5 py-16">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-10 reveal">
-          <p class="section-label">How It Works</p>
+    <!-- PROCESS -->
+    <section id="process" class="px-4 py-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <p class="label">Sessions</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Starting counselling can be simple.
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
+            Simple and comfortable to begin.
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-5">
-          <div class="panel rounded-3xl p-7 reveal">
-            <p class="serif text-4xl font-bold text-[var(--coral)]">01</p>
-            <h3 class="mt-4 text-2xl font-bold">Reach out</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              Send a WhatsApp message and share that you would like counselling support.
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="panel rounded-3xl p-6">
+            <p class="serif text-3xl font-bold text-[var(--peach)]">01</p>
+            <h3 class="mt-3 text-xl font-bold">Message</h3>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+              Reach out on WhatsApp and share that you want counselling support.
             </p>
           </div>
 
-          <div class="panel rounded-3xl p-7 reveal">
-            <p class="serif text-4xl font-bold text-[var(--coral)]">02</p>
-            <h3 class="mt-4 text-2xl font-bold">Choose a time</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              Select a convenient session slot and ask questions before beginning.
+          <div class="panel rounded-3xl p-6">
+            <p class="serif text-3xl font-bold text-[var(--peach)]">02</p>
+            <h3 class="mt-3 text-xl font-bold">Choose Time</h3>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+              Ask about availability, session mode and appointment timing.
             </p>
           </div>
 
-          <div class="panel rounded-3xl p-7 reveal">
-            <p class="serif text-4xl font-bold text-[var(--coral)]">03</p>
-            <h3 class="mt-4 text-2xl font-bold">Begin gently</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              The first session focuses on understanding your concerns and goals.
+          <div class="panel rounded-3xl p-6">
+            <p class="serif text-3xl font-bold text-[var(--peach)]">03</p>
+            <h3 class="mt-3 text-xl font-bold">Begin</h3>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+              The first session focuses on your concern, comfort and next steps.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="px-5 py-16 bg-[var(--ink)] text-white">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center reveal">
+    <!-- TRUST -->
+    <section class="px-4 py-12 bg-[var(--ink)] text-white">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center">
         <div>
-          <p class="section-label text-[#f2c5ad]">Gentle Reminder</p>
+          <p class="label text-[#f2c4ae]">A Gentle Reminder</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            You do not have to wait until things feel unbearable.
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight text-white">
+            You do not have to wait until things become unbearable.
           </h2>
         </div>
 
-        <div class="space-y-4 text-white/78 leading-relaxed">
-          <p>
-            Counselling can help even when you are managing on the outside but feeling
-            overwhelmed inside.
-          </p>
-
-          <p>
-            A supportive conversation can bring relief, perspective and a clearer next step.
-          </p>
-        </div>
+        <p class="text-white/76 leading-relaxed">
+          Counselling can help even when you are functioning outside but feeling
+          overwhelmed inside. A private conversation can bring relief, clarity and support.
+        </p>
       </div>
     </section>
 
-    <section id="location" class="px-5 py-16">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-        <div class="reveal">
-          <p class="section-label">Location</p>
+    <!-- LOCATION + BOOKING -->
+    <section id="location" class="px-4 py-12">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-5">
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Visit Rujal Counselling Center.
+        <div class="panel rounded-[32px] p-6 md:p-8">
+          <p class="label">Location</p>
+
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
+            Visit the counselling center.
           </h2>
 
-          <p class="mt-5 text-[var(--muted)] leading-relaxed">
-            Use the map link to open the exact counselling center location on Google Maps.
-            You can also replace the embedded map URL with your exact Google Maps embed link.
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Open the location directly in Google Maps for directions.
           </p>
 
           <a
             href="https://maps.app.goo.gl/sLpWVTKZyiLoXn4L6"
             target="_blank"
             rel="noopener"
-            class="mt-7 inline-flex btn-primary px-7 py-3.5 rounded-full font-bold transition"
+            class="mt-5 btn-primary px-6 py-3 rounded-full font-bold inline-flex items-center"
           >
-            Open in Google Maps
+            Open Google Maps
           </a>
+
+          <div class="mt-6 rounded-3xl overflow-hidden border border-[var(--line)]">
+            <iframe
+              title="Rujal Counselling Center location"
+              src="https://www.google.com/maps?q=Rujal%20Counselling%20Center&output=embed"
+              width="100%"
+              height="300"
+              style="border:0;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
 
-        <div class="panel rounded-[32px] overflow-hidden reveal">
-          <iframe
-            title="Rujal Counselling Center location"
-            src="https://www.google.com/maps?q=Rujal%20Counselling%20Center&output=embed"
-            width="100%"
-            height="380"
-            style="border:0;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </section>
+        <div id="book" class="panel rounded-[32px] p-6 md:p-8">
+          <p class="label">WhatsApp Booking</p>
 
-    <section id="booking" class="px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[0.9fr_1.1fr] gap-9 items-start reveal">
-        <div>
-          <p class="section-label">Book A Session</p>
-
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Send a prepared WhatsApp message.
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
+            Send a clear message.
           </h2>
 
-          <p class="mt-5 text-[var(--muted)] leading-relaxed">
-            Fill these simple details and the button will open WhatsApp with your message ready.
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Select what you need and WhatsApp will open with your message ready.
           </p>
+
+          <form onsubmit="sendWhatsApp(event)" class="mt-6 grid gap-3">
+            <input
+              id="nameInput"
+              type="text"
+              placeholder="Your name"
+              class="w-full rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-3 outline-none focus:border-[var(--sage)]"
+              required
+            />
+
+            <select
+              id="concernInput"
+              class="w-full rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-3 outline-none focus:border-[var(--sage)]"
+            >
+              <option>Anxiety or stress</option>
+              <option>Low mood</option>
+              <option>Grief or loss</option>
+              <option>Relationship concern</option>
+              <option>Personal growth</option>
+              <option>Not sure yet</option>
+            </select>
+
+            <select
+              id="modeInput"
+              class="w-full rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-3 outline-none focus:border-[var(--sage)]"
+            >
+              <option>I want to book a session</option>
+              <option>I want to ask about fees</option>
+              <option>I want to ask about timings</option>
+              <option>I want to ask about location</option>
+            </select>
+
+            <textarea
+              id="messageInput"
+              rows="3"
+              placeholder="Optional message"
+              class="w-full rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-3 outline-none focus:border-[var(--sage)]"
+            ></textarea>
+
+            <button class="btn-primary px-6 py-3.5 rounded-full font-bold">
+              Continue on WhatsApp
+            </button>
+          </form>
+
+          <div class="mt-4 grid sm:grid-cols-3 gap-2">
+            <button onclick="quickWhatsApp('book')" class="btn-secondary rounded-full px-4 py-2.5 text-sm font-bold">
+              Book
+            </button>
+
+            <button onclick="quickWhatsApp('fees')" class="btn-secondary rounded-full px-4 py-2.5 text-sm font-bold">
+              Ask Fees
+            </button>
+
+            <button onclick="quickWhatsApp('location')" class="btn-secondary rounded-full px-4 py-2.5 text-sm font-bold">
+              Location
+            </button>
+          </div>
         </div>
 
-        <form onsubmit="sendWhatsApp(event)" class="grid gap-4">
-          <input
-            id="nameInput"
-            type="text"
-            placeholder="Your name"
-            class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
-            required
-          />
-
-          <select
-            id="concernInput"
-            class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
-          >
-            <option>Anxiety or stress</option>
-            <option>Depression or low mood</option>
-            <option>Grief or loss</option>
-            <option>Relationship concern</option>
-            <option>Personal growth</option>
-            <option>Not sure yet</option>
-          </select>
-
-          <select
-            id="modeInput"
-            class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
-          >
-            <option>In-person session</option>
-            <option>Online session</option>
-            <option>I want to ask first</option>
-          </select>
-
-          <textarea
-            id="messageInput"
-            rows="4"
-            placeholder="Anything you want to mention"
-            class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
-          ></textarea>
-
-          <button class="btn-primary px-7 py-4 rounded-full font-bold transition">
-            Send on WhatsApp
-          </button>
-        </form>
       </div>
     </section>
 
-    <section id="faq" class="px-5 py-16">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-10 reveal">
-          <p class="section-label">FAQ</p>
+    <!-- FAQ -->
+    <section id="faq" class="px-4 py-12 bg-white/35">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-7">
+          <p class="label">Questions</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Before your first session.
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
+            Before you begin.
           </h2>
         </div>
 
-        <div class="grid gap-4">
-          <div class="faq panel rounded-3xl p-6 cursor-pointer reveal" onclick="toggleFaq(this)">
-            <div class="flex items-center justify-between gap-5">
-              <h3 class="text-xl font-bold">Is counselling confidential?</h3>
-              <span class="faq-icon text-3xl leading-none">+</span>
+        <div class="grid gap-3">
+          <div class="faq panel rounded-3xl p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-lg font-bold">Is counselling confidential?</h3>
+              <span class="faq-icon text-2xl">+</span>
             </div>
 
             <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">
-                Counselling is handled with privacy and care. You can discuss confidentiality
-                clearly before beginning your sessions.
+              <p class="pt-3 text-sm text-[var(--muted)] leading-relaxed">
+                Sessions are handled with privacy and care. You can ask about confidentiality before starting.
               </p>
             </div>
           </div>
 
-          <div class="faq panel rounded-3xl p-6 cursor-pointer reveal" onclick="toggleFaq(this)">
-            <div class="flex items-center justify-between gap-5">
-              <h3 class="text-xl font-bold">What happens in the first session?</h3>
-              <span class="faq-icon text-3xl leading-none">+</span>
+          <div class="faq panel rounded-3xl p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-lg font-bold">What happens in the first session?</h3>
+              <span class="faq-icon text-2xl">+</span>
             </div>
 
             <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">
-                The first session is usually about understanding your concerns, your background
-                and what kind of support may help.
+              <p class="pt-3 text-sm text-[var(--muted)] leading-relaxed">
+                The first session focuses on understanding your concern, comfort and goals.
               </p>
             </div>
           </div>
 
-          <div class="faq panel rounded-3xl p-6 cursor-pointer reveal" onclick="toggleFaq(this)">
-            <div class="flex items-center justify-between gap-5">
-              <h3 class="text-xl font-bold">Do I need to know exactly what to say?</h3>
-              <span class="faq-icon text-3xl leading-none">+</span>
+          <div class="faq panel rounded-3xl p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-lg font-bold">Do I need to know what to say?</h3>
+              <span class="faq-icon text-2xl">+</span>
             </div>
 
             <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">
-                No. You can start with whatever feels easiest. The conversation will be guided gently.
+              <p class="pt-3 text-sm text-[var(--muted)] leading-relaxed">
+                No. You can begin with whatever feels easiest. The conversation will be guided gently.
               </p>
             </div>
           </div>
@@ -758,95 +595,79 @@
 
   </main>
 
-  <footer class="px-5 pb-20">
-    <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[1fr_auto] gap-7 items-center">
+  <footer class="px-4 py-10">
+    <div class="max-w-6xl mx-auto panel rounded-[32px] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div>
-        <h2 class="text-3xl md:text-4xl font-bold">Rujal Counselling Center</h2>
-        <p class="mt-3 text-[var(--muted)]">
-          Safe, confidential and compassionate psychological counselling support.
+        <h2 class="text-2xl md:text-3xl font-bold">Rujal Counselling Center</h2>
+        <p class="mt-2 text-sm text-[var(--muted)]">
+          Safe, respectful and compassionate counselling support.
         </p>
       </div>
 
       <a
-        href="https://wa.me/918108719701"
+        href="https://wa.me/918108719701?text=Hello%2C%20I%20would%20like%20to%20book%20a%20counselling%20session."
         target="_blank"
         rel="noopener"
-        class="btn-primary px-7 py-3.5 rounded-full font-bold transition text-center"
+        class="btn-primary px-6 py-3 rounded-full font-bold text-center"
       >
         Chat on WhatsApp
       </a>
     </div>
   </footer>
 
-  <a
-    href="https://wa.me/918108719701"
-    target="_blank"
-    rel="noopener"
-    class="fixed bottom-5 right-5 z-50 btn-primary px-5 py-3.5 rounded-full font-bold transition"
-  >
-    WhatsApp
-  </a>
+  <!-- MOBILE WHATSAPP BAR -->
+  <div class="mobile-whatsapp fixed left-0 right-0 bottom-0 z-50 px-4 sm:hidden">
+    <a
+      href="https://wa.me/918108719701?text=Hello%2C%20I%20would%20like%20to%20book%20a%20counselling%20session."
+      target="_blank"
+      rel="noopener"
+      class="btn-primary w-full rounded-full px-5 py-3.5 font-bold flex items-center justify-center"
+    >
+      Book on WhatsApp
+    </a>
+  </div>
 
   <script>
     const services = [
       {
         label: "Anxiety & Stress",
-        title: "Finding steadiness when your mind feels loud.",
-        text: "Counselling helps you understand triggers, calm your body, reduce overthinking, and build healthier responses to daily pressure.",
+        title: "When your mind feels too loud.",
+        text: "Counselling can help you understand triggers, slow racing thoughts, calm your body and build healthy coping tools.",
         items: [
           "Calming and grounding techniques",
           "Support with overthinking and panic",
-          "Tools for daily stress management"
+          "Tools for daily stress"
         ]
       },
       {
-        label: "Depression",
-        title: "Support when even small things feel difficult.",
-        text: "Sessions can help you understand low mood, rebuild motivation, process emotional heaviness and reconnect with hope at your own pace.",
+        label: "Low Mood",
+        title: "When small things feel difficult.",
+        text: "Sessions offer support for sadness, numbness, low motivation and the process of feeling steady again.",
         items: [
           "Gentle emotional support",
-          "Understanding sadness and numbness",
-          "Small steps toward routine and stability"
+          "Understanding low mood",
+          "Small steps toward routine"
         ]
       },
       {
         label: "Grief & Loss",
-        title: "A safe place for loss, change and painful transitions.",
-        text: "Grief does not follow a fixed timeline. Counselling offers space to process what has changed and make room for healing.",
+        title: "When life has changed deeply.",
+        text: "Counselling gives you a safe space to process loss, transitions and emotional pain at your own pace.",
         items: [
-          "Processing loss without pressure",
-          "Support through major life changes",
-          "Learning to carry grief with care"
+          "Support after loss",
+          "Processing difficult changes",
+          "Making space for healing"
         ]
       },
       {
-        label: "Personal Growth",
-        title: "Understanding yourself with kindness and clarity.",
-        text: "Personal growth counselling can support confidence, boundaries, communication, self-awareness and emotional resilience.",
+        label: "Self Growth",
+        title: "When you want to understand yourself better.",
+        text: "Personal growth counselling can support confidence, boundaries, communication and emotional awareness.",
         items: [
-          "Building self-confidence",
+          "Building confidence",
           "Improving boundaries",
-          "Developing healthier coping patterns"
+          "Developing self-awareness"
         ]
-      }
-    ];
-
-    const moods = [
-      {
-        title: "Anxiety & Stress Support",
-        text: "Counselling can help you slow down racing thoughts, understand triggers, and build calming tools for daily pressure."
-      },
-      {
-        title: "Depression Support",
-        text: "If your energy feels low or everything feels heavy, counselling can help you process emotions and rebuild small steps."
-      },
-      {
-        title: "Grief & Loss Support",
-        text: "If you are carrying loss or a difficult transition, counselling can offer a safe place to speak and heal gradually."
-      },
-      {
-        title: "Personal Growth Support",
-        text: "If you are struggling with confidence, boundaries or self-doubt, counselling can help you understand patterns and grow."
       }
     ];
 
@@ -855,7 +676,7 @@
     }
 
     function showService(index, button) {
-      document.querySelectorAll(".service-tab").forEach(tab => tab.classList.remove("active"));
+      document.querySelectorAll(".service-btn").forEach(btn => btn.classList.remove("active"));
       button.classList.add("active");
 
       const service = services[index];
@@ -864,45 +685,8 @@
       document.getElementById("serviceTitle").textContent = service.title;
       document.getElementById("serviceText").textContent = service.text;
       document.getElementById("serviceList").innerHTML = service.items
-        .map(item => `<li>${item}</li>`)
+        .map(item => `<p>${item}</p>`)
         .join("");
-    }
-
-    function selectMood(index, button) {
-      document.querySelectorAll(".mood-chip").forEach(chip => chip.classList.remove("active"));
-      button.classList.add("active");
-
-      document.getElementById("moodTitle").textContent = moods[index].title;
-      document.getElementById("moodText").textContent = moods[index].text;
-    }
-
-    let breathing = false;
-    let breathTimer;
-    let breathIndex = 0;
-    const breathPrompts = ["Inhale slowly", "Hold gently", "Exhale softly", "Relax"];
-
-    function toggleBreathing() {
-      const box = document.getElementById("breathBox");
-      const text = document.getElementById("breathText");
-      const button = document.getElementById("breathButton");
-
-      breathing = !breathing;
-
-      if (breathing) {
-        box.classList.add("breathing");
-        button.textContent = "Pause Breathing";
-        text.textContent = breathPrompts[0];
-
-        breathTimer = setInterval(() => {
-          breathIndex = (breathIndex + 1) % breathPrompts.length;
-          text.textContent = breathPrompts[breathIndex];
-        }, 2200);
-      } else {
-        box.classList.remove("breathing");
-        button.textContent = "Start Breathing";
-        text.textContent = "Ready";
-        clearInterval(breathTimer);
-      }
     }
 
     function toggleFaq(element) {
@@ -912,28 +696,29 @@
     function sendWhatsApp(event) {
       event.preventDefault();
 
-      const name = document.getElementById("nameInput").value;
+      const name = document.getElementById("nameInput").value.trim();
       const concern = document.getElementById("concernInput").value;
       const mode = document.getElementById("modeInput").value;
-      const message = document.getElementById("messageInput").value;
+      const message = document.getElementById("messageInput").value.trim();
 
-      const text = `Hello, my name is ${name}. I would like to book a counselling session.%0AConcern: ${concern}%0APreference: ${mode}%0AMessage: ${message}`;
+      const text =
+        `Hello, my name is ${name}.%0A` +
+        `${mode}.%0A` +
+        `Concern: ${concern}.%0A` +
+        `${message ? "Message: " + encodeURIComponent(message) : ""}`;
+
       window.open(`https://wa.me/918108719701?text=${text}`, "_blank");
     }
 
-    const revealItems = document.querySelectorAll(".reveal");
+    function quickWhatsApp(type) {
+      const messages = {
+        book: "Hello, I would like to book a counselling session.",
+        fees: "Hello, I would like to ask about counselling session fees.",
+        location: "Hello, please share the counselling center location."
+      };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, {
-      threshold: 0.12
-    });
-
-    revealItems.forEach(item => observer.observe(item));
+      window.open(`https://wa.me/918108719701?text=${encodeURIComponent(messages[type])}`, "_blank");
+    }
   </script>
 
 </body>
