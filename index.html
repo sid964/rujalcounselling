@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#fbf4ea" />
+  <meta name="theme-color" content="#fbf5ea" />
 
   <title>Rujal Counselling Center</title>
 
@@ -15,17 +15,17 @@
 
   <style>
     :root {
-      --ink: #143a38;
-      --text: #2f4f4b;
-      --muted: #6f7f7a;
-      --sage: #659783;
-      --sage-soft: #e4f1eb;
-      --cream: #fbf4ea;
+      --ink: #123b3a;
+      --text: #294c48;
+      --muted: #667874;
+      --sage: #5f917f;
+      --sage-soft: #dceee6;
+      --cream: #fbf5ea;
       --paper: #fffdf8;
-      --sand: #f0deca;
-      --peach: #d98968;
-      --line: rgba(20, 58, 56, 0.13);
-      --shadow: 0 18px 44px rgba(20, 58, 56, 0.10);
+      --sand: #f1dfcb;
+      --peach: #d98563;
+      --line: rgba(18, 59, 58, 0.13);
+      --shadow: 0 18px 44px rgba(18, 59, 58, 0.10);
     }
 
     * {
@@ -40,8 +40,8 @@
       color: var(--text);
       font-family: "Nunito Sans", sans-serif;
       background:
-        radial-gradient(circle at 10% 5%, rgba(228, 241, 235, 0.95), transparent 30%),
-        radial-gradient(circle at 90% 8%, rgba(240, 222, 202, 0.9), transparent 28%),
+        radial-gradient(circle at 12% 8%, rgba(220, 238, 230, 0.95), transparent 29%),
+        radial-gradient(circle at 88% 4%, rgba(241, 223, 203, 0.85), transparent 26%),
         linear-gradient(135deg, #fffaf2 0%, #eef7f2 54%, #fff1e6 100%);
     }
 
@@ -71,7 +71,7 @@
     }
 
     .header {
-      background: rgba(251, 244, 234, 0.92);
+      background: rgba(251, 245, 234, 0.9);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(18px);
     }
@@ -94,20 +94,14 @@
       box-shadow: var(--shadow);
     }
 
-    .note {
-      background: #fff7e9;
-      border: 1px solid rgba(217, 137, 104, 0.28);
-      box-shadow: 0 12px 28px rgba(217, 137, 104, 0.10);
-    }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--sage), var(--ink));
       color: #fff;
-      box-shadow: 0 14px 28px rgba(20, 58, 56, 0.20);
+      box-shadow: 0 14px 28px rgba(18, 59, 58, 0.20);
     }
 
     .btn-secondary {
-      background: rgba(255, 253, 248, 0.84);
+      background: rgba(255, 253, 248, 0.82);
       color: var(--ink);
       border: 1px solid var(--line);
     }
@@ -120,18 +114,18 @@
       text-transform: uppercase;
     }
 
-    .concern-card.active {
+    .service-card.active {
       background: var(--ink);
       border-color: var(--ink);
     }
 
-    .concern-card.active h3,
-    .concern-card.active p {
+    .service-card.active h3,
+    .service-card.active p {
       color: white;
     }
 
-    .concern-card.active p {
-      opacity: 0.8;
+    .service-card.active p {
+      opacity: 0.78;
     }
 
     .breath-dot {
@@ -155,17 +149,6 @@
       }
     }
 
-    .ground-step.active {
-      background: var(--ink);
-      color: white;
-      border-color: var(--ink);
-    }
-
-    .ground-step.active span,
-    .ground-step.active p {
-      color: white;
-    }
-
     .faq-answer {
       max-height: 0;
       overflow: hidden;
@@ -173,7 +156,7 @@
     }
 
     .faq.open .faq-answer {
-      max-height: 170px;
+      max-height: 180px;
     }
 
     .faq.open .faq-icon {
@@ -246,8 +229,7 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-[var(--muted)]">
-        <a href="#concerns">Concerns</a>
-        <a href="#pause">Pause</a>
+        <a href="#services">Concerns</a>
         <a href="#sessions">Sessions</a>
         <a href="#location">Location</a>
       </nav>
@@ -269,8 +251,7 @@
     </div>
 
     <nav id="mobileMenu" class="mobile-menu md:hidden px-4 pb-4 gap-3 text-sm font-bold text-[var(--muted)]">
-      <a href="#concerns" onclick="toggleMenu()">Concerns</a>
-      <a href="#pause" onclick="toggleMenu()">Pause</a>
+      <a href="#services" onclick="toggleMenu()">Concerns</a>
       <a href="#sessions" onclick="toggleMenu()">Sessions</a>
       <a href="#location" onclick="toggleMenu()">Location</a>
       <a href="#book" onclick="toggleMenu()">Book on WhatsApp</a>
@@ -279,25 +260,24 @@
 
   <main id="home">
 
-    <!-- HERO -->
-    <section class="px-4 py-14 md:py-20">
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
-
+    <section class="px-4 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.04fr_0.96fr] gap-10 items-center">
         <div class="reveal">
           <div class="inline-flex items-center gap-2 panel rounded-full px-4 py-2 mb-5">
             <span class="w-2.5 h-2.5 rounded-full bg-[var(--sage)]"></span>
             <p class="text-sm font-bold text-[var(--muted)]">
-              Private psychological counselling
+              A private space to speak freely
             </p>
           </div>
 
           <h2 class="text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
-            A quiet place to say what you have been holding in.
+            Come as you are. We will begin from there.
           </h2>
 
           <p class="mt-5 text-base md:text-lg text-[var(--muted)] leading-relaxed max-w-2xl">
-            At Rujal Counselling Center, sessions are calm, confidential, and paced around you.
-            You do not need perfect words to begin.
+            Counselling for anxiety, depression, anger, grief, relationship concerns
+            and self-esteem. Calm conversations, clear guidance, and care that moves
+            at your pace.
           </p>
 
           <div class="mt-7 flex flex-wrap gap-3">
@@ -310,9 +290,17 @@
               Book Appointment
             </a>
 
-            <a href="#concerns" class="btn-secondary px-6 py-3 rounded-full font-bold inline-flex items-center">
-              What We Work With
+            <a href="#services" class="btn-secondary px-6 py-3 rounded-full font-bold inline-flex items-center">
+              Explore Concerns
             </a>
+          </div>
+
+          <div class="mt-8 panel rounded-3xl p-5 max-w-2xl">
+            <p class="label">A small reassurance</p>
+            <p class="mt-2 leading-relaxed">
+              You do not need to explain everything perfectly. The first conversation is
+              simply about understanding what you are carrying.
+            </p>
           </div>
         </div>
 
@@ -321,67 +309,74 @@
             <img
               src="Screenshot 2026-05-21 131617(2).png"
               alt="Rujal Counselling Center"
-              class="w-full max-w-[350px] mx-auto object-contain"
+              class="w-full max-w-[360px] mx-auto object-contain"
             />
 
-            <div class="note rounded-3xl p-5 mt-5">
-              <p class="label">A note before you begin</p>
-              <p class="mt-2 leading-relaxed">
-                Sometimes the first step is simply sending one message. The rest can unfold slowly.
-              </p>
+            <div class="mt-5 grid grid-cols-3 gap-3">
+              <div class="card rounded-2xl p-4 text-center">
+                <p class="font-extrabold text-[var(--ink)]">Private</p>
+                <p class="text-xs text-[var(--muted)]">Space</p>
+              </div>
+
+              <div class="card rounded-2xl p-4 text-center">
+                <p class="font-extrabold text-[var(--ink)]">Gentle</p>
+                <p class="text-xs text-[var(--muted)]">Pace</p>
+              </div>
+
+              <div class="card rounded-2xl p-4 text-center">
+                <p class="font-extrabold text-[var(--ink)]">Clear</p>
+                <p class="text-xs text-[var(--muted)]">Steps</p>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- CONCERNS -->
-    <section id="concerns" class="px-4 py-14 bg-white/35">
+    <section id="services" class="px-4 py-12 bg-white/35">
       <div class="max-w-6xl mx-auto">
-
-        <div class="max-w-2xl mb-8 reveal">
+        <div class="max-w-2xl mb-7 reveal">
           <p class="label">Concerns We Work With</p>
 
           <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
-            Understanding what may be happening inside.
+            Understanding what you are feeling.
           </h2>
 
           <p class="mt-3 text-[var(--muted)] leading-relaxed">
-            These are simple explanations, not labels. Click any concern to read more.
+            These descriptions are educational, not a diagnosis. Click a concern to read more.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
+        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-5">
           <div class="grid sm:grid-cols-2 gap-3 reveal">
-            <button class="concern-card active card rounded-3xl p-5 text-left" onclick="showConcern(0, this)">
+            <button class="service-card active card rounded-3xl p-5 text-left" onclick="showConcern(0, this)">
               <h3 class="text-xl font-bold">Anxiety</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Worry that will not settle.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">When worry feels hard to switch off.</p>
             </button>
 
-            <button class="concern-card card rounded-3xl p-5 text-left" onclick="showConcern(1, this)">
+            <button class="service-card card rounded-3xl p-5 text-left" onclick="showConcern(1, this)">
               <h3 class="text-xl font-bold">Depression</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Heaviness, emptiness, low energy.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">When life feels heavy or empty.</p>
             </button>
 
-            <button class="concern-card card rounded-3xl p-5 text-left" onclick="showConcern(2, this)">
-              <h3 class="text-xl font-bold">Anger</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Strong reactions that feel hard to hold.</p>
+            <button class="service-card card rounded-3xl p-5 text-left" onclick="showConcern(2, this)">
+              <h3 class="text-xl font-bold">Anger Issues</h3>
+              <p class="mt-2 text-sm text-[var(--muted)]">When reactions feel too intense.</p>
             </button>
 
-            <button class="concern-card card rounded-3xl p-5 text-left" onclick="showConcern(3, this)">
+            <button class="service-card card rounded-3xl p-5 text-left" onclick="showConcern(3, this)">
               <h3 class="text-xl font-bold">Grief</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Loss, change, or a painful goodbye.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">When loss changes your inner world.</p>
             </button>
 
-            <button class="concern-card card rounded-3xl p-5 text-left" onclick="showConcern(4, this)">
+            <button class="service-card card rounded-3xl p-5 text-left" onclick="showConcern(4, this)">
               <h3 class="text-xl font-bold">Relationships</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Patterns, conflict, distance.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">When communication feels difficult.</p>
             </button>
 
-            <button class="concern-card card rounded-3xl p-5 text-left" onclick="showConcern(5, this)">
+            <button class="service-card card rounded-3xl p-5 text-left" onclick="showConcern(5, this)">
               <h3 class="text-xl font-bold">Self-Esteem</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">Feeling not enough.</p>
+              <p class="mt-2 text-sm text-[var(--muted)]">When you are too hard on yourself.</p>
             </button>
           </div>
 
@@ -389,117 +384,63 @@
             <p class="label" id="concernLabel">Anxiety</p>
 
             <h3 class="mt-2 text-2xl md:text-3xl font-bold leading-tight" id="concernTitle">
-              Anxiety is more than ordinary worry.
+              Anxiety is more than normal worry.
             </h3>
 
             <p class="mt-4 text-[var(--muted)] leading-relaxed" id="concernText">
-              It can feel like racing thoughts, a tight body, panic, restlessness, or always expecting something to go wrong.
+              Anxiety can feel like constant overthinking, fear, restlessness, panic,
+              tightness in the body, or expecting something to go wrong.
             </p>
 
-            <div class="mt-6 note rounded-3xl p-5">
-              <p class="font-extrabold text-[var(--ink)]">In counselling, we gently look at:</p>
-              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed" id="concernCare">
-                What triggers the worry, how your body responds, and what helps you feel steady again.
-              </p>
+            <div class="mt-5 bg-[var(--cream)] border border-[var(--line)] rounded-3xl p-5">
+              <p class="font-extrabold text-[var(--ink)]">In counselling, we may explore:</p>
+              <div class="mt-3 grid gap-2 text-sm text-[var(--muted)]" id="concernList">
+                <p>What triggers the worry</p>
+                <p>How the body reacts to stress</p>
+                <p>Ways to calm and respond differently</p>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- PAUSE TOOLS -->
-    <section id="pause" class="px-4 py-14">
-      <div class="max-w-6xl mx-auto">
-        <div class="max-w-2xl mb-8 reveal">
-          <p class="label">A Gentle Pause</p>
+    <section id="breathing" class="px-4 py-12">
+      <div class="max-w-6xl mx-auto panel rounded-[32px] p-6 md:p-8 grid md:grid-cols-2 gap-8 items-center reveal">
+        <div>
+          <p class="label">A Pause</p>
 
           <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
-            Two small tools for a calmer moment.
+            Try one slow breath.
           </h2>
 
           <p class="mt-3 text-[var(--muted)] leading-relaxed">
-            These are not therapy. They are just small pauses your visitors can try when the mind feels crowded.
+            A small pause can help the body feel safer. Follow the circle when you are ready.
           </p>
+
+          <button id="breathButton" onclick="toggleBreathing()" class="mt-5 btn-primary px-6 py-3 rounded-full font-bold">
+            Start Breathing
+          </button>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-5">
+        <div id="breathBox" class="min-h-[260px] flex items-center justify-center">
+          <div class="relative w-60 h-60 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full bg-[rgba(95,145,127,0.10)]"></div>
+            <div class="breath-dot absolute w-48 h-48 rounded-full bg-[rgba(95,145,127,0.22)]"></div>
+            <div class="breath-dot absolute w-32 h-32 rounded-full bg-[rgba(217,133,99,0.24)]"></div>
 
-          <!-- BREATHING -->
-          <div class="panel rounded-[32px] p-6 md:p-8 reveal">
-            <p class="label">Breathing</p>
-
-            <h3 class="mt-2 text-2xl md:text-3xl font-bold leading-tight">
-              Follow one slow breath.
-            </h3>
-
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              Inhale as the circle expands. Exhale as it softens.
-            </p>
-
-            <div id="breathBox" class="min-h-[250px] flex items-center justify-center">
-              <div class="relative w-56 h-56 flex items-center justify-center">
-                <div class="absolute inset-0 rounded-full bg-[rgba(95,145,127,0.10)]"></div>
-                <div class="breath-dot absolute w-44 h-44 rounded-full bg-[rgba(95,145,127,0.22)]"></div>
-                <div class="breath-dot absolute w-30 h-30 rounded-full bg-[rgba(217,133,99,0.24)]"></div>
-
-                <div class="relative text-center">
-                  <p class="label">Breathe</p>
-                  <p id="breathText" class="serif text-3xl font-bold mt-2">Ready</p>
-                </div>
-              </div>
-            </div>
-
-            <button id="breathButton" onclick="toggleBreathing()" class="btn-primary px-6 py-3 rounded-full font-bold">
-              Start Breathing
-            </button>
-          </div>
-
-          <!-- GROUNDING -->
-          <div class="panel rounded-[32px] p-6 md:p-8 reveal">
-            <p class="label">Grounding</p>
-
-            <h3 class="mt-2 text-2xl md:text-3xl font-bold leading-tight">
-              Come back to the present.
-            </h3>
-
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              Tap through this 5-4-3-2-1 exercise slowly.
-            </p>
-
-            <div class="mt-6 grid gap-3" id="groundSteps">
-              <button class="ground-step active card rounded-2xl p-4 text-left" onclick="showGround(0, this)">
-                <span class="font-extrabold text-[var(--ink)]">5 things</span>
-                <p class="text-sm text-[var(--muted)]">you can see</p>
-              </button>
-
-              <button class="ground-step card rounded-2xl p-4 text-left" onclick="showGround(1, this)">
-                <span class="font-extrabold text-[var(--ink)]">4 things</span>
-                <p class="text-sm text-[var(--muted)]">you can feel</p>
-              </button>
-
-              <button class="ground-step card rounded-2xl p-4 text-left" onclick="showGround(2, this)">
-                <span class="font-extrabold text-[var(--ink)]">3 things</span>
-                <p class="text-sm text-[var(--muted)]">you can hear</p>
-              </button>
-            </div>
-
-            <div class="note rounded-3xl p-5 mt-5">
-              <p class="font-extrabold text-[var(--ink)]" id="groundTitle">Look around softly.</p>
-              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed" id="groundText">
-                Name five things you can see. They do not need to be special.
-              </p>
+            <div class="relative text-center">
+              <p class="label">Breathe</p>
+              <p id="breathText" class="serif text-3xl font-bold mt-2">Ready</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- SESSIONS -->
-    <section id="sessions" class="px-4 py-14 bg-white/35">
+    <section id="sessions" class="px-4 py-12 bg-white/35">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-9 reveal">
+        <div class="text-center max-w-2xl mx-auto mb-8 reveal">
           <p class="label">Sessions</p>
 
           <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
@@ -512,7 +453,7 @@
             <p class="serif text-3xl font-bold text-[var(--peach)]">01</p>
             <h3 class="mt-3 text-xl font-bold">You message</h3>
             <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              Ask about timing, fees, online or in-person sessions.
+              Send a simple WhatsApp message. You can ask about timing, fees, or appointment availability.
             </p>
           </div>
 
@@ -520,7 +461,7 @@
             <p class="serif text-3xl font-bold text-[var(--peach)]">02</p>
             <h3 class="mt-3 text-xl font-bold">We understand</h3>
             <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              The first conversation is about your concern and comfort.
+              The first conversation helps understand your concern and what kind of session may suit you.
             </p>
           </div>
 
@@ -528,17 +469,15 @@
             <p class="serif text-3xl font-bold text-[var(--peach)]">03</p>
             <h3 class="mt-3 text-xl font-bold">You begin</h3>
             <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              Sessions move gently, with space for emotions and practical next steps.
+              Sessions move at your pace, with space for emotions and practical coping steps.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LOCATION + WHATSAPP -->
-    <section id="location" class="px-4 py-14">
+    <section id="location" class="px-4 py-12">
       <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-5">
-
         <div class="panel rounded-[32px] p-6 md:p-8 reveal">
           <p class="label">Location</p>
 
@@ -547,7 +486,7 @@
           </h2>
 
           <p class="mt-3 text-[var(--muted)] leading-relaxed">
-            Open Google Maps for exact directions to Rujal Counselling Center.
+            Open the Google Maps link for exact directions to Rujal Counselling Center.
           </p>
 
           <a
@@ -577,7 +516,7 @@
           <p class="label">WhatsApp</p>
 
           <h2 class="mt-2 text-3xl md:text-4xl font-bold leading-tight">
-            Start with a simple message.
+            Start with a clear message.
           </h2>
 
           <p class="mt-3 text-[var(--muted)] leading-relaxed">
@@ -603,7 +542,7 @@
 
             <select id="concernInput" class="w-full rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-3 outline-none focus:border-[var(--sage)]">
               <option>Anxiety</option>
-              <option>Depression</option>
+              <option>Depression / low mood</option>
               <option>Anger issues</option>
               <option>Grief</option>
               <option>Relationship concern</option>
@@ -622,12 +561,10 @@
             <button onclick="quickWhatsApp('location')" class="btn-secondary rounded-full px-4 py-2.5 text-sm font-bold">Location</button>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="px-4 py-14 bg-white/35">
+    <section id="faq" class="px-4 py-12 bg-white/35">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-7 reveal">
           <p class="label">Questions</p>
@@ -717,54 +654,63 @@
     const concerns = [
       {
         label: "Anxiety",
-        title: "Anxiety is more than ordinary worry.",
-        text: "It can feel like racing thoughts, a tight body, panic, restlessness, or always expecting something to go wrong.",
-        care: "What triggers the worry, how your body responds, and what helps you feel steady again."
+        title: "Anxiety is more than normal worry.",
+        text: "Anxiety can feel like constant overthinking, fear, restlessness, panic, tightness in the body, or expecting something to go wrong.",
+        items: [
+          "What triggers the worry",
+          "How the body reacts to stress",
+          "Ways to calm and respond differently"
+        ]
       },
       {
         label: "Depression",
         title: "Depression can make life feel heavy.",
-        text: "It may show up as sadness, emptiness, loss of interest, tiredness, irritability, or difficulty doing everyday things.",
-        care: "What low mood is connected to, how your routine has changed, and small steps toward emotional energy."
+        text: "Depression may show up as sadness, emptiness, loss of interest, tiredness, irritability, sleep changes, or difficulty doing everyday things.",
+        items: [
+          "What low mood is connected to",
+          "Small steps toward routine",
+          "How to rebuild emotional energy"
+        ]
       },
       {
-        label: "Anger",
-        title: "Anger often protects something tender.",
-        text: "Anger can come from hurt, stress, feeling unheard, or a sense that something is unfair.",
-        care: "What sits underneath the anger, body signs before it rises, and healthier ways to express needs."
+        label: "Anger Issues",
+        title: "Anger often points to something deeper.",
+        text: "Anger can involve tension, frustration, hurt, perceived injustice, or feeling unheard. It becomes difficult when it feels out of control or harms relationships.",
+        items: [
+          "What sits underneath the anger",
+          "Body signs before anger escalates",
+          "Healthier ways to express needs"
+        ]
       },
       {
         label: "Grief",
         title: "Grief does not follow a fixed timeline.",
-        text: "Loss can bring sadness, guilt, numbness, anger, confusion, or all of them at different times.",
-        care: "Making room for the loss, understanding changing emotions, and finding gentle ways to continue."
+        text: "Grief can appear after loss, separation, change, disappointment, or life transitions. It may come as sadness, anger, numbness, guilt, or confusion.",
+        items: [
+          "Making space for the loss",
+          "Understanding changing emotions",
+          "Finding gentle ways to continue"
+        ]
       },
       {
         label: "Relationships",
-        title: "Relationships can hurt when needs go unheard.",
-        text: "Concerns may include conflict, trust, distance, communication, boundaries, or repeated patterns.",
-        care: "Recognising patterns, speaking more clearly, and understanding boundaries and emotional needs."
+        title: "Relationships can feel painful when needs go unheard.",
+        text: "Relationship concerns may involve communication problems, trust issues, conflict, attachment, boundaries, or feeling emotionally distant.",
+        items: [
+          "Recognising repeated patterns",
+          "Practising clearer communication",
+          "Understanding boundaries and needs"
+        ]
       },
       {
         label: "Self-Esteem",
-        title: "Self-esteem shapes your inner voice.",
-        text: "Low self-esteem can feel like self-doubt, comparison, guilt, or never feeling good enough.",
-        care: "Noticing harsh inner dialogue, building self-trust, and learning kinder self-understanding."
-      }
-    ];
-
-    const groundSteps = [
-      {
-        title: "Look around softly.",
-        text: "Name five things you can see. They do not need to be special."
-      },
-      {
-        title: "Notice your body.",
-        text: "Name four things you can feel, like your feet, clothes, chair, or breath."
-      },
-      {
-        title: "Listen gently.",
-        text: "Name three sounds around you, near or far."
+        title: "Self-esteem shapes how you speak to yourself.",
+        text: "Low self-esteem can feel like self-doubt, guilt, comparison, fear of rejection, or feeling not good enough even when you are trying hard.",
+        items: [
+          "Noticing harsh inner dialogue",
+          "Building self-trust slowly",
+          "Learning kinder self-understanding"
+        ]
       }
     ];
 
@@ -773,7 +719,7 @@
     }
 
     function showConcern(index, button) {
-      document.querySelectorAll(".concern-card").forEach(card => card.classList.remove("active"));
+      document.querySelectorAll(".service-card").forEach(card => card.classList.remove("active"));
       button.classList.add("active");
 
       const concern = concerns[index];
@@ -781,7 +727,9 @@
       document.getElementById("concernLabel").textContent = concern.label;
       document.getElementById("concernTitle").textContent = concern.title;
       document.getElementById("concernText").textContent = concern.text;
-      document.getElementById("concernCare").textContent = concern.care;
+      document.getElementById("concernList").innerHTML = concern.items
+        .map(item => `<p>${item}</p>`)
+        .join("");
     }
 
     let breathing = false;
@@ -811,14 +759,6 @@
         text.textContent = "Ready";
         clearInterval(breathTimer);
       }
-    }
-
-    function showGround(index, button) {
-      document.querySelectorAll(".ground-step").forEach(step => step.classList.remove("active"));
-      button.classList.add("active");
-
-      document.getElementById("groundTitle").textContent = groundSteps[index].title;
-      document.getElementById("groundText").textContent = groundSteps[index].text;
     }
 
     function toggleFaq(element) {
