@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>Rujal Counselling Center</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -32,9 +33,19 @@
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
+      width: 100%;
+      min-width: 320px;
       margin: 0;
       overflow-x: hidden;
       font-family: "Nunito Sans", sans-serif;
@@ -43,6 +54,37 @@
         radial-gradient(circle at 10% 8%, rgba(207, 231, 220, 0.95), transparent 30%),
         radial-gradient(circle at 88% 18%, rgba(245, 229, 211, 0.95), transparent 28%),
         linear-gradient(135deg, #fffaf2 0%, #edf7f3 48%, #fff4e8 100%);
+    }
+
+    img,
+    iframe {
+      max-width: 100%;
+    }
+
+    button,
+    a,
+    input,
+    select,
+    textarea {
+      touch-action: manipulation;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+
+    button {
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     h1,
@@ -56,8 +98,10 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 249, 239, 0.88);
+      padding-top: env(safe-area-inset-top);
+      background: rgba(255, 249, 239, 0.94);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
     }
 
@@ -66,6 +110,7 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .soft-card {
@@ -74,23 +119,33 @@
       transition: 0.28s ease;
     }
 
-    .soft-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
+    @media (hover: hover) {
+      .soft-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        transform: translateY(-2px);
+      }
     }
 
     .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
       background: linear-gradient(135deg, var(--teal), var(--ink));
       color: white;
       box-shadow: 0 15px 28px rgba(20, 56, 63, 0.20);
     }
 
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-    }
-
     .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
       background: rgba(255, 255, 255, 0.75);
       border: 1px solid var(--line);
       color: var(--ink);
@@ -102,6 +157,16 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.35rem, 9vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 7vw, 3.4rem);
+      line-height: 1.08;
     }
 
     .hero-visual {
@@ -142,6 +207,7 @@
     .breath-circle {
       animation: breathe 5.6s ease-in-out infinite;
       animation-play-state: paused;
+      will-change: transform, opacity;
     }
 
     .breathing .breath-circle {
@@ -167,7 +233,7 @@
     }
 
     .faq.open .faq-answer {
-      max-height: 220px;
+      max-height: 260px;
     }
 
     .faq-icon {
@@ -189,13 +255,143 @@
       transform: translateY(0);
     }
 
+    .mobile-menu {
+      display: grid;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.25s ease, padding-bottom 0.25s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 360px;
+      opacity: 1;
+      padding-bottom: 16px;
+    }
+
+    .floating-whatsapp {
+      bottom: calc(1.25rem + env(safe-area-inset-bottom));
+      right: calc(1.25rem + env(safe-area-inset-right));
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(47, 111, 103, 0.35);
+      outline-offset: 3px;
+    }
+
     @media (max-width: 768px) {
-      .mobile-menu {
-        display: none;
+      .site-header .brand-logo {
+        width: 56px;
+        height: 56px;
       }
 
-      .mobile-menu.open {
+      .mobile-menu a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+
+      .panel,
+      .soft-card {
+        border-radius: 24px;
+      }
+
+      .hero-section {
+        padding-top: 36px;
+        padding-bottom: 44px;
+      }
+
+      .hero-badge {
+        border-radius: 20px;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .organic-shape {
+        border-radius: 30px;
+      }
+
+      .mood-grid {
         display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .mood-chip {
+        width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+        white-space: normal;
+        line-height: 1.2;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .breath-size {
+        width: 220px;
+        height: 220px;
+      }
+
+      .breath-large {
+        width: 178px;
+        height: 178px;
+      }
+
+      .breath-small {
+        width: 124px;
+        height: 124px;
+      }
+
+      .map-frame {
+        height: 310px;
+      }
+
+      .floating-whatsapp {
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .section-label {
+        font-size: 11px;
+      }
+
+      .brand-title {
+        font-size: 17px;
+      }
+
+      .brand-subtitle {
+        font-size: 11px;
+      }
+
+      .mood-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -204,20 +400,20 @@
 <body>
 
   <header class="site-header">
-    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
-      <a href="#home" class="flex items-center gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-5 py-3 flex items-center justify-between gap-3">
+      <a href="#home" class="flex items-center gap-3 min-w-0" aria-label="Rujal Counselling Center home">
         <img
           src="Screenshot 2026-05-21 131617(2).png"
           alt="Rujal Counselling Center Logo"
-          class="w-16 h-16 md:w-20 md:h-20 object-contain"
+          class="brand-logo w-16 h-16 md:w-20 md:h-20 object-contain shrink-0"
         />
 
-        <div>
-          <p class="text-xs md:text-sm text-[var(--muted)]">
+        <div class="min-w-0">
+          <p class="brand-subtitle text-xs md:text-sm text-[var(--muted)] truncate">
             Ms. Saloni Suryawanshi's
           </p>
 
-          <h1 class="text-xl md:text-2xl font-bold leading-tight">
+          <h1 class="brand-title text-xl md:text-2xl font-bold leading-tight">
             Rujal Counselling Center
           </h1>
         </div>
@@ -242,38 +438,50 @@
         </a>
 
         <button
+          type="button"
           onclick="toggleMenu()"
-          class="lg:hidden btn-secondary w-11 h-11 rounded-full font-bold transition"
+          id="menuButton"
+          class="lg:hidden btn-secondary w-11 h-11 rounded-full font-bold transition text-2xl leading-none"
           aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
         >
-          =
+          ☰
         </button>
       </div>
     </div>
 
-    <nav id="mobileMenu" class="mobile-menu lg:hidden px-5 pb-4 gap-3 text-sm font-bold text-[var(--muted)]">
-      <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#approach" onclick="toggleMenu()">Approach</a>
-      <a href="#process" onclick="toggleMenu()">Process</a>
-      <a href="#location" onclick="toggleMenu()">Location</a>
-      <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <nav id="mobileMenu" class="mobile-menu lg:hidden px-5 gap-2 text-sm font-bold text-[var(--muted)]">
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#approach" onclick="closeMenu()">Approach</a>
+      <a href="#process" onclick="closeMenu()">Process</a>
+      <a href="#location" onclick="closeMenu()">Location</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a
+        href="https://wa.me/918108719701"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary px-5 py-3 rounded-full font-bold transition mt-2 text-center"
+      >
+        Book Session
+      </a>
     </nav>
   </header>
 
   <main id="home">
 
-    <section class="px-5 py-16 md:py-20">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+    <section class="hero-section px-4 sm:px-5 py-14 md:py-20">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
 
         <div class="reveal">
-          <div class="inline-flex items-center gap-3 panel rounded-full px-4 py-2 mb-6">
-            <span class="w-2.5 h-2.5 rounded-full bg-[var(--teal)]"></span>
-            <p class="text-sm font-bold text-[var(--muted)]">
+          <div class="hero-badge inline-flex items-center gap-3 panel rounded-full px-4 py-2 mb-6 max-w-full">
+            <span class="w-2.5 h-2.5 rounded-full bg-[var(--teal)] shrink-0"></span>
+            <p class="text-sm font-bold text-[var(--muted)] leading-snug">
               Psychological counselling with warmth and privacy
             </p>
           </div>
 
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
+          <h2 class="hero-title font-bold max-w-3xl">
             A calmer place to talk, understand, and heal.
           </h2>
 
@@ -283,7 +491,7 @@
             Sessions are private, respectful and paced around your comfort.
           </p>
 
-          <div class="mt-8 flex flex-wrap gap-3">
+          <div class="hero-actions mt-8 flex flex-wrap gap-3">
             <a
               href="https://wa.me/918108719701"
               target="_blank"
@@ -301,7 +509,7 @@
             </a>
           </div>
 
-          <div class="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
+          <div class="hero-stats mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
             <div class="soft-card rounded-3xl p-5">
               <p class="serif text-2xl font-bold">Safe</p>
               <p class="text-sm text-[var(--muted)] mt-1">Confidential sessions</p>
@@ -320,7 +528,7 @@
         </div>
 
         <div class="hero-visual reveal">
-          <div class="panel organic-shape p-7 md:p-10">
+          <div class="panel organic-shape p-6 md:p-10">
             <img
               src="Screenshot 2026-05-21 131617(2).png"
               alt="Rujal Counselling Center"
@@ -339,8 +547,8 @@
       </div>
     </section>
 
-    <section class="px-5 pb-16">
-      <div class="max-w-7xl mx-auto panel rounded-[32px] p-6 grid md:grid-cols-4 gap-5 text-center reveal">
+    <section class="px-4 sm:px-5 pb-14 md:pb-16">
+      <div class="max-w-7xl mx-auto panel rounded-[28px] md:rounded-[32px] p-6 grid sm:grid-cols-2 md:grid-cols-4 gap-5 text-center reveal">
         <div>
           <p class="serif text-2xl font-bold">Anxiety</p>
           <p class="text-sm text-[var(--muted)]">Overthinking and worry</p>
@@ -363,12 +571,12 @@
       </div>
     </section>
 
-    <section id="mood" class="px-5 py-16">
+    <section id="mood" class="px-4 sm:px-5 py-14 md:py-16">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
         <div class="reveal">
           <p class="section-label">Interactive Helper</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             What are you carrying today?
           </h2>
 
@@ -378,15 +586,15 @@
           </p>
         </div>
 
-        <div class="panel rounded-[32px] p-6 md:p-8 reveal">
-          <div class="flex flex-wrap gap-3">
-            <button class="mood-chip active btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(0, this)">Overthinking</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(1, this)">Low energy</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(2, this)">Emotional pain</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(3, this)">Self-doubt</button>
+        <div class="panel rounded-[28px] md:rounded-[32px] p-5 md:p-8 reveal">
+          <div class="mood-grid flex flex-wrap gap-3">
+            <button type="button" class="mood-chip active btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(0, this)">Overthinking</button>
+            <button type="button" class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(1, this)">Low energy</button>
+            <button type="button" class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(2, this)">Emotional pain</button>
+            <button type="button" class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(3, this)">Self-doubt</button>
           </div>
 
-          <div class="mt-7 bg-[var(--cream)] border border-[var(--line)] rounded-3xl p-6">
+          <div class="mt-7 bg-[var(--cream)] border border-[var(--line)] rounded-3xl p-5 md:p-6">
             <p class="section-label" id="moodLabel">Suggested support</p>
             <h3 class="mt-2 text-2xl font-bold" id="moodTitle">Anxiety & Stress Support</h3>
             <p class="mt-3 text-[var(--muted)] leading-relaxed" id="moodText">
@@ -398,12 +606,12 @@
       </div>
     </section>
 
-    <section id="services" class="px-5 py-16 bg-white/35">
+    <section id="services" class="px-4 sm:px-5 py-14 md:py-16 bg-white/35">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-3xl mb-10 reveal">
           <p class="section-label">Services</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             Counselling support designed around real life.
           </h2>
 
@@ -413,29 +621,29 @@
         </div>
 
         <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-7 items-start">
-          <div class="grid sm:grid-cols-2 gap-4 reveal">
-            <button class="service-tab active soft-card rounded-3xl p-5 text-left" onclick="showService(0, this)">
+          <div class="service-grid grid sm:grid-cols-2 gap-4 reveal">
+            <button type="button" class="service-tab active soft-card rounded-3xl p-5 text-left" onclick="showService(0, this)">
               <h3 class="text-xl font-bold">Anxiety & Stress</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Worry, panic, burnout and pressure.</p>
             </button>
 
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(1, this)">
+            <button type="button" class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(1, this)">
               <h3 class="text-xl font-bold">Depression</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Low mood, numbness and hopelessness.</p>
             </button>
 
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(2, this)">
+            <button type="button" class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(2, this)">
               <h3 class="text-xl font-bold">Grief & Loss</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Loss, change and emotional pain.</p>
             </button>
 
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(3, this)">
+            <button type="button" class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(3, this)">
               <h3 class="text-xl font-bold">Personal Growth</h3>
               <p class="mt-2 text-sm text-[var(--muted)]">Confidence, boundaries and clarity.</p>
             </button>
           </div>
 
-          <div class="panel rounded-[32px] p-7 md:p-9 min-h-[340px] reveal">
+          <div class="panel rounded-[28px] md:rounded-[32px] p-6 md:p-9 min-h-[320px] reveal">
             <p class="section-label" id="serviceLabel">Anxiety & Stress</p>
 
             <h3 class="mt-3 text-3xl md:text-4xl font-bold leading-tight" id="serviceTitle">
@@ -447,7 +655,7 @@
               and build healthier responses to daily pressure.
             </p>
 
-            <ul class="mt-6 grid gap-3 text-[var(--muted)]" id="serviceList">
+            <ul class="mt-6 grid gap-3 text-[var(--muted)] list-disc pl-5" id="serviceList">
               <li>Calming and grounding techniques</li>
               <li>Support with overthinking and panic</li>
               <li>Tools for daily stress management</li>
@@ -457,12 +665,12 @@
       </div>
     </section>
 
-    <section id="approach" class="px-5 py-16">
+    <section id="approach" class="px-4 sm:px-5 py-14 md:py-16">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
         <div class="reveal">
           <p class="section-label">Approach</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             A professional space that still feels human.
           </h2>
 
@@ -505,12 +713,12 @@
       </div>
     </section>
 
-    <section id="calm" class="px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-2 gap-10 items-center reveal">
+    <section id="calm" class="px-4 sm:px-5 py-14 md:py-16 bg-white/35">
+      <div class="max-w-7xl mx-auto panel rounded-[28px] md:rounded-[36px] p-6 md:p-10 grid lg:grid-cols-2 gap-10 items-center reveal">
         <div>
           <p class="section-label">Calm Tool</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             Pause for one quiet breath.
           </h2>
 
@@ -520,6 +728,7 @@
           </p>
 
           <button
+            type="button"
             onclick="toggleBreathing()"
             class="mt-7 btn-primary px-7 py-3.5 rounded-full font-bold transition"
             id="breathButton"
@@ -528,11 +737,11 @@
           </button>
         </div>
 
-        <div id="breathBox" class="flex flex-col items-center justify-center min-h-[300px]">
-          <div class="relative w-64 h-64 flex items-center justify-center">
+        <div id="breathBox" class="flex flex-col items-center justify-center min-h-[280px] md:min-h-[300px]">
+          <div class="breath-size relative w-64 h-64 flex items-center justify-center">
             <div class="absolute inset-0 rounded-full bg-[rgba(47,111,103,0.10)]"></div>
-            <div class="breath-circle absolute w-52 h-52 rounded-full bg-[rgba(47,111,103,0.22)]"></div>
-            <div class="breath-circle absolute w-36 h-36 rounded-full bg-[rgba(238,173,145,0.25)]"></div>
+            <div class="breath-circle breath-large absolute w-52 h-52 rounded-full bg-[rgba(47,111,103,0.22)]"></div>
+            <div class="breath-circle breath-small absolute w-36 h-36 rounded-full bg-[rgba(238,173,145,0.25)]"></div>
 
             <div class="relative text-center">
               <p class="section-label">Breathe</p>
@@ -543,12 +752,12 @@
       </div>
     </section>
 
-    <section id="process" class="px-5 py-16">
+    <section id="process" class="px-4 sm:px-5 py-14 md:py-16">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-10 reveal">
           <p class="section-label">How It Works</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             Starting counselling can be simple.
           </h2>
         </div>
@@ -581,12 +790,12 @@
       </div>
     </section>
 
-    <section class="px-5 py-16 bg-[var(--ink)] text-white">
+    <section class="px-4 sm:px-5 py-14 md:py-16 bg-[var(--ink)] text-white">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center reveal">
         <div>
           <p class="section-label text-[#f2c5ad]">Gentle Reminder</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             You do not have to wait until things feel unbearable.
           </h2>
         </div>
@@ -604,18 +813,17 @@
       </div>
     </section>
 
-    <section id="location" class="px-5 py-16">
+    <section id="location" class="px-4 sm:px-5 py-14 md:py-16">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
         <div class="reveal">
           <p class="section-label">Location</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             Visit Rujal Counselling Center.
           </h2>
 
           <p class="mt-5 text-[var(--muted)] leading-relaxed">
             Use the map link to open the exact counselling center location on Google Maps.
-            You can also replace the embedded map URL with your exact Google Maps embed link.
           </p>
 
           <a
@@ -628,8 +836,9 @@
           </a>
         </div>
 
-        <div class="panel rounded-[32px] overflow-hidden reveal">
+        <div class="panel rounded-[28px] md:rounded-[32px] overflow-hidden reveal">
           <iframe
+            class="map-frame"
             title="Rujal Counselling Center location"
             src="https://www.google.com/maps?q=Rujal%20Counselling%20Center&output=embed"
             width="100%"
@@ -643,12 +852,12 @@
       </div>
     </section>
 
-    <section id="booking" class="px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[0.9fr_1.1fr] gap-9 items-start reveal">
+    <section id="booking" class="px-4 sm:px-5 py-14 md:py-16 bg-white/35">
+      <div class="max-w-7xl mx-auto panel rounded-[28px] md:rounded-[36px] p-6 md:p-10 grid lg:grid-cols-[0.9fr_1.1fr] gap-9 items-start reveal">
         <div>
           <p class="section-label">Book A Session</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             Send a prepared WhatsApp message.
           </h2>
 
@@ -662,6 +871,7 @@
             id="nameInput"
             type="text"
             placeholder="Your name"
+            autocomplete="name"
             class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
             required
           />
@@ -694,19 +904,19 @@
             class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
           ></textarea>
 
-          <button class="btn-primary px-7 py-4 rounded-full font-bold transition">
+          <button type="submit" class="btn-primary px-7 py-4 rounded-full font-bold transition">
             Send on WhatsApp
           </button>
         </form>
       </div>
     </section>
 
-    <section id="faq" class="px-5 py-16">
+    <section id="faq" class="px-4 sm:px-5 py-14 md:py-16">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-10 reveal">
           <p class="section-label">FAQ</p>
 
-          <h2 class="mt-3 text-3xl md:text-5xl font-bold leading-tight">
+          <h2 class="section-title mt-3 font-bold">
             Before your first session.
           </h2>
         </div>
@@ -758,8 +968,8 @@
 
   </main>
 
-  <footer class="px-5 pb-20">
-    <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[1fr_auto] gap-7 items-center">
+  <footer class="px-4 sm:px-5 pb-24 md:pb-20">
+    <div class="max-w-7xl mx-auto panel rounded-[28px] md:rounded-[36px] p-6 md:p-10 grid lg:grid-cols-[1fr_auto] gap-7 items-center">
       <div>
         <h2 class="text-3xl md:text-4xl font-bold">Rujal Counselling Center</h2>
         <p class="mt-3 text-[var(--muted)]">
@@ -782,7 +992,7 @@
     href="https://wa.me/918108719701"
     target="_blank"
     rel="noopener"
-    class="fixed bottom-5 right-5 z-50 btn-primary px-5 py-3.5 rounded-full font-bold transition"
+    class="floating-whatsapp fixed z-50 btn-primary px-5 py-3.5 rounded-full font-bold transition"
   >
     WhatsApp
   </a>
@@ -851,7 +1061,23 @@
     ];
 
     function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("open");
+      const menu = document.getElementById("mobileMenu");
+      const button = document.getElementById("menuButton");
+      const isOpen = menu.classList.toggle("open");
+
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.textContent = isOpen ? "×" : "☰";
+      button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById("mobileMenu");
+      const button = document.getElementById("menuButton");
+
+      menu.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+      button.textContent = "☰";
+      button.setAttribute("aria-label", "Open menu");
     }
 
     function showService(index, button) {
@@ -863,9 +1089,15 @@
       document.getElementById("serviceLabel").textContent = service.label;
       document.getElementById("serviceTitle").textContent = service.title;
       document.getElementById("serviceText").textContent = service.text;
-      document.getElementById("serviceList").innerHTML = service.items
-        .map(item => `<li>${item}</li>`)
-        .join("");
+
+      const list = document.getElementById("serviceList");
+      list.innerHTML = "";
+
+      service.items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
     }
 
     function selectMood(index, button) {
@@ -893,6 +1125,7 @@
         button.textContent = "Pause Breathing";
         text.textContent = breathPrompts[0];
 
+        clearInterval(breathTimer);
         breathTimer = setInterval(() => {
           breathIndex = (breathIndex + 1) % breathPrompts.length;
           text.textContent = breathPrompts[breathIndex];
@@ -901,6 +1134,7 @@
         box.classList.remove("breathing");
         button.textContent = "Start Breathing";
         text.textContent = "Ready";
+        breathIndex = 0;
         clearInterval(breathTimer);
       }
     }
@@ -912,28 +1146,32 @@
     function sendWhatsApp(event) {
       event.preventDefault();
 
-      const name = document.getElementById("nameInput").value;
+      const name = document.getElementById("nameInput").value.trim();
       const concern = document.getElementById("concernInput").value;
       const mode = document.getElementById("modeInput").value;
-      const message = document.getElementById("messageInput").value;
+      const message = document.getElementById("messageInput").value.trim();
 
-      const text = `Hello, my name is ${name}. I would like to book a counselling session.%0AConcern: ${concern}%0APreference: ${mode}%0AMessage: ${message}`;
-      window.open(`https://wa.me/918108719701?text=${text}`, "_blank");
+      const text = `Hello, my name is ${name}. I would like to book a counselling session.\nConcern: ${concern}\nPreference: ${mode}\nMessage: ${message}`;
+      window.open(`https://wa.me/918108719701?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     }
 
     const revealItems = document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.12
       });
-    }, {
-      threshold: 0.12
-    });
 
-    revealItems.forEach(item => observer.observe(item));
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("visible"));
+    }
   </script>
 
 </body>
