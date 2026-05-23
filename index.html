@@ -10,93 +10,167 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --deep: #173b3f;
+      --green: #5f8d7a;
+      --sage: #dcebe4;
+      --cream: #fbf6ed;
+      --sand: #efe2cf;
+      --clay: #b9795f;
+      --soft: #fffaf3;
+      --muted: #64716c;
+    }
+
     * {
-      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
       overflow-x: hidden;
-      background: linear-gradient(to bottom right, #fff8fb, #f6f4ff, #eefaf8);
+      font-family: 'Poppins', sans-serif;
+      color: var(--deep);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(220, 235, 228, 0.9), transparent 32%),
+        radial-gradient(circle at 85% 15%, rgba(239, 226, 207, 0.8), transparent 30%),
+        linear-gradient(135deg, #fffaf3 0%, #edf7f1 55%, #f8efe4 100%);
     }
 
-    .glass {
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    h1, h2, .serif {
+      font-family: 'Fraunces', serif;
     }
 
-    .gradient-text {
-      background: linear-gradient(to right, #d946ef, #7c3aed, #0f766e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .nav {
+      background: rgba(255, 250, 243, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(23, 59, 63, 0.08);
     }
 
-    .floating {
-      animation: floating 5s ease-in-out infinite;
+    .panel {
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(23, 59, 63, 0.10);
+      box-shadow: 0 22px 60px rgba(23, 59, 63, 0.10);
+      backdrop-filter: blur(18px);
     }
 
-    @keyframes floating {
-      0% {
-        transform: translateY(0px);
+    .btn-primary {
+      background: linear-gradient(135deg, #5f8d7a, #173b3f);
+      color: white;
+      box-shadow: 0 16px 32px rgba(23, 59, 63, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(23, 59, 63, 0.14);
+      color: var(--deep);
+    }
+
+    .label {
+      color: var(--clay);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .breathe {
+      animation: breathe 5.5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(0.92);
+        opacity: 0.75;
       }
 
       50% {
-        transform: translateY(-15px);
-      }
-
-      100% {
-        transform: translateY(0px);
+        transform: scale(1.08);
+        opacity: 1;
       }
     }
 
-    .modal {
-      display: none;
+    .float {
+      animation: float 7s ease-in-out infinite;
     }
 
-    .modal.active {
-      display: flex;
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .service-card.active {
+      background: var(--deep);
+      color: white;
+    }
+
+    .service-card.active p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq.active .faq-answer {
+      max-height: 220px;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .faq.active .faq-icon {
+      transform: rotate(45deg);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Ambient Background -->
-  <div class="fixed top-[-100px] left-[-100px] w-[350px] h-[350px] bg-pink-300/30 blur-3xl rounded-full"></div>
-  <div class="fixed bottom-[-100px] right-[-100px] w-[350px] h-[350px] bg-cyan-300/30 blur-3xl rounded-full"></div>
+  <!-- NAVBAR -->
+  <nav class="nav fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between gap-5">
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full z-50 glass shadow-lg">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-      <div class="flex items-center gap-4">
-
-        <!-- LOGO -->
+      <a href="#home" class="flex items-center gap-4">
         <img
-  src="Screenshot 2026-05-21 131617(2).png"
-  alt="Rujal Counselling Center Logo"
-  class="w-20 h-20 object-contain"
-/>
+          src="Screenshot 2026-05-21 131617(2).png"
+          alt="Rujal Counselling Center Logo"
+          class="w-20 h-20 md:w-24 md:h-24 object-contain"
+        />
+
         <div>
-          <p class="text-sm text-gray-500">
+          <p class="text-sm text-[var(--muted)]">
             Ms. Saloni Suryawanshi's
           </p>
 
-          <h1 class="text-3xl font-black text-[#341254]">
+          <h1 class="text-2xl md:text-3xl font-bold leading-tight">
             Rujal Counselling Center
           </h1>
         </div>
+      </a>
 
+      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-[var(--muted)]">
+        <a href="#services" class="hover:text-[var(--deep)] transition">Services</a>
+        <a href="#approach" class="hover:text-[var(--deep)] transition">Approach</a>
+        <a href="#calm" class="hover:text-[var(--deep)] transition">Calm Tool</a>
+        <a href="#faq" class="hover:text-[var(--deep)] transition">FAQ</a>
       </div>
 
       <a
         href="https://wa.me/918108719701"
         target="_blank"
-        class="hidden md:flex bg-gradient-to-r from-purple-600 to-teal-500 text-white px-7 py-3 rounded-full shadow-xl hover:scale-105 transition duration-300"
+        class="hidden md:inline-flex btn-primary px-6 py-3 rounded-full font-semibold hover:-translate-y-1 transition"
       >
         Book Session
       </a>
@@ -105,324 +179,505 @@
   </nav>
 
   <!-- HERO -->
-  <section class="min-h-screen flex items-center px-6 pt-36 pb-20 relative z-10">
+  <section id="home" class="min-h-screen px-5 pt-40 md:pt-48 pb-20 flex items-center relative overflow-hidden">
 
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+    <div class="absolute top-44 right-10 w-40 h-40 rounded-full border border-[rgba(23,59,63,0.14)]"></div>
+    <div class="absolute bottom-24 left-10 w-28 h-28 rounded-full bg-[rgba(185,121,95,0.12)]"></div>
 
-      <!-- LEFT -->
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+
       <div>
-
-        <div class="inline-flex items-center gap-3 glass rounded-full px-5 py-3 shadow-xl mb-8">
-
-          <div class="w-3 h-3 bg-green-400 rounded-full"></div>
-
-          <p class="font-medium text-gray-700">
-            Healing Minds • Empowering Lives
+        <div class="inline-flex items-center gap-3 panel rounded-full px-5 py-3 mb-8">
+          <span class="w-3 h-3 bg-[var(--green)] rounded-full"></span>
+          <p class="text-sm md:text-base font-semibold text-[var(--muted)]">
+            A confidential space for emotional wellness
           </p>
-
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-black leading-[1] text-[#341254]">
+        <h2 class="text-5xl md:text-7xl font-bold leading-[1.02] max-w-3xl">
+          Feel heard, understood, and gently supported.
+        </h2>
 
-          Your Mental Wellness
-
-          <span class="block mt-4 gradient-text">
-            Matters Most.
-          </span>
-
-        </h1>
-
-        <p class="mt-8 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
-          Professional counselling support designed to help individuals heal,
-          grow emotionally and regain balance through compassionate,
-          confidential and personalized therapy sessions.
+        <p class="mt-7 text-lg md:text-xl text-[var(--muted)] leading-relaxed max-w-2xl">
+          Counselling support for anxiety, stress, grief, low mood, relationship concerns,
+          self-esteem and personal growth. Sessions are calm, private and centered around you.
         </p>
 
-        <div class="mt-10 flex flex-wrap gap-5">
-
+        <div class="mt-10 flex flex-wrap gap-4">
           <a
             href="https://wa.me/918108719701"
             target="_blank"
-            class="bg-gradient-to-r from-purple-600 to-teal-500 text-white px-8 py-4 rounded-2xl shadow-2xl hover:scale-105 transition duration-300"
+            class="btn-primary px-8 py-4 rounded-full font-semibold hover:-translate-y-1 transition"
           >
             Book Appointment
           </a>
 
           <a
-            href="#services"
-            class="glass px-8 py-4 rounded-2xl hover:scale-105 transition duration-300"
+            href="#calm"
+            class="btn-secondary px-8 py-4 rounded-full font-semibold hover:-translate-y-1 transition"
           >
-            Explore Services
+            Try Calm Tool
           </a>
-
         </div>
 
+        <div class="mt-12 grid grid-cols-3 gap-4 max-w-xl">
+          <div>
+            <p class="serif text-3xl font-bold">Safe</p>
+            <p class="text-sm text-[var(--muted)]">Private sessions</p>
+          </div>
+
+          <div>
+            <p class="serif text-3xl font-bold">Gentle</p>
+            <p class="text-sm text-[var(--muted)]">Supportive pace</p>
+          </div>
+
+          <div>
+            <p class="serif text-3xl font-bold">Clear</p>
+            <p class="text-sm text-[var(--muted)]">Practical tools</p>
+          </div>
+        </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="relative floating">
+      <div class="relative float">
+        <div class="panel rounded-[40px] p-7 md:p-10">
+          <img
+            src="Screenshot 2026-05-21 131617(2).png"
+            alt="Rujal Counselling Center"
+            class="w-full max-w-[520px] mx-auto object-contain"
+          />
+        </div>
 
-        <img
-          src="Screenshot 2026-05-21 131617(2).png"
-          alt="Rujal Counselling Center"
-          class="w-full object-contain"
-        />
-
+        <div class="absolute -bottom-8 left-4 md:-left-8 panel rounded-3xl p-5 max-w-[280px]">
+          <p class="label">First step</p>
+          <p class="mt-2 font-semibold leading-snug">
+            Send a message. Ask a question. Begin only when you feel ready.
+          </p>
+        </div>
       </div>
 
     </div>
+  </section>
 
+  <!-- SUPPORT STRIP -->
+  <section class="px-5 pb-16">
+    <div class="max-w-7xl mx-auto panel rounded-[32px] p-6 md:p-8 grid md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="serif text-3xl font-bold">Anxiety</p>
+        <p class="text-sm text-[var(--muted)] mt-1">Overthinking and worry</p>
+      </div>
+
+      <div>
+        <p class="serif text-3xl font-bold">Stress</p>
+        <p class="text-sm text-[var(--muted)] mt-1">Pressure and burnout</p>
+      </div>
+
+      <div>
+        <p class="serif text-3xl font-bold">Grief</p>
+        <p class="text-sm text-[var(--muted)] mt-1">Loss and transitions</p>
+      </div>
+
+      <div>
+        <p class="serif text-3xl font-bold">Growth</p>
+        <p class="text-sm text-[var(--muted)] mt-1">Confidence and clarity</p>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="py-24 px-6 relative z-10">
-
+  <section id="services" class="px-5 py-20">
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-20">
+      <div class="max-w-3xl mb-12">
+        <p class="label">Support Areas</p>
 
-        <h2 class="text-5xl font-black text-[#341254]">
-          Areas We Support
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          Choose what feels closest to your experience.
         </h2>
 
-        <p class="mt-5 text-gray-600 text-lg">
-          Compassionate support for emotional wellness and personal growth.
+        <p class="mt-5 text-lg text-[var(--muted)] leading-relaxed">
+          Click a card to see how counselling can help in that area.
         </p>
-
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
 
-        <!-- CARD -->
-        <div class="glass rounded-[35px] p-8 shadow-xl hover:-translate-y-4 transition duration-500">
-
-          <div class="w-16 h-16 rounded-3xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center text-white text-2xl shadow-xl mb-6">
-            ✨
-          </div>
-
-          <h3 class="text-2xl font-bold text-[#341254]">
-            Anxiety & Stress
-          </h3>
-
-          <p class="mt-4 text-gray-600">
-            Support for overwhelming thoughts and emotional exhaustion.
-          </p>
-
-          <button
-            onclick="openModal('modal1')"
-            class="mt-8 bg-gradient-to-r from-purple-600 to-teal-500 text-white px-6 py-3 rounded-2xl shadow-xl hover:scale-105 transition duration-300"
-          >
-            Learn More
+        <div class="grid sm:grid-cols-2 gap-5">
+          <button class="service-card active panel text-left rounded-3xl p-6 transition" onclick="showService(0, this)">
+            <h3 class="text-2xl font-bold">Anxiety & Stress</h3>
+            <p class="mt-3 text-[var(--muted)]">Racing thoughts, panic, pressure and overwhelm.</p>
           </button>
 
+          <button class="service-card panel text-left rounded-3xl p-6 transition" onclick="showService(1, this)">
+            <h3 class="text-2xl font-bold">Depression</h3>
+            <p class="mt-3 text-[var(--muted)]">Low mood, hopelessness, numbness and low energy.</p>
+          </button>
+
+          <button class="service-card panel text-left rounded-3xl p-6 transition" onclick="showService(2, this)">
+            <h3 class="text-2xl font-bold">Grief & Loss</h3>
+            <p class="mt-3 text-[var(--muted)]">Life changes, bereavement and emotional pain.</p>
+          </button>
+
+          <button class="service-card panel text-left rounded-3xl p-6 transition" onclick="showService(3, this)">
+            <h3 class="text-2xl font-bold">Self Growth</h3>
+            <p class="mt-3 text-[var(--muted)]">Confidence, boundaries and emotional awareness.</p>
+          </button>
         </div>
 
-        <!-- CARD -->
-        <div class="glass rounded-[35px] p-8 shadow-xl hover:-translate-y-4 transition duration-500">
+        <div class="panel rounded-[36px] p-8 md:p-10 min-h-[360px]">
+          <p class="label" id="serviceLabel">Anxiety & Stress</p>
 
-          <div class="w-16 h-16 rounded-3xl bg-gradient-to-br from-cyan-400 to-teal-500 flex items-center justify-center text-white text-2xl shadow-xl mb-6">
-            💜
-          </div>
-
-          <h3 class="text-2xl font-bold text-[#341254]">
-            Depression
+          <h3 class="mt-3 text-3xl md:text-5xl font-bold serif" id="serviceTitle">
+            Finding steadiness when your mind feels loud.
           </h3>
 
-          <p class="mt-4 text-gray-600">
-            Helping individuals regain emotional balance and hope.
+          <p class="mt-6 text-lg text-[var(--muted)] leading-relaxed" id="serviceText">
+            Counselling helps you identify triggers, calm the body, understand anxious thoughts
+            and build healthier ways to respond to stress.
           </p>
 
-          <button
-            onclick="openModal('modal2')"
-            class="mt-8 bg-gradient-to-r from-purple-600 to-teal-500 text-white px-6 py-3 rounded-2xl shadow-xl hover:scale-105 transition duration-300"
-          >
-            Learn More
-          </button>
-
-        </div>
-
-        <!-- CARD -->
-        <div class="glass rounded-[35px] p-8 shadow-xl hover:-translate-y-4 transition duration-500">
-
-          <div class="w-16 h-16 rounded-3xl bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center text-white text-2xl shadow-xl mb-6">
-            🌸
-          </div>
-
-          <h3 class="text-2xl font-bold text-[#341254]">
-            Grief & Loss
-          </h3>
-
-          <p class="mt-4 text-gray-600">
-            Gentle support through emotional pain and difficult transitions.
-          </p>
-
-          <button
-            onclick="openModal('modal3')"
-            class="mt-8 bg-gradient-to-r from-purple-600 to-teal-500 text-white px-6 py-3 rounded-2xl shadow-xl hover:scale-105 transition duration-300"
-          >
-            Learn More
-          </button>
-
-        </div>
-
-        <!-- CARD -->
-        <div class="glass rounded-[35px] p-8 shadow-xl hover:-translate-y-4 transition duration-500">
-
-          <div class="w-16 h-16 rounded-3xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white text-2xl shadow-xl mb-6">
-            🌿
-          </div>
-
-          <h3 class="text-2xl font-bold text-[#341254]">
-            Personal Growth
-          </h3>
-
-          <p class="mt-4 text-gray-600">
-            Building confidence, emotional resilience and self-awareness.
-          </p>
-
-          <button
-            onclick="openModal('modal4')"
-            class="mt-8 bg-gradient-to-r from-purple-600 to-teal-500 text-white px-6 py-3 rounded-2xl shadow-xl hover:scale-105 transition duration-300"
-          >
-            Learn More
-          </button>
-
+          <ul class="mt-7 space-y-3 text-[var(--muted)]" id="serviceList">
+            <li>• Grounding and calming techniques</li>
+            <li>• Support with overthinking and panic</li>
+            <li>• Coping tools for daily pressure</li>
+          </ul>
         </div>
 
       </div>
-
     </div>
-
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-16 px-6">
+  <!-- APPROACH -->
+  <section id="approach" class="px-5 py-20 bg-white/35">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-    <div class="max-w-7xl mx-auto glass rounded-[40px] p-10 text-center">
+      <div>
+        <p class="label">Our Approach</p>
 
-      <h2 class="text-4xl font-black text-[#341254]">
-        Let’s Talk. Let’s Heal.
-      </h2>
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          Therapy that feels calm, respectful and practical.
+        </h2>
 
-      <p class="mt-5 text-gray-600 text-lg">
-        Safe, confidential and compassionate counselling support.
-      </p>
+        <p class="mt-6 text-lg text-[var(--muted)] leading-relaxed">
+          The goal is not to force quick answers. The goal is to create a steady space where
+          your feelings make sense, your patterns become clearer, and change becomes possible.
+        </p>
+      </div>
 
-      <a
-        href="https://wa.me/918108719701"
-        target="_blank"
-        class="inline-block mt-8 bg-gradient-to-r from-purple-600 to-teal-500 text-white px-8 py-4 rounded-2xl shadow-2xl hover:scale-105 transition duration-300"
-      >
-        Chat on WhatsApp
-      </a>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="panel rounded-3xl p-7">
+          <h3 class="text-xl font-bold">Compassionate listening</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            You are heard without judgment, pressure or labels.
+          </p>
+        </div>
+
+        <div class="panel rounded-3xl p-7">
+          <h3 class="text-xl font-bold">Emotional clarity</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Sessions help you understand what you feel and why it matters.
+          </p>
+        </div>
+
+        <div class="panel rounded-3xl p-7">
+          <h3 class="text-xl font-bold">Practical coping</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Learn tools that support you outside the counselling room.
+          </p>
+        </div>
+
+        <div class="panel rounded-3xl p-7">
+          <h3 class="text-xl font-bold">Personal pace</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            You move forward gently, at a pace that feels safe.
+          </p>
+        </div>
+      </div>
 
     </div>
+  </section>
 
+  <!-- CALM TOOL -->
+  <section id="calm" class="px-5 py-24">
+    <div class="max-w-7xl mx-auto panel rounded-[40px] p-8 md:p-14 grid lg:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="label">Interactive Calm Tool</p>
+
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          Take one gentle breath before you continue.
+        </h2>
+
+        <p class="mt-6 text-lg text-[var(--muted)] leading-relaxed">
+          Follow the circle. Inhale as it expands. Exhale as it softens.
+          Small pauses like this can help the body feel safer.
+        </p>
+
+        <button
+          onclick="toggleBreathingText()"
+          class="mt-8 btn-primary px-7 py-4 rounded-full font-semibold hover:-translate-y-1 transition"
+        >
+          Change Breathing Prompt
+        </button>
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
+          <div class="absolute inset-0 rounded-full bg-[rgba(95,141,122,0.14)]"></div>
+          <div class="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-[rgba(185,121,95,0.12)] breathe"></div>
+          <div class="absolute w-44 h-44 md:w-56 md:h-56 rounded-full bg-[rgba(95,141,122,0.22)] breathe"></div>
+
+          <div class="relative text-center">
+            <p class="label">Breathe</p>
+            <p id="breathingText" class="serif text-4xl font-bold mt-2">Inhale slowly</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SESSION PROCESS -->
+  <section class="px-5 py-20">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="label">How It Works</p>
+
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          Starting counselling can be simple.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="panel rounded-3xl p-8">
+          <p class="serif text-5xl font-bold text-[var(--clay)]">01</p>
+          <h3 class="mt-5 text-2xl font-bold">Reach out</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Send a WhatsApp message and share that you would like counselling support.
+          </p>
+        </div>
+
+        <div class="panel rounded-3xl p-8">
+          <p class="serif text-5xl font-bold text-[var(--clay)]">02</p>
+          <h3 class="mt-5 text-2xl font-bold">Choose a time</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Select a convenient session slot and ask any questions before beginning.
+          </p>
+        </div>
+
+        <div class="panel rounded-3xl p-8">
+          <p class="serif text-5xl font-bold text-[var(--clay)]">03</p>
+          <h3 class="mt-5 text-2xl font-bold">Begin gently</h3>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Your first session focuses on understanding you, your concerns and your goals.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REASSURANCE -->
+  <section class="px-5 py-24 bg-[var(--deep)] text-white">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="label text-[#e7c4b3]">A Gentle Reminder</p>
+
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          You do not have to wait until things become unbearable.
+        </h2>
+      </div>
+
+      <div class="text-lg text-white/75 leading-relaxed space-y-5">
+        <p>
+          Counselling is not only for crisis. It can help when you feel stuck, tired,
+          confused, disconnected or unsure how to move forward.
+        </p>
+
+        <p>
+          A supportive conversation can bring relief, perspective and a clearer next step.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="px-5 py-24">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-12">
+        <p class="label">Questions</p>
+
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          Before your first session.
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="faq panel rounded-3xl p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between gap-5">
+            <h3 class="text-xl font-bold">Is counselling confidential?</h3>
+            <span class="faq-icon text-3xl">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="pt-4 text-[var(--muted)] leading-relaxed">
+              Yes, counselling is handled with privacy and care. You can discuss confidentiality before beginning.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq panel rounded-3xl p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between gap-5">
+            <h3 class="text-xl font-bold">What happens in the first session?</h3>
+            <span class="faq-icon text-3xl">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="pt-4 text-[var(--muted)] leading-relaxed">
+              The first session is usually about understanding your concerns, your background and what kind of support you need.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq panel rounded-3xl p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between gap-5">
+            <h3 class="text-xl font-bold">Do I need to know exactly what to say?</h3>
+            <span class="faq-icon text-3xl">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="pt-4 text-[var(--muted)] leading-relaxed">
+              No. You can begin with whatever feels easiest. The counsellor will help guide the conversation gently.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer class="px-5 pb-24">
+    <div class="max-w-7xl mx-auto panel rounded-[40px] p-8 md:p-14 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+
+      <div>
+        <p class="label">Contact</p>
+
+        <h2 class="mt-3 text-4xl md:text-6xl font-bold">
+          Let us talk when you are ready.
+        </h2>
+
+        <p class="mt-5 text-lg text-[var(--muted)] leading-relaxed">
+          Start with a simple WhatsApp message. You can ask about availability,
+          session details and what kind of support may fit your concern.
+        </p>
+      </div>
+
+      <div class="rounded-3xl bg-[var(--soft)] border border-[rgba(23,59,63,0.10)] p-7">
+        <h3 class="text-2xl font-bold">Rujal Counselling Center</h3>
+        <p class="mt-2 text-[var(--muted)]">Ms. Saloni Suryawanshi</p>
+
+        <a
+          href="https://wa.me/918108719701"
+          target="_blank"
+          class="mt-7 inline-flex btn-primary px-8 py-4 rounded-full font-semibold hover:-translate-y-1 transition"
+        >
+          Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
   </footer>
 
-  <!-- Floating Button -->
+  <!-- FLOATING BUTTON -->
   <a
     href="https://wa.me/918108719701"
     target="_blank"
-    class="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-green-500 to-emerald-400 text-white px-7 py-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition duration-300"
+    class="fixed bottom-5 right-5 z-50 btn-primary px-6 py-4 rounded-full font-semibold hover:-translate-y-1 transition"
   >
-    💬 Chat With Us
+    WhatsApp
   </a>
 
-  <!-- MODALS -->
-
-  <div id="modal1" class="modal fixed inset-0 z-50 bg-black/50 backdrop-blur-xl items-center justify-center p-6">
-
-    <div class="glass rounded-[40px] p-10 max-w-2xl w-full relative">
-
-      <button onclick="closeModal('modal1')" class="absolute top-6 right-6 text-2xl">
-        ✕
-      </button>
-
-      <h2 class="text-4xl font-black text-[#341254]">
-        Anxiety & Stress
-      </h2>
-
-      <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-        We help individuals understand overwhelming thoughts,
-        emotional exhaustion and stress through supportive,
-        compassionate counselling sessions.
-      </p>
-
-    </div>
-
-  </div>
-
-  <div id="modal2" class="modal fixed inset-0 z-50 bg-black/50 backdrop-blur-xl items-center justify-center p-6">
-
-    <div class="glass rounded-[40px] p-10 max-w-2xl w-full relative">
-
-      <button onclick="closeModal('modal2')" class="absolute top-6 right-6 text-2xl">
-        ✕
-      </button>
-
-      <h2 class="text-4xl font-black text-[#341254]">
-        Depression
-      </h2>
-
-      <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-        Helping individuals rebuild emotional balance,
-        motivation and hope in a safe environment.
-      </p>
-
-    </div>
-
-  </div>
-
-  <div id="modal3" class="modal fixed inset-0 z-50 bg-black/50 backdrop-blur-xl items-center justify-center p-6">
-
-    <div class="glass rounded-[40px] p-10 max-w-2xl w-full relative">
-
-      <button onclick="closeModal('modal3')" class="absolute top-6 right-6 text-2xl">
-        ✕
-      </button>
-
-      <h2 class="text-4xl font-black text-[#341254]">
-        Grief & Loss
-      </h2>
-
-      <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-        Gentle emotional support through difficult life transitions,
-        grief and emotional pain.
-      </p>
-
-    </div>
-
-  </div>
-
-  <div id="modal4" class="modal fixed inset-0 z-50 bg-black/50 backdrop-blur-xl items-center justify-center p-6">
-
-    <div class="glass rounded-[40px] p-10 max-w-2xl w-full relative">
-
-      <button onclick="closeModal('modal4')" class="absolute top-6 right-6 text-2xl">
-        ✕
-      </button>
-
-      <h2 class="text-4xl font-black text-[#341254]">
-        Personal Growth
-      </h2>
-
-      <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-        Supporting emotional resilience, confidence,
-        communication and self-awareness.
-      </p>
-
-    </div>
-
-  </div>
-
   <script>
-    function openModal(id) {
-      document.getElementById(id).classList.add('active');
+    const services = [
+      {
+        label: "Anxiety & Stress",
+        title: "Finding steadiness when your mind feels loud.",
+        text: "Counselling helps you identify triggers, calm the body, understand anxious thoughts and build healthier ways to respond to stress.",
+        items: [
+          "Grounding and calming techniques",
+          "Support with overthinking and panic",
+          "Coping tools for daily pressure"
+        ]
+      },
+      {
+        label: "Depression",
+        title: "Support when even small things feel difficult.",
+        text: "Sessions can help you understand low mood, rebuild motivation, process emotional heaviness and reconnect with hope at your own pace.",
+        items: [
+          "Gentle emotional support",
+          "Understanding patterns of sadness",
+          "Steps toward routine and stability"
+        ]
+      },
+      {
+        label: "Grief & Loss",
+        title: "A safe place for loss, change and painful transitions.",
+        text: "Grief does not follow a fixed timeline. Counselling offers space to process what has changed and make room for healing.",
+        items: [
+          "Processing loss without pressure",
+          "Support through major life changes",
+          "Learning to carry grief with care"
+        ]
+      },
+      {
+        label: "Self Growth",
+        title: "Understanding yourself with more kindness and clarity.",
+        text: "Personal growth counselling can help with confidence, boundaries, communication, self-awareness and emotional resilience.",
+        items: [
+          "Building self-confidence",
+          "Improving boundaries",
+          "Developing healthier coping patterns"
+        ]
+      }
+    ];
+
+    function showService(index, button) {
+      document.querySelectorAll(".service-card").forEach(card => {
+        card.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      const service = services[index];
+
+      document.getElementById("serviceLabel").textContent = service.label;
+      document.getElementById("serviceTitle").textContent = service.title;
+      document.getElementById("serviceText").textContent = service.text;
+
+      document.getElementById("serviceList").innerHTML = service.items
+        .map(item => `<li>• ${item}</li>`)
+        .join("");
     }
 
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('active');
+    const prompts = [
+      "Inhale slowly",
+      "Hold gently",
+      "Exhale softly",
+      "Relax your shoulders"
+    ];
+
+    let promptIndex = 0;
+
+    function toggleBreathingText() {
+      promptIndex = (promptIndex + 1) % prompts.length;
+      document.getElementById("breathingText").textContent = prompts[promptIndex];
+    }
+
+    setInterval(toggleBreathingText, 2600);
+
+    function toggleFaq(element) {
+      element.classList.toggle("active");
     }
   </script>
 
