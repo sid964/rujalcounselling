@@ -419,6 +419,342 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Mobile and tablet refinement only. Desktop stays unchanged. */
+    @media (max-width: 768px) {
+      .site-header {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 249, 239, 0.96);
+      }
+
+      .site-header > div {
+        padding: 10px 16px;
+      }
+
+      .brand-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand-owner {
+        font-size: 10px;
+        line-height: 1.1;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        line-height: 1.12;
+      }
+
+      .mobile-menu-button {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        font-size: 24px;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 71px;
+        left: 12px;
+        right: 12px;
+        z-index: 60;
+        max-height: calc(100svh - 92px);
+        overflow-y: auto;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 24px 60px rgba(20, 56, 63, 0.16);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+
+      .mobile-menu a {
+        min-height: 48px;
+        padding: 0 12px;
+        border-radius: 16px;
+        color: var(--ink);
+      }
+
+      .mobile-menu a:hover {
+        background: var(--mint);
+      }
+
+      .hero-section {
+        padding-top: 28px;
+        padding-bottom: 44px;
+      }
+
+      .hero-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+        line-height: 1.08;
+        max-width: 100%;
+      }
+
+      .body-text {
+        font-size: 16px;
+        line-height: 1.68;
+      }
+
+      .hero-actions {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-actions a,
+      .btn-primary,
+      .btn-secondary {
+        min-height: 50px;
+      }
+
+      .hero-stats {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-stats .soft-card {
+        padding: 16px 18px;
+      }
+
+      .hero-stats .serif {
+        font-size: 21px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-visual .panel:first-child {
+        padding: 22px;
+        border-radius: 28px;
+      }
+
+      .hero-visual img {
+        max-height: 220px;
+        object-fit: contain;
+      }
+
+      .hero-visual .panel:last-child {
+        max-width: none;
+        margin-top: 14px;
+        padding: 16px;
+        border-radius: 22px;
+      }
+
+      .section-pad {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      section {
+        scroll-margin-top: 92px;
+      }
+
+      .section-title {
+        font-size: 30px;
+        line-height: 1.14;
+      }
+
+      .section-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+      }
+
+      .support-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px;
+        text-align: left;
+      }
+
+      .support-strip > div {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.66);
+        border: 1px solid var(--line);
+      }
+
+      .support-strip .serif {
+        font-size: 22px;
+      }
+
+      #mood,
+      #services,
+      #approach,
+      #calm,
+      #process,
+      #location,
+      #booking,
+      #faq {
+        padding-top: 48px;
+        padding-bottom: 48px;
+      }
+
+      #mood .grid,
+      #location .grid,
+      #booking .grid,
+      #calm .grid {
+        gap: 24px;
+      }
+
+      .panel {
+        border-radius: 24px;
+      }
+
+      .soft-card {
+        border-radius: 20px;
+      }
+
+      .mood-buttons,
+      .service-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .mood-chip {
+        justify-content: flex-start;
+        text-align: left;
+        min-height: 50px;
+        border-radius: 18px;
+      }
+
+      .service-tab {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      .service-tab h3 {
+        font-size: 19px;
+        line-height: 1.22;
+      }
+
+      #serviceTitle {
+        font-size: 28px;
+        line-height: 1.16;
+      }
+
+      #serviceList {
+        padding-left: 18px;
+        list-style: disc;
+      }
+
+      #serviceList li {
+        line-height: 1.55;
+      }
+
+      #approach .grid.sm\:grid-cols-2,
+      section .grid.sm\:grid-cols-2 {
+        grid-template-columns: 1fr;
+      }
+
+      #calm .panel,
+      #booking .panel,
+      footer .panel {
+        padding: 24px;
+        border-radius: 26px;
+      }
+
+      .breath-wrap {
+        min-height: 240px;
+      }
+
+      .breath-outer {
+        width: 210px;
+        height: 210px;
+      }
+
+      .breath-large {
+        width: 166px;
+        height: 166px;
+      }
+
+      .breath-small {
+        width: 116px;
+        height: 116px;
+      }
+
+      #breathText {
+        font-size: 28px;
+      }
+
+      #process .grid.md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+      }
+
+      #process .panel {
+        padding: 22px;
+      }
+
+      .map-frame {
+        height: 300px;
+      }
+
+      #booking input,
+      #booking select,
+      #booking textarea {
+        border-radius: 18px;
+        padding: 15px 16px;
+      }
+
+      .faq {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .faq h3 {
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      footer {
+        padding-bottom: calc(92px + env(safe-area-inset-bottom));
+      }
+
+      .floating-whatsapp {
+        left: 14px;
+        right: 14px;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        width: auto;
+        min-height: 54px;
+        border-radius: 18px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .hero-visual img {
+        max-height: 190px;
+      }
+
+      #serviceTitle {
+        font-size: 25px;
+      }
+    }
   </style>
 </head>
 
@@ -1129,12 +1465,28 @@
 
       menu.classList.toggle("open");
 
-      if (menu.classList.contains("open")) {
-        button.textContent = "×";
-      } else {
-        button.textContent = "☰";
-      }
+      const isOpen = menu.classList.contains("open");
+      button.textContent = isOpen ? "×" : "☰";
+      button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      document.body.style.overflow = isOpen ? "hidden" : "";
     }
+
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("mobileMenu");
+      const button = document.getElementById("menuButton");
+
+      if (!menu || !button || !menu.classList.contains("open")) return;
+
+      const clickedInsideMenu = menu.contains(event.target);
+      const clickedMenuButton = button.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedMenuButton) {
+        menu.classList.remove("open");
+        button.textContent = "☰";
+        button.setAttribute("aria-label", "Open menu");
+        document.body.style.overflow = "";
+      }
+    });
 
     function showService(index, button) {
       document.querySelectorAll(".service-tab").forEach(tab => tab.classList.remove("active"));
