@@ -425,45 +425,7 @@
 <body>
 
   <header class="site-header">
-    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
-      <a href="#home" class="flex items-center gap-3 min-w-0">
-        <img
-          src="Screenshot 2026-05-21 131617(2).png"
-          alt="Rujal Counselling Center Logo"
-          class="brand-logo w-16 h-16 md:w-20 md:h-20 object-contain shrink-0"
-        />
-
-        <div class="min-w-0">
-          <p class="brand-owner text-xs md:text-sm text-[var(--muted)]">
-            Ms. Saloni Suryawanshi's
-          </p>
-
-          <h1 class="brand-name text-xl md:text-2xl font-bold leading-tight">
-            Rujal Counselling Center
-          </h1>
-        </div>
-      </a>
-
-      <nav class="desktop-nav items-center gap-7 text-sm font-bold text-[var(--muted)]">
-        <a href="#services" class="hover:text-[var(--ink)] transition">Services</a>
-        <a href="#approach" class="hover:text-[var(--ink)] transition">Approach</a>
-        <a href="#process" class="hover:text-[var(--ink)] transition">Process</a>
-        <a href="#location" class="hover:text-[var(--ink)] transition">Location</a>
-        <a href="#faq" class="hover:text-[var(--ink)] transition">FAQ</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a
-          href="https://wa.me/918108719701"
-          target="_blank"
-          rel="noopener"
-          class="desktop-book btn-primary px-5 py-3 rounded-full font-bold transition"
-        >
-          Book a Session
-        </a>
-
-        <button
-          onclick="toggleMenu()"
+    <div cla
           id="menuButton"
           class="mobile-menu-button btn-secondary w-11 h-11 rounded-full font-bold transition text-2xl"
           aria-label="Open menu"
@@ -533,25 +495,7 @@
 
           <div class="hero-stats mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
             <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Confidential</p>
-              <p class="text-sm text-[var(--muted)] mt-1">Private counselling sessions</p>
-            </div>
-
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Professional</p>
-              <p class="text-sm text-[var(--muted)] mt-1">5+ years of counselling experience</p>
-            </div>
-
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Non-judgmental</p>
-              <p class="text-sm text-[var(--muted)] mt-1">A safe place to begin</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="panel organic-shape p-7 md:p-10">
-            <img
+             
               src="Screenshot 2026-05-21 131617(2).png"
               alt="Rujal Counselling Center"
               class="w-full max-w-[460px] mx-auto object-contain"
@@ -761,8 +705,8 @@
             <p class="text-sm text-[var(--muted)] mt-1">Confidential sessions</p>
           </div>
 
-          <div class="soft-card rounded-3xl p-5">
-            <p class="serif text-2xl font-bold">Supportive</p>
+        div hhclass="soft-card rounded-3xl p-5">
+            <p class="serigvf text-2xl font-bold">Supportive</p>
             <p class="text-sm text-[var(--muted)] mt-1">Comfortable environment</p>
           </div>
 
@@ -942,7 +886,7 @@
             id="concernInput"
             class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
           >
-            <option>Anxiety or stress</option>
+            <  bhjjkjoption>Anxiety or stress</option>
             <option>Depression or low mood</option>
             <option>Grief or loss</option>
             <option>Relationship concern</option>
@@ -1182,28 +1126,7 @@
         }, 2200);
       } else {
         box.classList.remove("breathing");
-        button.textContent = "Start Breathing";
-        text.textContent = "Ready";
-        breathIndex = 0;
-        clearInterval(breathTimer);
-      }
-    }
-
-    function toggleFaq(element) {
-      element.classList.toggle("open");
-    }
-
-    function sendWhatsApp(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("nameInput").value.trim();
-      const concern = document.getElementById("concernInput").value;
-      const mode = document.getElementById("modeInput").value;
-      const message = document.getElementById("messageInput").value.trim();
-
-      const text = `Hello, my name is ${name}. I would like to book a counselling session.\nConcern: ${concern}\nPreference: ${mode}\nMessage: ${message}`;
-
-      window.open(`https://wa.me/918108719701?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      
     }
 
     const revealItems = document.querySelectorAll(".reveal");
