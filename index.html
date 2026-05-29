@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
   <title>Rujal Counselling Center | Counselling Support in Pune</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,10 +18,7 @@
       --teal: #2f6f67;
       --teal-dark: #245852;
       --mint: #e8f4ef;
-      --mint-strong: #cfe7dc;
       --cream: #fff9ef;
-      --warm: #f5e5d3;
-      --peach: #eead91;
       --coral: #d86f50;
       --white: #ffffff;
       --muted: #647570;
@@ -50,6 +46,10 @@
         radial-gradient(circle at 10% 8%, rgba(207, 231, 220, 0.95), transparent 30%),
         radial-gradient(circle at 88% 18%, rgba(245, 229, 211, 0.95), transparent 28%),
         linear-gradient(135deg, #fffaf2 0%, #edf7f3 48%, #fff4e8 100%);
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     h1,
@@ -80,7 +80,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 80;
       background: rgba(255, 249, 239, 0.92);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -202,7 +202,7 @@
     }
 
     .faq.open .faq-answer {
-      max-height: 240px;
+      max-height: 260px;
     }
 
     .faq-icon {
@@ -224,12 +224,23 @@
       transform: translateY(0);
     }
 
-    .mobile-menu {
+    .mobile-menu,
+    .mobile-menu-backdrop {
       display: none;
     }
 
-    .mobile-menu.open {
-      display: grid;
+    @media (min-width: 769px) {
+      .mobile-menu-button {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: flex;
+      }
+
+      .desktop-book {
+        display: inline-flex;
+      }
     }
 
     @media (max-width: 768px) {
@@ -256,13 +267,12 @@
       }
 
       .site-header {
-        position: sticky;
-        top: 0;
         background: rgba(255, 249, 239, 0.96);
       }
 
       .site-header > div {
-        padding: 10px 14px;
+        min-height: 64px;
+        padding: 8px 14px;
         gap: 10px;
       }
 
@@ -272,8 +282,8 @@
       }
 
       .brand-logo {
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
       }
 
       .brand-owner {
@@ -284,7 +294,7 @@
       .brand-name {
         font-size: 15px;
         line-height: 1.12;
-        max-width: 210px;
+        max-width: 205px;
       }
 
       .desktop-nav,
@@ -300,48 +310,53 @@
         border-radius: 999px;
         font-size: 22px;
         line-height: 1;
+        position: relative;
+        z-index: 120;
       }
 
-      .mobile-menu {
+      .mobile-menu-backdrop.open {
+        display: block;
         position: fixed;
-        top: 68px;
-        left: 12px;
-        right: 12px;
-        z-index: 80;
-        display: none;
-        gap: 6px;
-        padding: 12px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.96);
-        border: 1px solid var(--line);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
+        inset: 0;
+        z-index: 90;
+        background: rgba(20, 56, 63, 0.28);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
       }
 
       .mobile-menu.open {
         display: grid;
+        position: fixed;
+        left: 14px;
+        right: 14px;
+        top: 76px;
+        z-index: 110;
+        gap: 10px;
+        padding: 16px;
+        max-height: calc(100svh - 96px);
+        overflow-y: auto;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid var(--line);
+        box-shadow: 0 28px 70px rgba(20, 56, 63, 0.22);
       }
 
       .mobile-menu a {
-        min-height: 46px;
+        min-height: 50px;
         display: flex;
         align-items: center;
-        padding: 0 14px;
-        border-radius: 15px;
+        padding: 0 16px;
+        border-radius: 16px;
         color: var(--ink);
-        border-bottom: 0;
-      }
-
-      .mobile-menu a:not(.btn-primary) {
-        background: rgba(255, 255, 255, 0.68);
+        background: rgba(232, 244, 239, 0.72);
         border: 1px solid var(--line);
       }
 
       .mobile-menu a:last-child {
-        margin-top: 6px;
+        margin-top: 4px;
         justify-content: center;
         color: white;
+        background: linear-gradient(135deg, var(--teal), var(--ink));
       }
 
       .section-pad {
@@ -350,11 +365,11 @@
       }
 
       section {
-        scroll-margin-top: 86px;
+        scroll-margin-top: 82px;
       }
 
       .hero-section {
-        padding-top: 24px;
+        padding-top: 22px;
         padding-bottom: 42px;
       }
 
@@ -386,7 +401,7 @@
 
       .hero-visual .organic-shape {
         padding: 18px;
-        min-height: 170px;
+        min-height: 160px;
         border-radius: 26px;
         display: grid;
         place-items: center;
@@ -394,8 +409,8 @@
 
       .hero-visual img {
         width: 100%;
-        max-width: 210px;
-        max-height: 145px;
+        max-width: 200px;
+        max-height: 135px;
         object-fit: contain;
       }
 
@@ -619,6 +634,13 @@
         background: rgba(255, 255, 255, 0.80);
       }
 
+      .booking-note {
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(232, 244, 239, 0.72);
+        border: 1px solid var(--line);
+      }
+
       .faq.panel {
         padding: 18px;
         border-radius: 20px;
@@ -630,30 +652,11 @@
       }
 
       .floating-whatsapp {
-        left: 14px;
-        right: 14px;
-        bottom: calc(14px + env(safe-area-inset-bottom));
-        width: auto;
-        min-height: 54px;
-        border-radius: 18px;
-      }
-
-      footer {
-        padding-bottom: calc(92px + env(safe-area-inset-bottom));
-      }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-menu-button {
         display: none;
       }
 
-      .desktop-nav {
-        display: flex;
-      }
-
-      .desktop-book {
-        display: inline-flex;
+      footer {
+        padding-bottom: calc(32px + env(safe-area-inset-bottom));
       }
     }
 
@@ -732,16 +735,19 @@
       </div>
     </div>
 
+    <div id="mobileMenuBackdrop" class="mobile-menu-backdrop" onclick="closeMenu()"></div>
+
     <nav id="mobileMenu" class="mobile-menu text-sm font-bold text-[var(--muted)]">
-      <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#approach" onclick="toggleMenu()">Approach</a>
-      <a href="#process" onclick="toggleMenu()">Process</a>
-      <a href="#location" onclick="toggleMenu()">Location</a>
-      <a href="#faq" onclick="toggleMenu()">FAQ</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#approach" onclick="closeMenu()">Approach</a>
+      <a href="#process" onclick="closeMenu()">Process</a>
+      <a href="#location" onclick="closeMenu()">Location</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
       <a
         href="https://wa.me/918108719701"
         target="_blank"
         rel="noopener"
+        onclick="closeMenu()"
         class="btn-primary px-5 py-3 rounded-full font-bold transition justify-center"
       >
         Book a Session
@@ -753,7 +759,6 @@
 
     <section class="hero-section section-pad px-5 py-16 md:py-20">
       <div class="hero-grid max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
-
         <div class="reveal">
           <div class="inline-flex items-center gap-3 panel rounded-full px-4 py-2 mb-6">
             <span class="w-2.5 h-2.5 rounded-full bg-[var(--teal)] shrink-0"></span>
@@ -773,19 +778,11 @@
           </p>
 
           <div class="hero-actions mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://wa.me/918108719701"
-              target="_blank"
-              rel="noopener"
-              class="btn-primary px-7 py-3.5 rounded-full font-bold transition"
-            >
+            <a href="#booking" class="btn-primary px-7 py-3.5 rounded-full font-bold transition">
               Book an Appointment
             </a>
 
-            <a
-              href="#mood"
-              class="btn-secondary px-7 py-3.5 rounded-full font-bold transition"
-            >
+            <a href="#mood" class="btn-secondary px-7 py-3.5 rounded-full font-bold transition">
               How Can We Help?
             </a>
           </div>
@@ -824,7 +821,6 @@
             </p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -965,30 +961,22 @@
         <div class="grid sm:grid-cols-2 gap-4 reveal">
           <div class="soft-card rounded-3xl p-6">
             <h3 class="text-xl font-bold">Compassionate listening</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              Your concerns are heard with patience, care, and respect.
-            </p>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Your concerns are heard with patience, care, and respect.</p>
           </div>
 
           <div class="soft-card rounded-3xl p-6">
             <h3 class="text-xl font-bold">Emotional understanding</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              Sessions help you make sense of what you feel and what you need.
-            </p>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Sessions help you make sense of what you feel and what you need.</p>
           </div>
 
           <div class="soft-card rounded-3xl p-6">
             <h3 class="text-xl font-bold">Practical coping</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              You receive simple tools that can support you outside the session.
-            </p>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">You receive simple tools that can support you outside the session.</p>
           </div>
 
           <div class="soft-card rounded-3xl p-6">
             <h3 class="text-xl font-bold">Your own pace</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-              You are never rushed. Progress can begin calmly, one step at a time.
-            </p>
+            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">You are never rushed. Progress can begin calmly, one step at a time.</p>
           </div>
         </div>
       </div>
@@ -1047,11 +1035,7 @@
             Small moments of steadiness can make the next step feel easier.
           </p>
 
-          <button
-            onclick="toggleBreathing()"
-            class="mt-7 btn-primary px-7 py-3.5 rounded-full font-bold transition"
-            id="breathButton"
-          >
+          <button onclick="toggleBreathing()" class="mt-7 btn-primary px-7 py-3.5 rounded-full font-bold transition" id="breathButton">
             Start Breathing
           </button>
         </div>
@@ -1085,25 +1069,19 @@
           <div class="panel rounded-3xl p-7 reveal">
             <p class="serif text-4xl font-bold text-[var(--coral)]">01</p>
             <h3 class="mt-4 text-2xl font-bold">Reach out</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              Send a WhatsApp message whenever you feel ready. You do not need to explain everything at once.
-            </p>
+            <p class="mt-3 text-[var(--muted)] leading-relaxed">Send a WhatsApp message whenever you feel ready. You do not need to explain everything at once.</p>
           </div>
 
           <div class="panel rounded-3xl p-7 reveal">
             <p class="serif text-4xl font-bold text-[var(--coral)]">02</p>
             <h3 class="mt-4 text-2xl font-bold">Choose a time</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              Select a suitable session slot and ask any questions before you begin.
-            </p>
+            <p class="mt-3 text-[var(--muted)] leading-relaxed">Select a suitable session slot and ask any questions before you begin.</p>
           </div>
 
           <div class="panel rounded-3xl p-7 reveal">
             <p class="serif text-4xl font-bold text-[var(--coral)]">03</p>
             <h3 class="mt-4 text-2xl font-bold">Start comfortably</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">
-              The first session focuses on understanding your concerns, comfort, and goals.
-            </p>
+            <p class="mt-3 text-[var(--muted)] leading-relaxed">The first session focuses on understanding your concerns, comfort, and goals.</p>
           </div>
         </div>
       </div>
@@ -1120,14 +1098,8 @@
         </div>
 
         <div class="space-y-4 text-white/78 leading-relaxed">
-          <p>
-            Counselling can help even when you are managing things on the outside but feeling
-            tired, anxious, or overwhelmed inside.
-          </p>
-
-          <p>
-            A supportive conversation can bring relief, perspective, and a clearer next step.
-          </p>
+          <p>Counselling can help even when you are managing things on the outside but feeling tired, anxious, or overwhelmed inside.</p>
+          <p>A supportive conversation can bring relief, perspective, and a clearer next step.</p>
         </div>
       </div>
     </section>
@@ -1146,12 +1118,7 @@
             Use the map link to open the location and plan your visit with ease.
           </p>
 
-          <a
-            href="https://maps.app.goo.gl/sLpWVTKZyiLoXn4L6"
-            target="_blank"
-            rel="noopener"
-            class="mt-7 inline-flex btn-primary px-7 py-3.5 rounded-full font-bold transition"
-          >
+          <a href="https://maps.app.goo.gl/sLpWVTKZyiLoXn4L6" target="_blank" rel="noopener" class="mt-7 inline-flex btn-primary px-7 py-3.5 rounded-full font-bold transition">
             Open Location on Maps
           </a>
         </div>
@@ -1178,21 +1145,33 @@
           <p class="section-label">Book A Session</p>
 
           <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Begin with a simple WhatsApp message.
+            Begin with a simple appointment request.
           </h2>
 
           <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Share a few basic details and your message will open on WhatsApp.
-            You can ask questions first, choose a suitable time, and begin when you feel ready.
+            Share your basic details and your request can be saved for follow-up. WhatsApp will open with the same message so the conversation can continue easily.
           </p>
+
+          <div class="booking-note mt-6 text-sm text-[var(--muted)] leading-relaxed">
+            Please avoid sharing highly sensitive details in this form. For urgent or emergency support, contact local emergency services.
+          </div>
         </div>
 
-        <form onsubmit="sendWhatsApp(event)" class="grid gap-4">
+        <form onsubmit="sendBooking(event)" class="grid gap-4">
           <input
             id="nameInput"
             type="text"
             placeholder="Your name"
             autocomplete="name"
+            class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
+            required
+          />
+
+          <input
+            id="phoneInput"
+            type="tel"
+            placeholder="WhatsApp number"
+            autocomplete="tel"
             class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
             required
           />
@@ -1218,16 +1197,37 @@
             <option>I want to ask first</option>
           </select>
 
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input
+              id="dateInput"
+              type="date"
+              class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
+            />
+
+            <input
+              id="timeInput"
+              type="time"
+              class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
+            />
+          </div>
+
           <textarea
             id="messageInput"
             rows="4"
-            placeholder="Anything you want to mention"
+            placeholder="Short message, optional"
             class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"
           ></textarea>
 
-          <button class="btn-primary px-7 py-4 rounded-full font-bold transition">
-            Send Message on WhatsApp
+          <label class="flex gap-3 text-sm text-[var(--muted)] leading-relaxed">
+            <input id="consentInput" type="checkbox" required class="mt-1 shrink-0" />
+            <span>I understand this form is for appointment requests only and not for emergency support.</span>
+          </label>
+
+          <button id="bookingButton" class="btn-primary px-7 py-4 rounded-full font-bold transition">
+            Save Request & Open WhatsApp
           </button>
+
+          <p id="bookingStatus" class="text-sm font-bold text-[var(--muted)]"></p>
         </form>
       </div>
     </section>
@@ -1248,12 +1248,8 @@
               <h3 class="text-xl font-bold">Is counselling confidential?</h3>
               <span class="faq-icon text-3xl leading-none">+</span>
             </div>
-
             <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">
-                Counselling is handled with privacy, care, and professional boundaries.
-                You can discuss confidentiality clearly before beginning your sessions.
-              </p>
+              <p class="pt-4 text-[var(--muted)] leading-relaxed">Counselling is handled with privacy, care, and professional boundaries. You can discuss confidentiality clearly before beginning your sessions.</p>
             </div>
           </div>
 
@@ -1262,12 +1258,8 @@
               <h3 class="text-xl font-bold">What happens in the first session?</h3>
               <span class="faq-icon text-3xl leading-none">+</span>
             </div>
-
             <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">
-                The first session is mainly about understanding your concerns, comfort level,
-                background, and what kind of support may help you.
-              </p>
+              <p class="pt-4 text-[var(--muted)] leading-relaxed">The first session is mainly about understanding your concerns, comfort level, background, and what kind of support may help you.</p>
             </div>
           </div>
 
@@ -1276,11 +1268,8 @@
               <h3 class="text-xl font-bold">Do I need to know exactly what to say?</h3>
               <span class="faq-icon text-3xl leading-none">+</span>
             </div>
-
             <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">
-                No. You can begin with whatever feels easiest. The conversation will be guided at your pace.
-              </p>
+              <p class="pt-4 text-[var(--muted)] leading-relaxed">No. You can begin with whatever feels easiest. The conversation will be guided at your pace.</p>
             </div>
           </div>
         </div>
@@ -1320,46 +1309,32 @@
   </a>
 
   <script>
+    const GOOGLE_SHEET_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
     const services = [
       {
         label: "Anxiety & Stress Support",
         title: "Finding steadiness when your mind feels loud.",
         text: "Counselling can help you understand what triggers anxiety, calm your body, reduce overthinking, and respond to daily stress with more confidence.",
-        items: [
-          "Grounding and calming techniques",
-          "Support with worry, panic, and overthinking",
-          "Practical tools for everyday stress"
-        ]
+        items: ["Grounding and calming techniques", "Support with worry, panic, and overthinking", "Practical tools for everyday stress"]
       },
       {
         label: "Low Mood & Depression",
         title: "Support when even small things feel difficult.",
         text: "Sessions offer a safe space to talk about sadness, emotional heaviness, low motivation, and the quiet struggles that can be hard to explain.",
-        items: [
-          "Steady emotional support",
-          "Understanding sadness, numbness, and fatigue",
-          "Small steps toward routine and stability"
-        ]
+        items: ["Steady emotional support", "Understanding sadness, numbness, and fatigue", "Small steps toward routine and stability"]
       },
       {
         label: "Grief & Life Changes",
         title: "A steady space for loss, change, and painful transitions.",
         text: "Grief does not follow a fixed timeline. Counselling gives you room to process what has changed and move through it with care.",
-        items: [
-          "Processing loss without pressure",
-          "Support through major life changes",
-          "Learning to carry grief with compassion"
-        ]
+        items: ["Processing loss without pressure", "Support through major life changes", "Learning to carry grief with compassion"]
       },
       {
         label: "Self-Growth & Confidence",
         title: "Understanding yourself with kindness and clarity.",
         text: "Personal growth counselling can support self-confidence, healthier boundaries, communication, self-awareness, and emotional resilience.",
-        items: [
-          "Building self-confidence",
-          "Improving boundaries",
-          "Developing healthier coping patterns"
-        ]
+        items: ["Building self-confidence", "Improving boundaries", "Developing healthier coping patterns"]
       }
     ];
 
@@ -1382,34 +1357,44 @@
       }
     ];
 
-    function toggleMenu() {
+    function openMenu() {
       const menu = document.getElementById("mobileMenu");
+      const backdrop = document.getElementById("mobileMenuBackdrop");
       const button = document.getElementById("menuButton");
 
-      menu.classList.toggle("open");
-
-      const isOpen = menu.classList.contains("open");
-      button.innerHTML = isOpen ? "&times;" : "&#9776;";
-      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-      document.body.style.overflow = isOpen ? "hidden" : "";
+      menu.classList.add("open");
+      backdrop.classList.add("open");
+      document.body.classList.add("menu-open");
+      button.innerHTML = "&times;";
+      button.setAttribute("aria-expanded", "true");
+      button.setAttribute("aria-label", "Close menu");
     }
 
-    document.addEventListener("click", function (event) {
+    function closeMenu() {
       const menu = document.getElementById("mobileMenu");
+      const backdrop = document.getElementById("mobileMenuBackdrop");
       const button = document.getElementById("menuButton");
 
-      if (!menu || !button || !menu.classList.contains("open")) return;
+      menu.classList.remove("open");
+      backdrop.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      button.innerHTML = "&#9776;";
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Open menu");
+    }
 
-      const clickedInsideMenu = menu.contains(event.target);
-      const clickedMenuButton = button.contains(event.target);
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu.classList.contains("open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
 
-      if (!clickedInsideMenu && !clickedMenuButton) {
-        menu.classList.remove("open");
-        button.innerHTML = "&#9776;";
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-label", "Open menu");
-        document.body.style.overflow = "";
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMenu();
       }
     });
 
@@ -1422,9 +1407,7 @@
       document.getElementById("serviceLabel").textContent = service.label;
       document.getElementById("serviceTitle").textContent = service.title;
       document.getElementById("serviceText").textContent = service.text;
-      document.getElementById("serviceList").innerHTML = service.items
-        .map(item => `<li>${item}</li>`)
-        .join("");
+      document.getElementById("serviceList").innerHTML = service.items.map(item => `<li>${item}</li>`).join("");
     }
 
     function selectMood(index, button) {
@@ -1470,17 +1453,83 @@
       element.classList.toggle("open");
     }
 
-    function sendWhatsApp(event) {
+    function sendBooking(event) {
       event.preventDefault();
 
+      const button = document.getElementById("bookingButton");
+      const status = document.getElementById("bookingStatus");
+
       const name = document.getElementById("nameInput").value.trim();
+      const phone = document.getElementById("phoneInput").value.trim();
       const concern = document.getElementById("concernInput").value;
       const mode = document.getElementById("modeInput").value;
+      const date = document.getElementById("dateInput").value;
+      const time = document.getElementById("timeInput").value;
       const message = document.getElementById("messageInput").value.trim();
 
-      const text = `Hello, my name is ${name}. I would like to book a counselling session.\nConcern: ${concern}\nPreference: ${mode}\nMessage: ${message}`;
+      const booking = {
+        submittedAt: new Date().toLocaleString("en-IN"),
+        name,
+        phone,
+        concern,
+        mode,
+        preferredDate: date || "Not selected",
+        preferredTime: time || "Not selected",
+        message: message || "No message",
+        status: "New"
+      };
 
-      window.open(`https://wa.me/918108719701?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      button.textContent = "Saving...";
+      button.disabled = true;
+      status.textContent = "";
+
+      if (GOOGLE_SHEET_WEB_APP_URL.includes("PASTE_YOUR")) {
+        status.textContent = "Google Sheet is not connected yet. Opening WhatsApp...";
+        openBookingWhatsApp(booking);
+        button.textContent = "Save Request & Open WhatsApp";
+        button.disabled = false;
+        return;
+      }
+
+      fetch(GOOGLE_SHEET_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(booking)
+      })
+        .then(() => {
+          status.textContent = "Request saved. Opening WhatsApp...";
+          openBookingWhatsApp(booking);
+          event.target.reset();
+        })
+        .catch(() => {
+          status.textContent = "Could not save automatically, but WhatsApp will still open.";
+          openBookingWhatsApp(booking);
+        })
+        .finally(() => {
+          button.textContent = "Save Request & Open WhatsApp";
+          button.disabled = false;
+        });
+    }
+
+    function openBookingWhatsApp(booking) {
+      const text =
+`Hello, my name is ${booking.name}. I would like to book a counselling session.
+
+Phone: ${booking.phone}
+Concern: ${booking.concern}
+Preference: ${booking.mode}
+Preferred date: ${booking.preferredDate}
+Preferred time: ${booking.preferredTime}
+Message: ${booking.message}`;
+
+      window.open(
+        `https://wa.me/918108719701?text=${encodeURIComponent(text)}`,
+        "_blank",
+        "noopener"
+      );
     }
 
     const revealItems = document.querySelectorAll(".reveal");
