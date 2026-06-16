@@ -24,6 +24,7 @@
       --muted: #647570;
       --line: rgba(20, 56, 63, 0.12);
       --shadow: 0 22px 55px rgba(20, 56, 63, 0.10);
+      --shadow-soft: 0 16px 38px rgba(20, 56, 63, 0.08);
     }
 
     * {
@@ -46,6 +47,7 @@
         radial-gradient(circle at 10% 8%, rgba(207, 231, 220, 0.95), transparent 30%),
         radial-gradient(circle at 88% 18%, rgba(245, 229, 211, 0.95), transparent 28%),
         linear-gradient(135deg, #fffaf2 0%, #edf7f3 48%, #fff4e8 100%);
+      text-rendering: optimizeLegibility;
     }
 
     body.menu-open {
@@ -102,8 +104,8 @@
     }
 
     .soft-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
     }
 
     .btn-primary {
@@ -178,33 +180,53 @@
       overflow: hidden;
       background: rgba(255, 255, 255, 0.78);
       border: 1px solid var(--line);
-      box-shadow: 0 18px 42px rgba(20, 56, 63, 0.08);
+      box-shadow: var(--shadow-soft);
       transition: 0.28s ease;
     }
 
     .gallery-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
-    .gallery-placeholder {
-      min-height: 255px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 24px;
+    .gallery-media {
+      position: relative;
+      height: 245px;
+      overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(47, 111, 103, 0.16), rgba(216, 111, 80, 0.14)),
-        radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.88), transparent 34%),
-        #e8f4ef;
+        linear-gradient(135deg, rgba(232, 244, 239, 0.96), rgba(255, 242, 226, 0.96)),
+        radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.85), transparent 32%);
     }
 
-    .gallery-placeholder span {
-      display: inline-flex;
-      max-width: 220px;
+    .gallery-card.feature .gallery-media {
+      height: 345px;
+    }
+
+    .gallery-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-card:hover .gallery-photo {
+      transform: scale(1.035);
+    }
+
+    .gallery-empty {
+      display: none;
+      position: absolute;
+      inset: 0;
+      place-items: center;
+      padding: 22px;
+      text-align: center;
       color: var(--ink);
       font-weight: 800;
       line-height: 1.35;
+      background:
+        radial-gradient(circle at 20% 16%, rgba(255, 255, 255, 0.82), transparent 34%),
+        linear-gradient(135deg, rgba(47, 111, 103, 0.13), rgba(216, 111, 80, 0.13));
     }
 
     .detail-pill {
@@ -234,24 +256,34 @@
     }
 
     .breath-circle {
-      animation: breathe 5.6s ease-in-out infinite;
-      animation-play-state: paused;
+      transform: scale(0.78);
+      opacity: 0.68;
+      transition: transform 4s ease-in-out, opacity 4s ease-in-out;
+      will-change: transform, opacity;
     }
 
-    .breathing .breath-circle {
-      animation-play-state: running;
+    .breathing.phase-inhale .breath-circle {
+      transform: scale(1.08);
+      opacity: 1;
+      transition-duration: 4s;
     }
 
-    @keyframes breathe {
-      0%, 100% {
-        transform: scale(0.78);
-        opacity: 0.65;
-      }
+    .breathing.phase-hold .breath-circle {
+      transform: scale(1.08);
+      opacity: 1;
+      transition-duration: 0.6s;
+    }
 
-      50% {
-        transform: scale(1.08);
-        opacity: 1;
-      }
+    .breathing.phase-exhale .breath-circle {
+      transform: scale(0.78);
+      opacity: 0.68;
+      transition-duration: 6s;
+    }
+
+    .breathing.phase-rest .breath-circle {
+      transform: scale(0.78);
+      opacity: 0.68;
+      transition-duration: 1s;
     }
 
     .faq-answer {
@@ -643,8 +675,9 @@
         line-height: 1.55;
       }
 
-      .gallery-placeholder {
-        min-height: 210px;
+      .gallery-media,
+      .gallery-card.feature .gallery-media {
+        height: 225px;
       }
 
       .gallery-card {
@@ -675,26 +708,26 @@
       }
 
       .breath-wrap {
-        min-height: 230px;
+        min-height: 250px;
       }
 
       .breath-outer {
-        width: 205px;
-        height: 205px;
+        width: 215px;
+        height: 215px;
       }
 
       .breath-large {
-        width: 162px;
-        height: 162px;
+        width: 168px;
+        height: 168px;
       }
 
       .breath-small {
-        width: 112px;
-        height: 112px;
+        width: 116px;
+        height: 116px;
       }
 
       #breathText {
-        font-size: 27px;
+        font-size: 26px;
       }
 
       #process .grid.md\:grid-cols-3 {
@@ -793,7 +826,7 @@
         </div>
       </a>
 
-      <nav class="desktop-nav items-center gap-7 text-sm font-bold text-[var(--muted)]">
+      <nav class="desktop-nav items-center gap-6 text-sm font-bold text-[var(--muted)]">
         <a href="#services" class="hover:text-[var(--ink)] transition">Services</a>
         <a href="#gallery" class="hover:text-[var(--ink)] transition">Gallery</a>
         <a href="#vision" class="hover:text-[var(--ink)] transition">Vision</a>
@@ -1037,56 +1070,144 @@
 
     <section id="gallery" class="section-pad px-5 py-16">
       <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-10 reveal">
-          <p class="section-label">Gallery</p>
+        <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-8 items-end mb-10">
+          <div class="reveal">
+            <p class="section-label">Gallery</p>
 
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            A gentle look into our counselling space.
-          </h2>
+            <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
+              A softer preview of the space before you visit.
+            </h2>
+          </div>
 
-          <p class="body-text mt-4 text-[var(--muted)] leading-relaxed">
-            Add photos of your counselling room, online setup, waiting area, certificates, workshops,
-            or any calm corner that helps visitors feel safe before they book.
+          <p class="body-text text-[var(--muted)] leading-relaxed reveal">
+            Add photos of your counselling room, online setup, waiting area, certificates,
+            workshops, and calming corners. Replace the image paths with your own files when ready.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-5">
-          <article class="gallery-card rounded-[28px] reveal">
-            <div class="gallery-placeholder">
-              <span>Replace with counselling room photo</span>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article class="gallery-card feature md:col-span-2 rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-01.jpg" alt="Counselling room at Rujal Counselling Center" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Counselling room photo</div>
             </div>
-            <div class="p-5">
-              <span class="detail-pill">Demo photo area</span>
-              <h3 class="mt-4 text-xl font-bold">Counselling Room</h3>
+            <div class="p-5 md:p-6">
+              <span class="detail-pill">Center photo</span>
+              <h3 class="mt-4 text-2xl font-bold">Counselling Room</h3>
               <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                Replace this block with your actual center photo or use an image tag like
-                images/gallery-counselling-room.jpg.
+                A warm and private space for one-to-one counselling conversations.
               </p>
             </div>
           </article>
 
-          <article class="gallery-card rounded-[28px] reveal">
-            <div class="gallery-placeholder">
-              <span>Replace with virtual session setup</span>
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-02.jpg" alt="Virtual counselling setup" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Virtual counselling setup</div>
             </div>
             <div class="p-5">
-              <span class="detail-pill">Virtual center</span>
-              <h3 class="mt-4 text-xl font-bold">Online Sessions</h3>
+              <span class="detail-pill">Online support</span>
+              <h3 class="mt-4 text-xl font-bold">Virtual Sessions</h3>
               <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                Use this card for your virtual counselling setup, online desk, or tele-counselling space.
+                Add your virtual counselling desk, online setup, or tele-counselling space.
               </p>
             </div>
           </article>
 
-          <article class="gallery-card rounded-[28px] reveal">
-            <div class="gallery-placeholder">
-              <span>Replace with workshop or certificate photo</span>
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-03.jpg" alt="Waiting area" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Waiting area photo</div>
             </div>
             <div class="p-5">
-              <span class="detail-pill">Optional highlight</span>
-              <h3 class="mt-4 text-xl font-bold">Workshops & Awareness</h3>
+              <span class="detail-pill">Comfort</span>
+              <h3 class="mt-4 text-xl font-bold">Waiting Area</h3>
               <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                Add workshop photos, certificates, awareness sessions, or center updates here.
+                Show the visitor experience before a session begins.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-04.jpg" alt="Counselling desk" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Counselling desk photo</div>
+            </div>
+            <div class="p-5">
+              <span class="detail-pill">Session space</span>
+              <h3 class="mt-4 text-xl font-bold">Session Desk</h3>
+              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+                Add a detail shot that feels calm, clean, and professional.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-05.jpg" alt="Counselling certificates" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Certificates photo</div>
+            </div>
+            <div class="p-5">
+              <span class="detail-pill">Credentials</span>
+              <h3 class="mt-4 text-xl font-bold">Certificates</h3>
+              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+                Use this for certificates, training, or professional milestones.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-06.jpg" alt="Mental health workshop" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Workshop photo</div>
+            </div>
+            <div class="p-5">
+              <span class="detail-pill">Awareness</span>
+              <h3 class="mt-4 text-xl font-bold">Workshops</h3>
+              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+                Add mental wellness workshops, talks, or awareness sessions here.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-07.jpg" alt="Calm corner in counselling center" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Calm corner photo</div>
+            </div>
+            <div class="p-5">
+              <span class="detail-pill">Calm space</span>
+              <h3 class="mt-4 text-xl font-bold">Calm Corner</h3>
+              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+                Show a plant, shelf, artwork, chair, or any soft detail from the center.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-08.jpg" alt="Counselling center entrance" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Entrance photo</div>
+            </div>
+            <div class="p-5">
+              <span class="detail-pill">Visit</span>
+              <h3 class="mt-4 text-xl font-bold">Center Entrance</h3>
+              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+                Help visitors recognize the place when they arrive.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card rounded-[30px] reveal">
+            <div class="gallery-media">
+              <img src="images/gallery-09.jpg" alt="Rujal Counselling Center highlight" class="gallery-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <div class="gallery-empty">Center highlight photo</div>
+            </div>
+            <div class="p-5">
+              <span class="detail-pill">Highlight</span>
+              <h3 class="mt-4 text-xl font-bold">Center Moments</h3>
+              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
+                Add any final photo that represents the warmth of your counselling center.
               </p>
             </div>
           </article>
@@ -1235,12 +1356,12 @@
           <p class="section-label">Calm Tool</p>
 
           <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Take a moment to slow down and breathe.
+            Take a slower breath with a gentle rhythm.
           </h2>
 
           <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            If you are feeling tense or unsure, pause here for one slow breath.
-            Small moments of steadiness can make the next step feel easier.
+            Inhale slowly, hold for a few seconds, and then breathe out even more slowly.
+            This small pause can help your body feel steadier before the next step.
           </p>
 
           <button onclick="toggleBreathing()" class="mt-7 btn-primary px-7 py-3.5 rounded-full font-bold transition" id="breathButton">
@@ -1248,15 +1369,16 @@
           </button>
         </div>
 
-        <div id="breathBox" class="breath-wrap flex flex-col items-center justify-center min-h-[300px]">
-          <div class="breath-outer relative w-64 h-64 flex items-center justify-center">
+        <div id="breathBox" class="breath-wrap flex flex-col items-center justify-center min-h-[320px]">
+          <div class="breath-outer relative w-72 h-72 flex items-center justify-center">
             <div class="absolute inset-0 rounded-full bg-[rgba(47,111,103,0.10)]"></div>
-            <div class="breath-circle breath-large absolute w-52 h-52 rounded-full bg-[rgba(47,111,103,0.22)]"></div>
-            <div class="breath-circle breath-small absolute w-36 h-36 rounded-full bg-[rgba(238,173,145,0.25)]"></div>
+            <div class="breath-circle breath-large absolute w-56 h-56 rounded-full bg-[rgba(47,111,103,0.22)]"></div>
+            <div class="breath-circle breath-small absolute w-40 h-40 rounded-full bg-[rgba(238,173,145,0.25)]"></div>
 
-            <div class="relative text-center">
+            <div class="relative text-center px-5">
               <p class="section-label">Breathe</p>
               <p id="breathText" class="serif text-3xl font-bold mt-2">Ready</p>
+              <p id="breathHint" class="mt-2 text-sm font-bold text-[var(--muted)]">4 seconds in, hold, 6 seconds out</p>
             </div>
           </div>
         </div>
@@ -1627,33 +1749,80 @@
     }
 
     let breathing = false;
-    let breathTimer;
-    let breathIndex = 0;
-    const breathPrompts = ["Inhale slowly", "Hold softly", "Exhale slowly", "Relax"];
+    let breathTimer = null;
+    let breathPhaseIndex = 0;
+
+    const breathPhases = [
+      {
+        className: "phase-inhale",
+        text: "Inhale slowly",
+        hint: "Breathe in for 4 seconds",
+        duration: 4000
+      },
+      {
+        className: "phase-hold",
+        text: "Hold softly",
+        hint: "Hold for 4 seconds",
+        duration: 4200
+      },
+      {
+        className: "phase-exhale",
+        text: "Exhale slowly",
+        hint: "Breathe out for 6 seconds",
+        duration: 6200
+      },
+      {
+        className: "phase-rest",
+        text: "Rest",
+        hint: "Let your body settle",
+        duration: 1800
+      }
+    ];
+
+    function clearBreathPhases(box) {
+      box.classList.remove("phase-inhale", "phase-hold", "phase-exhale", "phase-rest");
+    }
+
+    function runBreathPhase() {
+      const box = document.getElementById("breathBox");
+      const text = document.getElementById("breathText");
+      const hint = document.getElementById("breathHint");
+      const phase = breathPhases[breathPhaseIndex];
+
+      clearBreathPhases(box);
+      box.classList.add("breathing", phase.className);
+      text.textContent = phase.text;
+      hint.textContent = phase.hint;
+
+      clearTimeout(breathTimer);
+      breathTimer = setTimeout(() => {
+        breathPhaseIndex = (breathPhaseIndex + 1) % breathPhases.length;
+        if (breathing) {
+          runBreathPhase();
+        }
+      }, phase.duration);
+    }
 
     function toggleBreathing() {
       const box = document.getElementById("breathBox");
       const text = document.getElementById("breathText");
+      const hint = document.getElementById("breathHint");
       const button = document.getElementById("breathButton");
 
       breathing = !breathing;
 
       if (breathing) {
-        box.classList.add("breathing");
         button.textContent = "Pause Breathing";
-        text.textContent = breathPrompts[0];
-
-        clearInterval(breathTimer);
-        breathTimer = setInterval(() => {
-          breathIndex = (breathIndex + 1) % breathPrompts.length;
-          text.textContent = breathPrompts[breathIndex];
-        }, 2200);
+        breathPhaseIndex = 0;
+        runBreathPhase();
       } else {
+        clearTimeout(breathTimer);
+        clearBreathPhases(box);
         box.classList.remove("breathing");
-        button.textContent = "Start Breathing";
         text.textContent = "Ready";
-        breathIndex = 0;
-        clearInterval(breathTimer);
+        hint.textContent = "4 seconds in, hold, 6 seconds out";
+        button.textContent = "Start Breathing";
+        breathPhaseIndex = 0;
       }
     }
 
