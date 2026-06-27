@@ -1,1823 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Rujal Counselling Center | Counselling Support in Pune</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rujal Counselling Center | Pune</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --ink: #14383f;
-      --teal: #2f6f67;
-      --teal-dark: #245852;
-      --mint: #e8f4ef;
-      --cream: #fff9ef;
-      --coral: #d86f50;
+      --ink: #24383d;
+      --muted: #667a7d;
+      --accent: #5f8f8b;
+      --accent-dark: #47736f;
+      --soft: #f7faf9;
+      --line: rgba(36, 56, 61, 0.12);
+      --clay: #b68b7a;
       --white: #ffffff;
-      --muted: #647570;
-      --line: rgba(20, 56, 63, 0.12);
-      --shadow: 0 22px 55px rgba(20, 56, 63, 0.10);
-      --shadow-soft: 0 16px 38px rgba(20, 56, 63, 0.08);
+      --shadow: 0 18px 45px rgba(36, 56, 61, 0.10);
     }
 
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html,
-    body {
-      width: 100%;
-      overflow-x: hidden;
     }
 
     body {
       margin: 0;
       font-family: "Nunito Sans", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 10% 8%, rgba(207, 231, 220, 0.95), transparent 30%),
-        radial-gradient(circle at 88% 18%, rgba(245, 229, 211, 0.95), transparent 28%),
-        linear-gradient(135deg, #fffaf2 0%, #edf7f3 48%, #fff4e8 100%);
-      text-rendering: optimizeLegibility;
+      background: var(--white);
+      line-height: 1.6;
     }
 
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    h1,
-    h2,
-    h3,
-    .serif {
-      font-family: "Lora", serif;
-    }
-
-    img,
-    iframe {
+    img {
       max-width: 100%;
+      display: block;
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
+    h1, h2, h3 {
+      font-family: "Lora", serif;
+      line-height: 1.15;
+      margin: 0;
     }
 
-    input,
-    select,
-    textarea {
-      font-size: 16px;
+    p {
+      margin: 0;
     }
 
-    .site-header {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .header {
       position: sticky;
       top: 0;
-      z-index: 80;
-      background: rgba(255, 249, 239, 0.92);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
     }
 
-    .panel {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    .soft-card {
-      background: rgba(255, 255, 255, 0.68);
-      border: 1px solid var(--line);
-      transition: 0.28s ease;
-    }
-
-    .soft-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary {
-      display: inline-flex;
+    .nav {
+      min-height: 76px;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--teal), var(--ink));
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5f8f8b, #ee4d8d);
+      display: grid;
+      place-items: center;
       color: white;
-      box-shadow: 0 15px 28px rgba(20, 56, 63, 0.20);
-      min-height: 46px;
+      font-weight: 800;
     }
 
-    .btn-secondary {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid var(--line);
-      color: var(--ink);
       min-height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 12px 25px rgba(71, 115, 111, 0.22);
     }
 
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-2px);
+    .hero {
+      padding: 76px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faf9 100%);
+      border-bottom: 1px solid var(--line);
     }
 
-    .section-label {
-      color: var(--coral);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .label {
+      color: var(--clay);
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      margin-bottom: 14px;
     }
 
-    .hero-visual {
-      position: relative;
-      isolation: isolate;
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      max-width: 760px;
     }
 
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 8%;
-      z-index: -1;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(47, 111, 103, 0.18), rgba(238, 173, 145, 0.18));
-      filter: blur(18px);
+    .hero p {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 620px;
     }
 
-    .organic-shape {
-      border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-    }
-
-    .service-tab.active {
-      background: var(--ink);
-      color: white;
-      border-color: transparent;
-    }
-
-    .service-tab.active p {
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .mood-chip.active {
-      background: var(--teal);
-      color: white;
-      border-color: var(--teal);
-    }
-
-    .gallery-shell {
-      position: relative;
-    }
-
-    .gallery-top {
+    .hero-actions {
       display: flex;
-      justify-content: flex-end;
-      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
     }
 
-    .gallery-track {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(320px, 32%);
-      gap: 18px;
-      overflow-x: auto;
-      overscroll-behavior-inline: contain;
-      scroll-snap-type: x mandatory;
-      scroll-padding-inline: 2px;
-      padding: 4px 2px 18px;
-      scrollbar-width: thin;
-    }
-
-    .gallery-track::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .gallery-track::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.48);
-      border-radius: 999px;
-    }
-
-    .gallery-track::-webkit-scrollbar-thumb {
-      background: rgba(47, 111, 103, 0.38);
-      border-radius: 999px;
-    }
-
-    .gallery-slide {
-      scroll-snap-align: start;
-      overflow: hidden;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.78);
+    .hero-card {
       border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-      transition: 0.28s ease;
-    }
-
-    .gallery-slide:hover {
-      transform: translateY(-4px);
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
       box-shadow: var(--shadow);
     }
 
-    .gallery-media {
-      position: relative;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.86), transparent 34%),
-        linear-gradient(135deg, rgba(232, 244, 239, 0.96), rgba(255, 242, 226, 0.96));
+    .hero-card h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
     }
 
-    .gallery-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.45s ease;
+    .quick-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
     }
 
-    .gallery-slide:hover .gallery-photo {
-      transform: scale(1.035);
-    }
-
-    .gallery-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .gallery-arrow {
-      width: 46px;
-      height: 46px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.86);
+    .quick-list span {
+      padding: 13px 16px;
+      border-radius: 16px;
+      background: var(--soft);
       color: var(--ink);
-      font-size: 24px;
       font-weight: 800;
-      box-shadow: var(--shadow-soft);
-      transition: 0.25s ease;
     }
 
-    .gallery-arrow:hover {
-      transform: translateY(-2px);
-      background: var(--ink);
-      color: white;
+    section {
+      padding: 76px 0;
     }
 
-    .vision-panel {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.88), rgba(232,244,239,0.72)),
-        radial-gradient(circle at 85% 12%, rgba(216,111,80,0.12), transparent 32%);
+    .section-soft {
+      background: var(--soft);
     }
 
-    .why-card {
-      min-height: 100%;
+    .section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      max-width: 780px;
     }
 
-    .mobile-soft-note {
-      border-left: 4px solid var(--coral);
+    .section-copy {
+      margin-top: 18px;
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 17px;
     }
 
-    .breath-circle {
-      transform: scale(0.78);
-      opacity: 0.68;
-      transition: transform 4s ease-in-out, opacity 4s ease-in-out;
-      will-change: transform, opacity;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 34px;
     }
 
-    .breathing.phase-inhale .breath-circle {
-      transform: scale(1.08);
-      opacity: 1;
-      transition-duration: 4s;
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 26px rgba(36, 56, 61, 0.05);
     }
 
-    .breathing.phase-hold .breath-circle {
-      transform: scale(1.08);
-      opacity: 1;
-      transition-duration: 0.6s;
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
     }
 
-    .breathing.phase-exhale .breath-circle {
-      transform: scale(0.78);
-      opacity: 0.68;
-      transition-duration: 6s;
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
     }
 
-    .breathing.phase-rest .breath-circle {
-      transform: scale(0.78);
-      opacity: 0.68;
-      transition-duration: 1s;
+    .counsellor-panel {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 38px;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
+    .counsellor-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 24px;
     }
 
-    .faq.open .faq-answer {
-      max-height: 260px;
+    .name {
+      font-size: clamp(32px, 4vw, 52px);
+      margin-top: 8px;
     }
 
-    .faq-icon {
-      transition: transform 0.25s ease;
+    .qualification {
+      margin-top: 14px;
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 20px;
     }
 
-    .faq.open .faq-icon {
-      transform: rotate(45deg);
+    .bio {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 17px;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: 0.7s ease;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 28px;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: var(--soft);
     }
 
-    .mobile-menu,
-    .mobile-menu-backdrop {
-      display: none;
+    .stat strong {
+      display: block;
+      font-family: "Lora", serif;
+      font-size: 22px;
+      color: var(--ink);
     }
 
-    @media (min-width: 1025px) {
-      .mobile-menu-button {
-        display: none;
-      }
-
-      .desktop-nav {
-        display: flex;
-      }
-
-      .desktop-book {
-        display: inline-flex;
-      }
+    .stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    @media (max-width: 1024px) {
-      html,
-      body {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
+    .contact-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
 
-      body {
-        background:
-          radial-gradient(circle at 0% 4%, rgba(207, 231, 220, 0.9), transparent 34%),
-          radial-gradient(circle at 100% 12%, rgba(245, 229, 211, 0.95), transparent 34%),
-          linear-gradient(135deg, #fffaf2 0%, #edf7f3 48%, #fff4e8 100%);
-      }
+    .footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
 
-      main,
-      section,
-      header,
-      footer {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-
-      .site-header {
-        background: rgba(255, 249, 239, 0.98);
-      }
-
-      .site-header > div {
-        min-height: 74px;
-        padding: 10px 16px;
-        gap: 12px;
-      }
-
-      .site-header a[href="#home"] {
-        min-width: 0;
-        flex: 1;
-      }
-
-      .brand-logo {
-        width: 52px !important;
-        height: 52px !important;
-      }
-
-      .brand-owner {
-        font-size: 12px !important;
-        line-height: 1.1;
-      }
-
-      .brand-name {
-        font-size: 22px !important;
-        line-height: 1.12;
-        max-width: 310px;
-      }
-
-      .desktop-nav,
-      .desktop-book {
-        display: none !important;
-      }
-
-      .mobile-menu-button {
-        display: inline-flex;
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
-        border-radius: 999px;
-        font-size: 25px;
-        line-height: 1;
-        position: relative;
-        z-index: 120;
-      }
-
-      .mobile-menu-backdrop.open {
-        display: block;
-        position: fixed;
-        inset: 0;
-        z-index: 90;
-        background: rgba(20, 56, 63, 0.28);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-      }
-
-      .mobile-menu.open {
-        display: grid;
-        position: fixed;
-        left: 14px;
-        right: 14px;
-        top: 86px;
-        z-index: 110;
-        gap: 10px;
-        padding: 16px;
-        max-height: calc(100svh - 106px);
-        overflow-y: auto;
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.98);
-        border: 1px solid var(--line);
-        box-shadow: 0 28px 70px rgba(20, 56, 63, 0.22);
-      }
-
-      .mobile-menu a {
-        min-height: 50px;
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        border-radius: 16px;
-        color: var(--ink);
-        background: rgba(232, 244, 239, 0.72);
-        border: 1px solid var(--line);
-      }
-
-      .mobile-menu a:last-child {
-        margin-top: 4px;
-        justify-content: center;
-        color: white;
-        background: linear-gradient(135deg, var(--teal), var(--ink));
-      }
-
-      .section-pad {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-      }
-
-      section {
-        scroll-margin-top: 92px;
-      }
-
-      .hero-section {
-        padding-top: 34px !important;
-        padding-bottom: 44px !important;
-      }
-
+    @media (max-width: 900px) {
       .hero-grid,
-      #mood > div,
-      #approach > div,
-      #location > div,
-      #calm > div,
-      #vision > div {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-      }
-
-      #booking > div {
-        display: block !important;
-      }
-
-      #booking form {
-        margin-top: 24px;
-      }
-
-      .hero-grid > *,
-      .hero-visual,
-      .panel,
-      .soft-card,
-      form,
-      iframe {
-        min-width: 0;
-        max-width: 100%;
-      }
-
-      .hero-grid > .reveal:first-child {
-        order: 1;
-      }
-
-      .hero-visual {
-        order: 2;
-        width: 100%;
-      }
-
-      .hero-visual .organic-shape {
-        padding: 18px;
-        min-height: 170px;
-        border-radius: 28px;
-        display: grid;
-        place-items: center;
-      }
-
-      .hero-visual img {
-        width: 100%;
-        max-width: 210px;
-        max-height: 138px;
-        object-fit: contain;
-      }
-
-      .hero-visual .panel:last-child {
-        position: static;
-        max-width: 100%;
-        margin-top: 12px;
-        padding: 16px;
-        border-radius: 20px;
-      }
-
-      .hero-title {
-        font-size: 40px !important;
-        line-height: 1.08;
-      }
-
-      .section-title {
-        font-size: 31px !important;
-        line-height: 1.14;
-      }
-
-      .body-text {
-        font-size: 16px;
-        line-height: 1.68;
-        text-wrap: pretty;
-      }
-
-      .section-label {
-        font-size: 11px;
-        letter-spacing: 0.11em;
-      }
-
-      .hero-actions {
-        display: grid;
+      .counsellor-panel,
+      .contact-box {
         grid-template-columns: 1fr;
-        gap: 10px;
-        margin-top: 24px;
       }
 
-      .hero-actions a,
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-        min-height: 50px;
-        text-align: center;
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-stats {
-        grid-template-columns: 1fr !important;
-        gap: 10px;
-        margin-top: 24px;
-      }
-
-      .hero-stats .soft-card {
-        padding: 16px;
-      }
-
-      .hero-stats .serif {
-        font-size: 21px;
-      }
-
-      .panel {
-        border-radius: 22px;
-      }
-
-      .soft-card {
-        border-radius: 18px;
-      }
-
-      .organic-shape {
-        border-radius: 26px;
-      }
-
-      .support-strip {
-        display: grid;
-        grid-template-columns: 1fr !important;
-        gap: 10px;
-        padding: 16px;
-        text-align: left;
-        overflow: visible;
-      }
-
-      .support-strip > div {
-        width: 100%;
-        min-width: 0;
-        padding: 15px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.68);
-        border: 1px solid var(--line);
-      }
-
-      .support-strip .serif {
-        font-size: 22px;
-      }
-
-      #mood,
-      #services,
-      #gallery,
-      #vision,
-      #approach,
-      #calm,
-      #process,
-      #location,
-      #booking,
-      #faq {
-        padding-top: 46px !important;
-        padding-bottom: 46px !important;
-      }
-
-      #mood .panel,
-      #booking .panel,
-      #calm .panel,
-      footer .panel {
-        padding: 20px;
-      }
-
-      .mood-buttons {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .mood-chip {
-        width: 100%;
-        justify-content: flex-start;
-        text-align: left;
-        min-height: 48px;
-        padding: 12px 14px;
-        border-radius: 16px;
-        white-space: normal;
-      }
-
-      .service-buttons {
-        display: grid;
-        grid-template-columns: 1fr !important;
-        gap: 12px;
-        overflow: visible;
-      }
-
-      .service-tab {
-        width: 100%;
-        min-width: 0;
-        padding: 18px;
-        border-radius: 18px;
-      }
-
-      .service-tab h3 {
-        font-size: 19px;
-        line-height: 1.22;
-      }
-
-      #services .panel {
-        min-height: auto;
-        padding: 22px;
-      }
-
-      #serviceTitle {
-        font-size: 26px;
-        line-height: 1.16;
-      }
-
-      #serviceList {
-        padding-left: 18px;
-        list-style: disc;
-        gap: 10px;
-      }
-
-      #serviceList li {
-        line-height: 1.55;
-      }
-
-      .gallery-top {
-        margin-bottom: 12px;
-      }
-
-      .gallery-track {
-        grid-auto-columns: minmax(270px, 86%);
-        gap: 14px;
-        padding-bottom: 14px;
-      }
-
-      .gallery-slide {
-        border-radius: 22px;
-      }
-
-      .gallery-controls {
+      .nav-links {
         display: none;
-      }
-
-      .vision-panel {
-        border-radius: 24px;
-        padding: 22px;
-      }
-
-      .mobile-soft-note {
-        padding: 15px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.72);
-      }
-
-      #approach .grid.sm\:grid-cols-2,
-      section .grid.sm\:grid-cols-2 {
-        grid-template-columns: 1fr !important;
-        gap: 12px;
-      }
-
-      .breath-wrap {
-        min-height: 250px;
-      }
-
-      .breath-outer {
-        width: 215px;
-        height: 215px;
-      }
-
-      .breath-large {
-        width: 168px;
-        height: 168px;
-      }
-
-      .breath-small {
-        width: 116px;
-        height: 116px;
-      }
-
-      #breathText {
-        font-size: 26px;
-      }
-
-      #process .grid.md\:grid-cols-3 {
-        grid-template-columns: 1fr !important;
-        gap: 12px;
-      }
-
-      #process .panel {
-        padding: 20px;
-      }
-
-      .map-frame {
-        height: 290px;
-      }
-
-      #booking form {
-        gap: 12px;
-        width: 100%;
-      }
-
-      #booking input:not([type="checkbox"]),
-      #booking select,
-      #booking textarea {
-        width: 100%;
-        border-radius: 16px;
-        padding: 15px 16px;
-        background: rgba(255, 255, 255, 0.82);
-      }
-
-      #consentInput {
-        width: 18px !important;
-        height: 18px !important;
-        min-width: 18px !important;
-        padding: 0 !important;
-        border-radius: 4px !important;
-        margin-top: 3px !important;
-      }
-
-      #booking label {
-        align-items: flex-start;
-      }
-
-      .booking-note {
-        padding: 12px 14px;
-        border-radius: 16px;
-        background: rgba(232, 244, 239, 0.72);
-        border: 1px solid var(--line);
-      }
-
-      .faq.panel {
-        padding: 18px;
-        border-radius: 20px;
-      }
-
-      .faq h3 {
-        font-size: 18px;
-        line-height: 1.28;
-      }
-
-      .floating-whatsapp {
-        display: none;
-      }
-
-      footer {
-        padding-bottom: calc(32px + env(safe-area-inset-bottom));
       }
     }
 
-    @media (max-width: 520px) {
-      .site-header > div {
-        min-height: 68px;
-        padding: 9px 14px;
+    @media (max-width: 560px) {
+      .hero,
+      section {
+        padding: 56px 0;
       }
 
-      .brand-logo {
-        width: 46px !important;
-        height: 46px !important;
+      .cards,
+      .stats {
+        grid-template-columns: 1fr;
       }
 
-      .brand-owner {
-        font-size: 10px !important;
-      }
-
-      .brand-name {
-        font-size: 18px !important;
-        max-width: 220px;
-      }
-
-      .mobile-menu-button {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        font-size: 23px;
-      }
-
-      .hero-section {
-        padding-top: 28px !important;
-      }
-
-      .hero-title {
-        font-size: 34px !important;
-      }
-
-      .section-title {
-        font-size: 28px !important;
-      }
-
-      .hero-visual img {
-        max-width: 185px;
-        max-height: 128px;
-      }
-
-      .gallery-track {
-        grid-auto-columns: minmax(252px, 88%);
+      .counsellor-panel {
+        padding: 18px;
+        border-radius: 24px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <header class="site-header">
-    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
-      <a href="#home" class="flex items-center gap-3 min-w-0">
-        <img
-          src="Screenshot 2026-05-21 131617(2).png"
-          alt="Rujal Counselling Center Logo"
-          class="brand-logo w-16 h-16 md:w-20 md:h-20 object-contain shrink-0"
-        />
-
-        <div class="min-w-0">
-          <p class="brand-owner text-xs md:text-sm text-[var(--muted)]">
-            Ms. Saloni Suryawanshi's
-          </p>
-
-          <h1 class="brand-name text-xl md:text-2xl font-bold leading-tight">
-            Rujal Counselling Center
-          </h1>
-        </div>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">R</span>
+        <span>Rujal Counselling Center</span>
       </a>
 
-      <nav class="desktop-nav items-center gap-6 text-sm font-bold text-[var(--muted)]">
-        <a href="#services" class="hover:text-[var(--ink)] transition">Services</a>
-        <a href="#gallery" class="hover:text-[var(--ink)] transition">Gallery</a>
-        <a href="#vision" class="hover:text-[var(--ink)] transition">Vision</a>
-        <a href="#approach" class="hover:text-[var(--ink)] transition">Approach</a>
-        <a href="#process" class="hover:text-[var(--ink)] transition">Process</a>
-        <a href="#location" class="hover:text-[var(--ink)] transition">Location</a>
-        <a href="#faq" class="hover:text-[var(--ink)] transition">FAQ</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#counsellor">Counsellor</a>
+        <a href="#contact">Contact</a>
       </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="desktop-book btn-primary px-5 py-3 rounded-full font-bold transition">
-          Book a Session
-        </a>
-
-        <button onclick="toggleMenu()" id="menuButton" class="mobile-menu-button btn-secondary w-11 h-11 rounded-full font-bold transition text-2xl" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          &#9776;
-        </button>
-      </div>
     </div>
-
-    <div id="mobileMenuBackdrop" class="mobile-menu-backdrop" onclick="closeMenu()"></div>
-
-    <nav id="mobileMenu" class="mobile-menu text-sm font-bold text-[var(--muted)]">
-      <a href="#services" onclick="closeMenu()">Services</a>
-      <a href="#gallery" onclick="closeMenu()">Gallery</a>
-      <a href="#vision" onclick="closeMenu()">Vision</a>
-      <a href="#approach" onclick="closeMenu()">Approach</a>
-      <a href="#process" onclick="closeMenu()">Process</a>
-      <a href="#location" onclick="closeMenu()">Location</a>
-      <a href="#faq" onclick="closeMenu()">FAQ</a>
-      <a href="https://wa.me/918108719701" target="_blank" rel="noopener" onclick="closeMenu()" class="btn-primary px-5 py-3 rounded-full font-bold transition justify-center">
-        Book a Session
-      </a>
-    </nav>
   </header>
 
-  <main id="home">
-
-    <section class="hero-section section-pad px-5 py-16 md:py-20">
-      <div class="hero-grid max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
-        <div class="reveal">
-          <div class="inline-flex items-center gap-3 panel rounded-full px-4 py-2 mb-6">
-            <span class="w-2.5 h-2.5 rounded-full bg-[var(--teal)] shrink-0"></span>
-            <p class="text-sm font-bold text-[var(--muted)] leading-snug">
-              Confidential psychological counselling in a calm, supportive space
-            </p>
-          </div>
-
-          <h2 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
-            A safe space to talk, heal, and move forward.
-          </h2>
-
-          <p class="body-text mt-6 text-base md:text-lg text-[var(--muted)] leading-relaxed max-w-2xl">
-            Rujal Counselling Center offers professional and compassionate support for anxiety,
-            stress, low mood, grief, relationship concerns, self-esteem, and personal growth.
-            Every session is private, respectful, and guided at a pace that feels comfortable for you.
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="label">Mental Health Services</p>
+          <h1>You do not have to face it alone.</h1>
+          <p>
+            Professional, confidential counselling support for anxiety, stress,
+            relationship concerns, grief, communication difficulties, and personal growth.
           </p>
 
-          <div class="hero-actions mt-8 flex flex-wrap gap-3">
-            <a href="#booking" class="btn-primary px-7 py-3.5 rounded-full font-bold transition">
-              Book an Appointment
-            </a>
-
-            <a href="#mood" class="btn-secondary px-7 py-3.5 rounded-full font-bold transition">
-              How Can We Help?
-            </a>
-          </div>
-
-          <div class="hero-stats mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Confidential</p>
-              <p class="text-sm text-[var(--muted)] mt-1">Private counselling sessions</p>
-            </div>
-
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Professional</p>
-              <p class="text-sm text-[var(--muted)] mt-1">5+ years of counselling experience</p>
-            </div>
-
-            <div class="soft-card rounded-3xl p-5">
-              <p class="serif text-2xl font-bold">Non-judgmental</p>
-              <p class="text-sm text-[var(--muted)] mt-1">A safe place to begin</p>
-            </div>
+          <div class="hero-actions">
+            <a href="#contact" class="button">Book A Session</a>
           </div>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="panel organic-shape p-7 md:p-10">
-            <img src="Screenshot 2026-05-21 131617(2).png" alt="Rujal Counselling Center" class="w-full max-w-[460px] mx-auto object-contain" />
-          </div>
+        <div class="hero-card">
+          <h3>Support That Feels Safe</h3>
+          <p>Calm, private, and compassionate counselling for real-life emotional concerns.</p>
 
-          <div class="panel rounded-3xl p-5 max-w-[280px] mt-5 md:absolute md:-bottom-8 md:left-0">
-            <p class="section-label">First step</p>
-            <p class="mt-2 font-bold leading-snug">
-              It is okay to begin with a simple conversation. Message when you feel ready.
-            </p>
+          <div class="quick-list">
+            <span>Confidential & Safe</span>
+            <span>Compassionate Care</span>
+            <span>Personalized Approach</span>
+            <span>Professional Support</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-pad px-5 pb-16">
-      <div class="support-strip max-w-7xl mx-auto panel rounded-[32px] p-6 grid md:grid-cols-4 gap-5 text-center reveal">
-        <div>
-          <p class="serif text-2xl font-bold">Anxiety</p>
-          <p class="text-sm text-[var(--muted)]">Worry, fear, and overthinking</p>
-        </div>
+    <section id="services">
+      <div class="container">
+        <p class="label">Services</p>
+        <h2 class="section-title">Thoughtful counselling support for real-life concerns.</h2>
+        <p class="section-copy">
+          Counselling can help you slow down, understand what you are carrying,
+          and find healthier ways to cope.
+        </p>
 
-        <div>
-          <p class="serif text-2xl font-bold">Stress</p>
-          <p class="text-sm text-[var(--muted)]">Pressure, burnout, and overwhelm</p>
-        </div>
-
-        <div>
-          <p class="serif text-2xl font-bold">Grief</p>
-          <p class="text-sm text-[var(--muted)]">Loss, change, and healing</p>
-        </div>
-
-        <div>
-          <p class="serif text-2xl font-bold">Growth</p>
-          <p class="text-sm text-[var(--muted)]">Confidence, clarity, and self-worth</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="mood" class="section-pad px-5 py-16">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-        <div class="reveal">
-          <p class="section-label">Support Finder</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            What would you like support with today?
-          </h2>
-
-          <p class="body-text mt-4 text-[var(--muted)] leading-relaxed">
-            Choose the option that feels closest to your current experience. This is not a diagnosis,
-            just a simple way to understand what kind of support may be helpful.
-          </p>
-        </div>
-
-        <div class="panel rounded-[32px] p-6 md:p-8 reveal">
-          <div class="mood-buttons flex flex-wrap gap-3">
-            <button class="mood-chip active btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(0, this)">Overthinking</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(1, this)">Low energy</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(2, this)">Emotional pain</button>
-            <button class="mood-chip btn-secondary rounded-full px-5 py-3 font-bold" onclick="selectMood(3, this)">Self-doubt</button>
+        <div class="cards">
+          <div class="card">
+            <h3>Anxiety & Stress</h3>
+            <p>Support for racing thoughts, pressure, worry, and emotional overwhelm.</p>
           </div>
 
-          <div class="mt-7 bg-[var(--cream)] border border-[var(--line)] rounded-3xl p-6">
-            <p class="section-label" id="moodLabel">Suggested support</p>
-            <h3 class="mt-2 text-2xl font-bold" id="moodTitle">Anxiety & Stress Support</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed" id="moodText">
-              Counselling can help you slow down racing thoughts, understand your triggers,
-              and build calmer ways to respond to daily pressure.
-            </p>
+          <div class="card">
+            <h3>Depression</h3>
+            <p>A safe space to talk through low mood, heaviness, and difficult emotions.</p>
+          </div>
+
+          <div class="card">
+            <h3>Relationships</h3>
+            <p>Guidance for relationship concerns, boundaries, and communication patterns.</p>
+          </div>
+
+          <div class="card">
+            <h3>Personal Growth</h3>
+            <p>Support for self-understanding, confidence, and meaningful change.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services" class="section-pad px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-10 reveal">
-          <p class="section-label">Services</p>
+    <section id="counsellor" class="section-soft">
+      <div class="container">
+        <div class="counsellor-panel">
+          <img
+            src="IMG_0866.JPG"
+            alt="Ms. Saloni Suryawanshi at Rujal Counselling Center"
+            class="counsellor-photo"
+          />
 
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Thoughtful counselling support for real-life concerns.
-          </h2>
+          <div>
+            <p class="label">About The Counsellor</p>
+            <h2 class="name">Ms. Saloni Suryawanshi</h2>
+            <p class="qualification">Counselling Psychologist & Therapist</p>
 
-          <p class="body-text mt-4 text-[var(--muted)] leading-relaxed">
-            Explore the areas where counselling can offer clarity, relief, and steady support.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-7 items-start">
-          <div class="service-buttons grid sm:grid-cols-2 gap-4 reveal">
-            <button class="service-tab active soft-card rounded-3xl p-5 text-left" onclick="showService(0, this)">
-              <h3 class="text-xl font-bold">Anxiety & Stress Support</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">For worry, panic, pressure, and emotional overload.</p>
-            </button>
-
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(1, this)">
-              <h3 class="text-xl font-bold">Low Mood & Depression</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">For sadness, numbness, low energy, and hopelessness.</p>
-            </button>
-
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(2, this)">
-              <h3 class="text-xl font-bold">Grief & Life Changes</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">For loss, painful transitions, and emotional adjustment.</p>
-            </button>
-
-            <button class="service-tab soft-card rounded-3xl p-5 text-left" onclick="showService(3, this)">
-              <h3 class="text-xl font-bold">Self-Growth & Confidence</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">For self-esteem, boundaries, clarity, and resilience.</p>
-            </button>
-          </div>
-
-          <div class="panel rounded-[32px] p-7 md:p-9 min-h-[340px] reveal">
-            <p class="section-label" id="serviceLabel">Anxiety & Stress Support</p>
-
-            <h3 class="mt-3 text-3xl md:text-4xl font-bold leading-tight" id="serviceTitle">
-              Finding steadiness when your mind feels loud.
-            </h3>
-
-            <p class="mt-5 text-[var(--muted)] leading-relaxed" id="serviceText">
-              Counselling can help you understand what triggers anxiety, calm your body,
-              reduce overthinking, and respond to daily stress with more confidence.
+            <p class="bio">
+              Ms. Saloni Suryawanshi offers compassionate psychological counselling
+              focused on emotional well-being, stress management, self-understanding,
+              and personal growth. Her approach is warm, confidential, and practical,
+              helping clients feel heard, supported, and understood.
             </p>
 
-            <ul class="mt-6 grid gap-3 text-[var(--muted)]" id="serviceList">
-              <li>Grounding and calming techniques</li>
-              <li>Support with worry, panic, and overthinking</li>
-              <li>Practical tools for everyday stress</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="stats">
+              <div class="stat">
+                <strong>5+ Years</strong>
+                <span>Counselling experience</span>
+              </div>
 
-    <section id="gallery" class="section-pad px-5 py-16">
-      <div class="max-w-7xl mx-auto gallery-shell">
-        <div class="gallery-top reveal">
-          <div class="gallery-controls">
-            <button type="button" class="gallery-arrow" onclick="scrollGallery(-1)" aria-label="Previous gallery photos">‹</button>
-            <button type="button" class="gallery-arrow" onclick="scrollGallery(1)" aria-label="Next gallery photos">›</button>
-          </div>
-        </div>
+              <div class="stat">
+                <strong>Private</strong>
+                <span>Confidential sessions</span>
+              </div>
 
-        <div id="galleryTrack" class="gallery-track reveal">
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-01.jpg" alt="Gallery photo 1" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-02.jpg" alt="Gallery photo 2" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-03.jpg" alt="Gallery photo 3" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-04.jpg" alt="Gallery photo 4" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-05.jpg" alt="Gallery photo 5" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-06.jpg" alt="Gallery photo 6" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-07.jpg" alt="Gallery photo 7" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-08.jpg" alt="Gallery photo 8" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-          <article class="gallery-slide"><div class="gallery-media"><img src="images/gallery-09.jpg" alt="Gallery photo 9" class="gallery-photo" onerror="this.style.display='none';" /></div></article>
-        </div>
-      </div>
-    </section>
+              <div class="stat">
+                <strong>Personalized</strong>
+                <span>Client-focused approach</span>
+              </div>
 
-    <section id="vision" class="section-pad px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
-        <div class="reveal">
-          <p class="section-label">Why We Exist</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            To make emotional support feel human, safe, and accessible.
-          </h2>
-
-          <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Rujal Counselling Center exists because many people silently carry stress, grief,
-            anxiety, self-doubt, and relationship pain. Our purpose is to offer a space where
-            you can pause, speak freely, understand yourself, and take the next step with care.
-          </p>
-        </div>
-
-        <div class="vision-panel panel rounded-[36px] p-7 md:p-9 reveal">
-          <p class="section-label">Our Vision</p>
-
-          <h3 class="mt-3 text-2xl md:text-4xl font-bold leading-tight">
-            A society where seeking help feels normal, respectful, and hopeful.
-          </h3>
-
-          <div class="grid sm:grid-cols-2 gap-4 mt-7">
-            <div class="soft-card why-card rounded-3xl p-5">
-              <h4 class="text-lg font-bold">Safe Conversations</h4>
-              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                No judgment, no pressure, just space to be heard honestly.
-              </p>
-            </div>
-
-            <div class="soft-card why-card rounded-3xl p-5">
-              <h4 class="text-lg font-bold">Practical Healing</h4>
-              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                Support that helps you understand emotions and manage daily life.
-              </p>
-            </div>
-
-            <div class="soft-card why-card rounded-3xl p-5">
-              <h4 class="text-lg font-bold">Personal Growth</h4>
-              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                Helping you build clarity, confidence, boundaries, and self-trust.
-              </p>
-            </div>
-
-            <div class="soft-card why-card rounded-3xl p-5 mobile-soft-note">
-              <h4 class="text-lg font-bold">Gentle First Steps</h4>
-              <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">
-                Counselling can begin with one simple conversation when you feel ready.
-              </p>
+              <div class="stat">
+                <strong>Supportive</strong>
+                <span>Safe counselling space</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="approach" class="section-pad px-5 py-16">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-        <div class="reveal">
-          <p class="section-label">Approach</p>
+    <section id="contact">
+      <div class="container">
+        <p class="label">Contact</p>
+        <h2 class="section-title">Take the first step toward support.</h2>
+        <p class="section-copy">
+          Reach out to Rujal Counselling Center for confidential psychological counselling in Pune.
+        </p>
 
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            A calm, respectful space to be heard properly.
-          </h2>
-
-          <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Counselling works best when you feel safe enough to speak honestly.
-            The approach at Rujal Counselling Center is warm, confidential, and practical,
-            with space for your emotions and support for everyday coping.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-4 reveal">
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Compassionate listening</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Your concerns are heard with patience, care, and respect.</p>
+        <div class="contact-box">
+          <div class="card">
+            <h3>Phone</h3>
+            <p>8108 719 701</p>
           </div>
 
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Emotional understanding</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Sessions help you make sense of what you feel and what you need.</p>
+          <div class="card">
+            <h3>Email</h3>
+            <p>info.rujalcounselling@gmail.com</p>
           </div>
 
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Practical coping</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">You receive simple tools that can support you outside the session.</p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-6">
-            <h3 class="text-xl font-bold">Your own pace</h3>
-            <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">You are never rushed. Progress can begin calmly, one step at a time.</p>
+          <div class="card">
+            <h3>Address</h3>
+            <p>
+              Rujal Counselling Center, 2nd Floor, InCube Coworking Space,
+              Tejaswini Lane 2, Aundh, Pune, Maharashtra 411067
+            </p>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="section-pad px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[0.9fr_1.1fr] gap-9 items-center reveal">
-        <div>
-          <p class="section-label">About The Counsellor</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Support that feels professional, personal, and safe.
-          </h2>
-
-          <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Ms. Saloni Suryawanshi offers compassionate psychological counselling focused on
-            emotional well-being, stress management, self-understanding, and personal growth.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="soft-card rounded-3xl p-5">
-            <p class="serif text-2xl font-bold">5+ Years</p>
-            <p class="text-sm text-[var(--muted)] mt-1">Counselling experience</p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-5">
-            <p class="serif text-2xl font-bold">Private</p>
-            <p class="text-sm text-[var(--muted)] mt-1">Confidential sessions</p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-5">
-            <p class="serif text-2xl font-bold">Supportive</p>
-            <p class="text-sm text-[var(--muted)] mt-1">Comfortable environment</p>
-          </div>
-
-          <div class="soft-card rounded-3xl p-5">
-            <p class="serif text-2xl font-bold">Flexible</p>
-            <p class="text-sm text-[var(--muted)] mt-1">Online and in-person support</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="calm" class="section-pad px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-2 gap-10 items-center reveal">
-        <div>
-          <p class="section-label">Calm Tool</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Take a slower breath with a gentle rhythm.
-          </h2>
-
-          <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Inhale slowly, hold for a few seconds, and then breathe out even more slowly.
-            This small pause can help your body feel steadier before the next step.
-          </p>
-
-          <button onclick="toggleBreathing()" class="mt-7 btn-primary px-7 py-3.5 rounded-full font-bold transition" id="breathButton">
-            Start Breathing
-          </button>
-        </div>
-
-        <div id="breathBox" class="breath-wrap flex flex-col items-center justify-center min-h-[320px]">
-          <div class="breath-outer relative w-72 h-72 flex items-center justify-center">
-            <div class="absolute inset-0 rounded-full bg-[rgba(47,111,103,0.10)]"></div>
-            <div class="breath-circle breath-large absolute w-56 h-56 rounded-full bg-[rgba(47,111,103,0.22)]"></div>
-            <div class="breath-circle breath-small absolute w-40 h-40 rounded-full bg-[rgba(238,173,145,0.25)]"></div>
-
-            <div class="relative text-center px-5">
-              <p class="section-label">Breathe</p>
-              <p id="breathText" class="serif text-3xl font-bold mt-2">Ready</p>
-              <p id="breathHint" class="mt-2 text-sm font-bold text-[var(--muted)]">4 seconds in, hold, 6 seconds out</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" class="section-pad px-5 py-16">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-10 reveal">
-          <p class="section-label">How It Works</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Starting counselling does not have to feel overwhelming.
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-5">
-          <div class="panel rounded-3xl p-7 reveal">
-            <p class="serif text-4xl font-bold text-[var(--coral)]">01</p>
-            <h3 class="mt-4 text-2xl font-bold">Reach out</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">Send a WhatsApp message whenever you feel ready. You do not need to explain everything at once.</p>
-          </div>
-
-          <div class="panel rounded-3xl p-7 reveal">
-            <p class="serif text-4xl font-bold text-[var(--coral)]">02</p>
-            <h3 class="mt-4 text-2xl font-bold">Choose a time</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">Select a suitable session slot and ask any questions before you begin.</p>
-          </div>
-
-          <div class="panel rounded-3xl p-7 reveal">
-            <p class="serif text-4xl font-bold text-[var(--coral)]">03</p>
-            <h3 class="mt-4 text-2xl font-bold">Start comfortably</h3>
-            <p class="mt-3 text-[var(--muted)] leading-relaxed">The first session focuses on understanding your concerns, comfort, and goals.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad px-5 py-16 bg-[var(--ink)] text-white">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center reveal">
-        <div>
-          <p class="section-label text-[#f2c5ad]">Reassurance</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            You do not have to wait until things feel unbearable.
-          </h2>
-        </div>
-
-        <div class="space-y-4 text-white/78 leading-relaxed">
-          <p>Counselling can help even when you are managing things on the outside but feeling tired, anxious, or overwhelmed inside.</p>
-          <p>A supportive conversation can bring relief, perspective, and a clearer next step.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="location" class="section-pad px-5 py-16">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-        <div class="reveal">
-          <p class="section-label">Location</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Visit Rujal Counselling Center in Pune.
-          </h2>
-
-          <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Rujal Counselling Center offers counselling support in Pune.
-            Use the map link to open the location and plan your visit with ease.
-          </p>
-
-          <a href="https://maps.app.goo.gl/sLpWVTKZyiLoXn4L6" target="_blank" rel="noopener" class="mt-7 inline-flex btn-primary px-7 py-3.5 rounded-full font-bold transition">
-            Open Location on Maps
-          </a>
-        </div>
-
-        <div class="panel rounded-[32px] overflow-hidden reveal">
-          <iframe
-            class="map-frame"
-            title="Rujal Counselling Center location in Pune"
-            src="https://www.google.com/maps?q=Rujal%20Counselling%20Center%20Pune&output=embed"
-            width="100%"
-            height="380"
-            style="border:0;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <section id="booking" class="section-pad px-5 py-16 bg-white/35">
-      <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[0.9fr_1.1fr] gap-9 items-start reveal">
-        <div>
-          <p class="section-label">Book A Session</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Begin with a simple appointment request.
-          </h2>
-
-          <p class="body-text mt-5 text-[var(--muted)] leading-relaxed">
-            Share your basic details and your request can be saved for follow-up. WhatsApp will open with the same message so the conversation can continue easily.
-          </p>
-
-          <div class="booking-note mt-6 text-sm text-[var(--muted)] leading-relaxed">
-            Please avoid sharing highly sensitive details in this form. For urgent or emergency support, contact local emergency services.
-          </div>
-        </div>
-
-        <form onsubmit="sendBooking(event)" class="grid gap-4">
-          <input id="nameInput" type="text" placeholder="Your name" autocomplete="name" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]" required />
-
-          <input id="phoneInput" type="tel" placeholder="WhatsApp number" autocomplete="tel" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]" required />
-
-          <select id="concernInput" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]">
-            <option>Anxiety or stress</option>
-            <option>Depression or low mood</option>
-            <option>Grief or loss</option>
-            <option>Relationship concern</option>
-            <option>Personal growth</option>
-            <option>Not sure yet</option>
-          </select>
-
-          <select id="modeInput" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]">
-            <option>In-person session</option>
-            <option>Online session</option>
-            <option>I want to ask first</option>
-          </select>
-
-          <div class="grid sm:grid-cols-2 gap-4">
-            <input id="dateInput" type="date" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]" />
-            <input id="timeInput" type="time" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]" />
-          </div>
-
-          <textarea id="messageInput" rows="4" placeholder="Short message, optional" class="w-full rounded-2xl border border-[var(--line)] bg-white/80 px-5 py-4 outline-none focus:border-[var(--teal)]"></textarea>
-
-          <label class="flex gap-3 text-sm text-[var(--muted)] leading-relaxed">
-            <input id="consentInput" type="checkbox" required />
-            <span>I understand this form is for appointment requests only and not for emergency support.</span>
-          </label>
-
-          <button id="bookingButton" class="btn-primary px-7 py-4 rounded-full font-bold transition">
-            Save Request & Open WhatsApp
-          </button>
-
-          <p id="bookingStatus" class="text-sm font-bold text-[var(--muted)]"></p>
-        </form>
-      </div>
-    </section>
-
-    <section id="faq" class="section-pad px-5 py-16">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-10 reveal">
-          <p class="section-label">FAQ</p>
-
-          <h2 class="section-title mt-3 text-3xl md:text-5xl font-bold leading-tight">
-            Before your first session.
-          </h2>
-        </div>
-
-        <div class="grid gap-4">
-          <div class="faq panel rounded-3xl p-6 cursor-pointer reveal" onclick="toggleFaq(this)">
-            <div class="flex items-center justify-between gap-5">
-              <h3 class="text-xl font-bold">Is counselling confidential?</h3>
-              <span class="faq-icon text-3xl leading-none">+</span>
-            </div>
-            <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">Counselling is handled with privacy, care, and professional boundaries. You can discuss confidentiality clearly before beginning your sessions.</p>
-            </div>
-          </div>
-
-          <div class="faq panel rounded-3xl p-6 cursor-pointer reveal" onclick="toggleFaq(this)">
-            <div class="flex items-center justify-between gap-5">
-              <h3 class="text-xl font-bold">What happens in the first session?</h3>
-              <span class="faq-icon text-3xl leading-none">+</span>
-            </div>
-            <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">The first session is mainly about understanding your concerns, comfort level, background, and what kind of support may help you.</p>
-            </div>
-          </div>
-
-          <div class="faq panel rounded-3xl p-6 cursor-pointer reveal" onclick="toggleFaq(this)">
-            <div class="flex items-center justify-between gap-5">
-              <h3 class="text-xl font-bold">Do I need to know exactly what to say?</h3>
-              <span class="faq-icon text-3xl leading-none">+</span>
-            </div>
-            <div class="faq-answer">
-              <p class="pt-4 text-[var(--muted)] leading-relaxed">No. You can begin with whatever feels easiest. The conversation will be guided at your pace.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="section-pad px-5 pb-20">
-    <div class="max-w-7xl mx-auto panel rounded-[36px] p-7 md:p-10 grid lg:grid-cols-[1fr_auto] gap-7 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold">Rujal Counselling Center</h2>
-        <p class="mt-3 text-[var(--muted)]">
-          Confidential, compassionate, and professional counselling support in Pune.
-          You are welcome to begin with a conversation.
-        </p>
-      </div>
-
-      <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="btn-primary px-7 py-3.5 rounded-full font-bold transition text-center">
-        Chat on WhatsApp
-      </a>
-    </div>
+  <footer class="footer">
+    Rujal Counselling Center. Healing Minds, Empowering Lives.
   </footer>
-
-  <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="floating-whatsapp fixed bottom-5 right-5 z-50 btn-primary px-5 py-3.5 rounded-full font-bold transition">
-    WhatsApp
-  </a>
-
-  <script>
-    const GOOGLE_SHEET_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
-    const services = [
-      {
-        label: "Anxiety & Stress Support",
-        title: "Finding steadiness when your mind feels loud.",
-        text: "Counselling can help you understand what triggers anxiety, calm your body, reduce overthinking, and respond to daily stress with more confidence.",
-        items: ["Grounding and calming techniques", "Support with worry, panic, and overthinking", "Practical tools for everyday stress"]
-      },
-      {
-        label: "Low Mood & Depression",
-        title: "Support when even small things feel difficult.",
-        text: "Sessions offer a safe space to talk about sadness, emotional heaviness, low motivation, and the quiet struggles that can be hard to explain.",
-        items: ["Steady emotional support", "Understanding sadness, numbness, and fatigue", "Small steps toward routine and stability"]
-      },
-      {
-        label: "Grief & Life Changes",
-        title: "A steady space for loss, change, and painful transitions.",
-        text: "Grief does not follow a fixed timeline. Counselling gives you room to process what has changed and move through it with care.",
-        items: ["Processing loss without pressure", "Support through major life changes", "Learning to carry grief with compassion"]
-      },
-      {
-        label: "Self-Growth & Confidence",
-        title: "Understanding yourself with kindness and clarity.",
-        text: "Personal growth counselling can support self-confidence, healthier boundaries, communication, self-awareness, and emotional resilience.",
-        items: ["Building self-confidence", "Improving boundaries", "Developing healthier coping patterns"]
-      }
-    ];
-
-    const moods = [
-      {
-        title: "Anxiety & Stress Support",
-        text: "Counselling can help you slow down racing thoughts, understand your triggers, and build calmer ways to respond to daily pressure."
-      },
-      {
-        title: "Low Mood Support",
-        text: "If your energy feels low or everything feels heavy, counselling can help you talk through your emotions and rebuild small, manageable steps."
-      },
-      {
-        title: "Grief & Emotional Support",
-        text: "If you are carrying loss, hurt, or a difficult transition, counselling can offer a safe place to speak, process, and heal gradually."
-      },
-      {
-        title: "Self-Growth Support",
-        text: "If you are struggling with confidence, boundaries, or self-doubt, counselling can help you understand patterns and move forward with more clarity."
-      }
-    ];
-
-    function openMenu() {
-      const menu = document.getElementById("mobileMenu");
-      const backdrop = document.getElementById("mobileMenuBackdrop");
-      const button = document.getElementById("menuButton");
-
-      menu.classList.add("open");
-      backdrop.classList.add("open");
-      document.body.classList.add("menu-open");
-      button.innerHTML = "&times;";
-      button.setAttribute("aria-expanded", "true");
-      button.setAttribute("aria-label", "Close menu");
-    }
-
-    function closeMenu() {
-      const menu = document.getElementById("mobileMenu");
-      const backdrop = document.getElementById("mobileMenuBackdrop");
-      const button = document.getElementById("menuButton");
-
-      menu.classList.remove("open");
-      backdrop.classList.remove("open");
-      document.body.classList.remove("menu-open");
-      button.innerHTML = "&#9776;";
-      button.setAttribute("aria-expanded", "false");
-      button.setAttribute("aria-label", "Open menu");
-    }
-
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      if (menu.classList.contains("open")) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    }
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeMenu();
-      }
-    });
-
-    function showService(index, button) {
-      document.querySelectorAll(".service-tab").forEach(tab => tab.classList.remove("active"));
-      button.classList.add("active");
-
-      const service = services[index];
-
-      document.getElementById("serviceLabel").textContent = service.label;
-      document.getElementById("serviceTitle").textContent = service.title;
-      document.getElementById("serviceText").textContent = service.text;
-      document.getElementById("serviceList").innerHTML = service.items.map(item => `<li>${item}</li>`).join("");
-    }
-
-    function selectMood(index, button) {
-      document.querySelectorAll(".mood-chip").forEach(chip => chip.classList.remove("active"));
-      button.classList.add("active");
-
-      document.getElementById("moodTitle").textContent = moods[index].title;
-      document.getElementById("moodText").textContent = moods[index].text;
-    }
-
-    let breathing = false;
-    let breathTimer = null;
-    let breathPhaseIndex = 0;
-
-    const breathPhases = [
-      { className: "phase-inhale", text: "Inhale slowly", hint: "Breathe in for 4 seconds", duration: 4000 },
-      { className: "phase-hold", text: "Hold softly", hint: "Hold for 4 seconds", duration: 4200 },
-      { className: "phase-exhale", text: "Exhale slowly", hint: "Breathe out for 6 seconds", duration: 6200 },
-      { className: "phase-rest", text: "Rest", hint: "Let your body settle", duration: 1800 }
-    ];
-
-    function clearBreathPhases(box) {
-      box.classList.remove("phase-inhale", "phase-hold", "phase-exhale", "phase-rest");
-    }
-
-    function runBreathPhase() {
-      const box = document.getElementById("breathBox");
-      const text = document.getElementById("breathText");
-      const hint = document.getElementById("breathHint");
-      const phase = breathPhases[breathPhaseIndex];
-
-      clearBreathPhases(box);
-      box.classList.add("breathing", phase.className);
-      text.textContent = phase.text;
-      hint.textContent = phase.hint;
-
-      clearTimeout(breathTimer);
-      breathTimer = setTimeout(() => {
-        breathPhaseIndex = (breathPhaseIndex + 1) % breathPhases.length;
-        if (breathing) {
-          runBreathPhase();
-        }
-      }, phase.duration);
-    }
-
-    function toggleBreathing() {
-      const box = document.getElementById("breathBox");
-      const text = document.getElementById("breathText");
-      const hint = document.getElementById("breathHint");
-      const button = document.getElementById("breathButton");
-
-      breathing = !breathing;
-
-      if (breathing) {
-        button.textContent = "Pause Breathing";
-        breathPhaseIndex = 0;
-        runBreathPhase();
-      } else {
-        clearTimeout(breathTimer);
-        clearBreathPhases(box);
-        box.classList.remove("breathing");
-        text.textContent = "Ready";
-        hint.textContent = "4 seconds in, hold, 6 seconds out";
-        button.textContent = "Start Breathing";
-        breathPhaseIndex = 0;
-      }
-    }
-
-    function scrollGallery(direction) {
-      const track = document.getElementById("galleryTrack");
-      const slide = track.querySelector(".gallery-slide");
-
-      if (!track || !slide) return;
-
-      const gap = 18;
-      const distance = slide.offsetWidth + gap;
-
-      track.scrollBy({
-        left: direction * distance,
-        behavior: "smooth"
-      });
-    }
-
-    function toggleFaq(element) {
-      element.classList.toggle("open");
-    }
-
-    function sendBooking(event) {
-      event.preventDefault();
-
-      const button = document.getElementById("bookingButton");
-      const status = document.getElementById("bookingStatus");
-
-      const name = document.getElementById("nameInput").value.trim();
-      const phone = document.getElementById("phoneInput").value.trim();
-      const concern = document.getElementById("concernInput").value;
-      const mode = document.getElementById("modeInput").value;
-      const date = document.getElementById("dateInput").value;
-      const time = document.getElementById("timeInput").value;
-      const message = document.getElementById("messageInput").value.trim();
-
-      const booking = {
-        submittedAt: new Date().toLocaleString("en-IN"),
-        name,
-        phone,
-        concern,
-        mode,
-        preferredDate: date || "Not selected",
-        preferredTime: time || "Not selected",
-        message: message || "No message",
-        status: "New"
-      };
-
-      button.textContent = "Saving...";
-      button.disabled = true;
-      status.textContent = "";
-
-      if (GOOGLE_SHEET_WEB_APP_URL.includes("PASTE_YOUR")) {
-        status.textContent = "Google Sheet is not connected yet. Opening WhatsApp...";
-        openBookingWhatsApp(booking);
-        button.textContent = "Save Request & Open WhatsApp";
-        button.disabled = false;
-        return;
-      }
-
-      fetch(GOOGLE_SHEET_WEB_APP_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(booking)
-      })
-        .then(() => {
-          status.textContent = "Request saved. Opening WhatsApp...";
-          openBookingWhatsApp(booking);
-          event.target.reset();
-        })
-        .catch(() => {
-          status.textContent = "Could not save automatically, but WhatsApp will still open.";
-          openBookingWhatsApp(booking);
-        })
-        .finally(() => {
-          button.textContent = "Save Request & Open WhatsApp";
-          button.disabled = false;
-        });
-    }
-
-    function openBookingWhatsApp(booking) {
-      const text =
-`Hello, my name is ${booking.name}. I would like to book a counselling session.
-
-Phone: ${booking.phone}
-Concern: ${booking.concern}
-Preference: ${booking.mode}
-Preferred date: ${booking.preferredDate}
-Preferred time: ${booking.preferredTime}
-Message: ${booking.message}`;
-
-      window.open(
-        `https://wa.me/918108719701?text=${encodeURIComponent(text)}`,
-        "_blank",
-        "noopener"
-      );
-    }
-
-    const revealItems = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.12 });
-
-      revealItems.forEach(item => observer.observe(item));
-    } else {
-      revealItems.forEach(item => item.classList.add("visible"));
-    }
-  </script>
-
 </body>
-
 </html>
