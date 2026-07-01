@@ -1115,6 +1115,94 @@
         display: inline-flex;
       }
     }
+    /* About counsellor layout fix */
+.about-layout {
+  display: grid;
+  gap: 26px;
+  align-items: center;
+}
+
+.about-photo {
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-stats {
+  align-items: stretch;
+}
+
+.about-stats .quick-item {
+  min-width: 0;
+}
+
+.about-stats .quick-item p.support-line,
+.support-line {
+  white-space: nowrap;
+  text-wrap: balance;
+}
+
+@media (max-width: 679px) {
+  .about-layout {
+    gap: 22px;
+  }
+
+  .about-photo img {
+    min-height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-stats {
+    gap: 9px;
+  }
+
+  .about-stats .quick-item {
+    padding: 13px 14px;
+  }
+
+  .about-stats .quick-item h3 {
+    font-size: 17px;
+  }
+
+  .about-stats .quick-item p {
+    font-size: 14px;
+  }
+
+  .about-stats .quick-item p.support-line,
+  .support-line {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-stats .quick-item p.support-line,
+  .support-line {
+    white-space: normal;
+    display: inline-block;
+    max-width: 15ch;
+    text-wrap: balance;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-layout {
+    grid-template-columns: minmax(420px, 1fr) minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  .about-photo img {
+    min-height: 500px;
+  }
+}
   </style>
 </head>
 
@@ -1249,42 +1337,50 @@
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="wrap two-col">
-        <div class="reveal">
-          <p class="label">About The Counsellor</p>
-          <h2 class="title">Meet Ms. Saloni Suryawanshi.</h2>
-          <p class="text">
-            Ms. Saloni Suryawanshi is a Counselling Psychologist and Therapist offering
-            compassionate psychological counselling focused on emotional well-being, stress
-            management, self-understanding, and personal growth.
-          </p>
+   <section id="about" class="section">
+  <div class="wrap about-layout">
+    <div class="about-photo reveal">
+      <img
+        src="IMG_0866.JPG"
+        alt="Ms. Saloni Suryawanshi, Counselling Psychologist and Therapist at Rujal Counselling Center"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
 
-          <div class="quick-grid about-stats">
-            <div class="quick-item">
-              <h3>Counselling Psychologist</h3>
-              <p>Professional qualification</p>
-            </div>
-            <div class="quick-item">
-              <h3>Therapist</h3>
-              <p><span class="support-line">Mental Health Support</span></p>
-            </div>
-            <div class="quick-item">
-              <h3>5+ Years</h3>
-              <p>Counselling experience</p>
-            </div>
-            <div class="quick-item">
-              <h3>Warm approach</h3>
-              <p>Sessions are guided with patience, clarity, and care.</p>
-            </div>
-          </div>
+    <div class="reveal">
+      <p class="label">About The Counsellor</p>
+      <h2 class="title">Meet Ms. Saloni Suryawanshi.</h2>
+      <p class="text">
+        Ms. Saloni Suryawanshi is a Counselling Psychologist and Therapist offering
+        compassionate psychological counselling focused on emotional well-being, stress
+        management, self-understanding, and personal growth.
+      </p>
+
+      <div class="quick-grid about-stats">
+        <div class="quick-item">
+          <h3>Counselling Psychologist</h3>
+          <p>Professional qualification</p>
         </div>
 
-        <div class="about-photo reveal">
-          <img src="IMG_0866.JPG" alt="Ms. Saloni Suryawanshi, Counselling Psychologist and Therapist" loading="lazy" decoding="async" />
+        <div class="quick-item">
+          <h3>Therapist</h3>
+          <p class="support-line">Mental Health Support</p>
+        </div>
+
+        <div class="quick-item">
+          <h3>5+ Years</h3>
+          <p>Counselling experience</p>
+        </div>
+
+        <div class="quick-item">
+          <h3>Warm approach</h3>
+          <p>Sessions are guided with patience, clarity, and care.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section id="gallery" class="section section-soft">
       <div class="wrap">
