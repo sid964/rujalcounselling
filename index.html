@@ -419,6 +419,11 @@
       gap: 12px;
     }
 
+    .about-intro {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
     .about-layout {
       display: grid;
       gap: 26px;
@@ -450,6 +455,12 @@
     .about-stats {
       align-items: stretch;
       margin-top: 24px;
+    }
+
+    .about-stats .quick-item h3 {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
 
     .about-stats .quick-item {
@@ -1313,12 +1324,13 @@
 
       .floating-whatsapp {
         position: fixed;
-        left: 14px;
-        right: 14px;
-        bottom: calc(12px + env(safe-area-inset-bottom));
+        right: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom));
         z-index: 40;
         display: inline-flex;
-        min-height: 54px;
+        min-height: 52px;
+        padding: 0 20px;
+        box-shadow: 0 10px 26px rgba(23, 56, 84, 0.28);
       }
 
       .reveal {
@@ -1894,37 +1906,36 @@
     </section>
 
     <section id="about" class="section">
-      <div class="wrap about-layout">
-        <div class="about-photo reveal">
-          <img src="IMG_0866.JPG" alt="Ms. Saloni Suryawanshi, Counselling Psychologist and Therapist at Rujal Counselling Center" loading="lazy" decoding="async" />
+      <div class="wrap">
+        <div class="about-intro reveal">
+          <p class="label">About The Counsellor</p>
+          <h2 class="title">Hi, I'm Saloni Suryawanshi. Welcome to Rujal Counselling Centre.</h2>
         </div>
 
-        <div class="reveal">
-          <p class="label">About The Counsellor</p>
-          <h2 class="title">Hi, I'm Saloni Suryawanshi — welcome to Rujal Counselling Centre.</h2>
+        <div class="about-layout">
+          <div class="about-photo reveal">
+            <img src="IMG_0866.JPG" alt="Ms. Saloni Suryawanshi, Counselling Psychologist and Therapist at Rujal Counselling Center" loading="lazy" decoding="async" />
+          </div>
 
-          <p class="text">
-            I'm a Counselling Psychologist and Relationship Therapist, and over the past 5+ years, I've had the privilege of sitting with people through some of their hardest moments — and some of their most important turning points.
+          <div class="reveal">
+            <p class="text">
+            I'm a Counselling Psychologist and Relationship Therapist with over 5 years of experience helping people navigate anxiety, stress, depression, grief, relationship challenges, low self-esteem, and life's difficult transitions.
           </p>
 
           <p class="text">
-            I started Rujal Counselling Centre because I believe therapy shouldn't feel clinical or intimidating. It should feel like a room where you can finally put down what you've been carrying — without judgement, without having to explain yourself twice, and without anyone rushing you.
+            I started Rujal Counselling Centre with a simple belief: therapy should feel like a safe, supportive space where you can speak openly without fear of judgement.
           </p>
 
           <p class="text">
-            Whatever you're going through — anxiety, stress, depression, grief, relationship struggles, anger you don't know what to do with, low self-esteem, or just the sense that you're not quite yourself lately — I want you to know it's okay to ask for support. That's not weakness. That's the beginning of change.
+            My approach combines Person-Centered Counselling, Family Therapy, Mindfulness-Based Therapy, and Solution-Focused Brief Therapy, tailoring every session to your unique needs.
           </p>
 
           <p class="text">
-            In our sessions, I draw on Family Therapy, Mindfulness-Based Therapy, Person-Centered Counselling, and Solution-Focused Brief Therapy — not as rigid techniques, but as tools I shape around you, because no two people, and no two stories, are the same.
+            My goal is to help you feel understood, build resilience, and move forward with greater clarity, confidence, and hope.
           </p>
 
           <p class="text">
-            My hope for everyone who walks through this door is simple: that you leave feeling steadier, more like yourself, and a little more hopeful than when you came in.
-          </p>
-
-          <p class="text">
-            If you're ready to talk, I'm here.
+            If you're ready to take that first step, I'm here to support you.
           </p>
 
           <p class="about-signature serif">— Saloni</p>
@@ -1949,6 +1960,7 @@
               <h3>Warm approach</h3>
               <p>Sessions are guided with patience, clarity, and care.</p>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -2109,7 +2121,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Low Mood counselling">
-              <img class="service-photo" src="https://images.pexels.com/photos/236147/pexels-photo-236147.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Person sitting alone, appearing low and withdrawn" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Low Mood')" />
+              <img class="service-photo" src="session-low-mood.jpg" alt="Person appearing low and emotionally overwhelmed during a counselling conversation" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Low Mood')" />
               <div class="service-fallback">Low Mood</div>
               <div class="service-content">
                 <h3>Low Mood</h3>
@@ -2127,7 +2139,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Relationship counselling">
-              <img class="service-photo" src="https://images.pexels.com/photos/3958384/pexels-photo-3958384.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Couple attending a relationship counselling session together" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Relationship')" />
+              <img class="service-photo" src="session-relationship.jpg" alt="Couple attending a relationship counselling session together" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Relationship')" />
               <div class="service-fallback">Relationship</div>
               <div class="service-content">
                 <h3>Relationship</h3>
@@ -2136,7 +2148,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Communication counselling">
-              <img class="service-photo" src="https://images.pexels.com/photos/6767004/pexels-photo-6767004.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Two people having an attentive, open conversation" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Communication')" />
+              <img class="service-photo" src="session-communication.jpg" alt="Two people having an attentive, open conversation" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Communication')" />
               <div class="service-fallback">Communication</div>
               <div class="service-content">
                 <h3>Communication</h3>
@@ -2145,7 +2157,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Anger Management counselling">
-              <img class="service-photo" src="https://images.pexels.com/photos/6998246/pexels-photo-6998246.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Person practicing calming techniques to manage anger" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Anger Management')" />
+              <img class="service-photo" src="session-anger-management.jpg" alt="A tense conversation during an anger management counselling session" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Anger Management')" />
               <div class="service-fallback">Anger Management</div>
               <div class="service-content">
                 <h3>Anger Management</h3>
@@ -2154,7 +2166,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Emotional Wellbeing counselling">
-              <img class="service-photo" src="https://images.pexels.com/photos/4640840/pexels-photo-4640840.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Person appearing calm and emotionally balanced" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Emotional Wellbeing')" />
+              <img class="service-photo" src="session-emotional-wellbeing.jpg" alt="A calm, balanced counselling conversation in a warm home-like setting" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Emotional Wellbeing')" />
               <div class="service-fallback">Emotional Wellbeing</div>
               <div class="service-content">
                 <h3>Emotional Wellbeing</h3>
@@ -2163,7 +2175,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Self Growth Support">
-              <img class="service-photo" src="https://images.pexels.com/photos/3958416/pexels-photo-3958416.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Counselling conversation focused on self growth and clarity" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Self Growth Support')" />
+              <img class="service-photo" src="session-self-growth.jpg" alt="Counselling conversation focused on self growth and clarity" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Self Growth Support')" />
               <div class="service-fallback">Self Growth Support</div>
               <div class="service-content">
                 <h3>Self Growth Support</h3>
@@ -2591,6 +2603,24 @@
           certificateTimer = setInterval(() => showCertificate(certificateIndex + 1), 4200);
         }
 
+        function initCertificateAutoScroll() {
+          const section = document.getElementById("qualifications");
+          if (!section || !("IntersectionObserver" in window)) {
+            restartCertificateTimer();
+            return;
+          }
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                restartCertificateTimer();
+              } else {
+                clearInterval(certificateTimer);
+              }
+            });
+          }, { threshold: 0.35 });
+          observer.observe(section);
+        }
+
         function initCertificateSwipe() {
           const frame = document.getElementById("certificateFrame");
           if (!frame) return;
@@ -2709,7 +2739,7 @@
     });
 
     renderDots();
-    restartCertificateTimer();
+    initCertificateAutoScroll();
     initCertificateSwipe();
 
     function clearBreathPhases(box) {
