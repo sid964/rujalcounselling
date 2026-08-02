@@ -4,23 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Rujal Counselling Center | Counselling Support in Pune</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #263031;
-      --muted: #6f797a;
-      --accent: #4f6f68;
-      --accent-dark: #344f4a;
-      --accent-soft: #f0f6f4;
-      --clay: #9a7b61;
-      --mist: #f7fbfb;
+      --ink: #173854;
+      --muted: #4F7391;
+      --accent: #3499D5;
+      --accent-dark: #2678AC;
+      --accent-soft: #B3DFFA;
+      --clay: #3499D5;
+      --mist: #EDF7FE;
       --white: #ffffff;
-      --line: rgba(38, 48, 49, 0.12);
-      --shadow: 0 12px 30px rgba(38, 48, 49, 0.08);
+      --line: #D3EAFA;
+      --shadow: 0 12px 30px rgba(23, 56, 84, 0.08);
       --radius: 18px;
     }
 
@@ -37,11 +35,12 @@
       overflow-x: hidden;
       font-family: "Nunito Sans", sans-serif;
       color: var(--ink);
-      background: var(--white);
+      background: #ffffff;
     }
 
     body.menu-open {
       overflow: hidden;
+      touch-action: none;
     }
 
     h1,
@@ -69,6 +68,11 @@
       font: inherit;
     }
 
+    button {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
     input,
     select,
     textarea {
@@ -92,7 +96,7 @@
     select:focus,
     textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(79, 111, 104, 0.12);
+      box-shadow: 0 0 0 4px rgba(79, 143, 191, 0.16);
     }
 
     .wrap {
@@ -105,7 +109,7 @@
     }
 
     .section-soft {
-      background: var(--mist);
+      background: #ffffff;
     }
 
     .label {
@@ -154,13 +158,13 @@
     .btn-primary {
       background: var(--accent-dark);
       color: white;
-      box-shadow: 0 12px 24px rgba(52, 79, 74, 0.16);
+      box-shadow: 0 12px 24px rgba(52, 109, 154, 0.18);
     }
 
     .btn-secondary {
-      background: var(--white);
-      border: 1px solid rgba(79, 111, 104, 0.24);
-      color: var(--accent-dark);
+      background: #ffffff;
+      border: 1px solid rgba(52, 153, 213, 0.35);
+      color: #000000;
     }
 
     .btn:hover {
@@ -171,9 +175,10 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(248, 251, 255, 0.96);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
+      padding-top: env(safe-area-inset-top);
     }
 
     .header-inner {
@@ -196,6 +201,10 @@
       height: 54px;
       object-fit: contain;
       flex: 0 0 auto;
+    }
+
+    .brand span {
+      min-width: 0;
     }
 
     .brand small {
@@ -233,7 +242,7 @@
       position: fixed;
       inset: 0;
       z-index: 55;
-      background: rgba(38, 48, 49, 0.28);
+      background: rgba(30, 51, 66, 0.30);
       backdrop-filter: blur(4px);
       opacity: 0;
       pointer-events: none;
@@ -250,15 +259,16 @@
       position: fixed;
       left: 16px;
       right: 16px;
-      top: 82px;
+      top: calc(82px + env(safe-area-inset-top));
       z-index: 65;
       gap: 8px;
       padding: 14px;
-      max-height: calc(100svh - 100px);
+      max-height: calc(100svh - 100px - env(safe-area-inset-top));
       overflow: auto;
+      overscroll-behavior: contain;
       border: 1px solid var(--line);
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.98);
+      background: rgba(248, 251, 255, 0.98);
       box-shadow: var(--shadow);
       opacity: 0;
       visibility: hidden;
@@ -321,18 +331,20 @@
     .gallery-frame,
     .service-info-card,
     .process-panel,
-    .tool-card {
+    .tool-card,
+    .qualification-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: white;
       padding: 16px;
-      box-shadow: 0 8px 22px rgba(38, 48, 49, 0.055);
+      box-shadow: 0 8px 22px rgba(30, 51, 66, 0.055);
     }
 
     .quick-item h3,
     .clean-card h3,
     .service-info-card h3,
-    .tool-card h3 {
+    .tool-card h3,
+    .qualification-card h3 {
       margin: 0;
       font-size: 17.5px;
       line-height: 1.25;
@@ -341,7 +353,8 @@
     .quick-item p,
     .clean-card p,
     .service-info-card p,
-    .tool-card p {
+    .tool-card p,
+    .qualification-card p {
       margin: 7px 0 0;
       color: var(--muted);
       font-size: 14.5px;
@@ -406,6 +419,12 @@
       gap: 12px;
     }
 
+    .about-layout {
+      display: grid;
+      gap: 26px;
+      align-items: center;
+    }
+
     .about-photo {
       border-radius: 22px;
       overflow: hidden;
@@ -415,8 +434,32 @@
 
     .about-photo img {
       width: 100%;
+      aspect-ratio: 4 / 3;
       min-height: 320px;
       object-fit: cover;
+      object-position: center;
+    }
+
+    .about-signature {
+      margin: 18px 0 0;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .about-stats {
+      align-items: stretch;
+      margin-top: 24px;
+    }
+
+    .about-stats .quick-item {
+      min-width: 0;
+    }
+
+    .about-stats .quick-item p.support-line,
+    .support-line {
+      white-space: nowrap;
+      text-wrap: balance;
     }
 
     .gallery-frame {
@@ -428,7 +471,8 @@
       margin-bottom: 16px;
     }
 
-    .gallery-track {
+    .gallery-track,
+    .qualification-track {
       display: grid;
       grid-auto-flow: column;
       grid-auto-columns: 82%;
@@ -438,6 +482,7 @@
       scroll-snap-type: x mandatory;
       padding: 2px 2px 14px;
       scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .gallery-card {
@@ -479,15 +524,35 @@
       cursor: pointer;
     }
 
+    .service-scroll {
+      margin-top: 24px;
+      overflow: hidden;
+    }
+
     .service-info-grid {
       display: grid;
-      gap: 12px;
-      margin-top: 24px;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      gap: 14px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      padding: 4px 2px 16px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .service-info-card {
       padding: 0;
       overflow: hidden;
+      scroll-snap-align: start;
+      transition: box-shadow 0.24s ease, transform 0.24s ease, border-color 0.24s ease;
+    }
+
+    .service-info-card.active {
+      border-color: rgba(52, 109, 154, 0.45);
+      box-shadow: 0 14px 30px rgba(52, 109, 154, 0.14);
+      transform: translateY(-2px);
     }
 
     .service-photo {
@@ -510,17 +575,154 @@
       line-height: 1.5;
     }
 
-    .service-fallback {
-      height: 148px;
+    .service-fallback,
+    .qualification-fallback {
       display: none;
       place-items: center;
       padding: 20px;
       text-align: center;
       color: var(--accent-dark);
       font-weight: 800;
+      background: linear-gradient(135deg, rgba(79, 143, 191, 0.16), rgba(215, 231, 243, 0.70)), var(--accent-soft);
+    }
+
+    .service-fallback {
+      height: 148px;
+    }
+
+    .qualification-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(52, 109, 154, 0.22);
+      border-radius: 24px;
       background:
-        linear-gradient(135deg, rgba(79,111,104,0.16), rgba(154,123,97,0.12)),
-        var(--accent-soft);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(242, 248, 255, 0.92)),
+        white;
+      padding: 16px;
+      box-shadow: 0 16px 34px rgba(30, 51, 66, 0.08);
+    }
+
+    .qualification-frame::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-dark), #7AA7C7, #A7BFCF);
+    }
+
+    .qualification-head {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .qualification-head-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      width: min(100%, 340px);
+      padding: 12px;
+      border: 1px solid rgba(79, 143, 191, 0.18);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .qualification-badge {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: white;
+      font-family: "Lora", serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .qualification-head-meta strong {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .qualification-head-meta span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+
+    .qualification-card {
+      position: relative;
+      scroll-snap-align: center;
+      padding: 0;
+      overflow: hidden;
+      min-width: 0;
+      border-radius: 20px;
+      transition: box-shadow 0.24s ease, transform 0.24s ease, border-color 0.24s ease;
+    }
+
+    .qualification-card::after {
+      content: attr(data-step);
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(30, 51, 66, 0.88);
+      color: white;
+      font-family: "Lora", serif;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(30, 51, 66, 0.18);
+    }
+
+    .qualification-card.active {
+      border-color: rgba(52, 109, 154, 0.55);
+      box-shadow: 0 18px 38px rgba(52, 109, 154, 0.20);
+      transform: translateY(-4px) scale(1.015);
+    }
+
+    .qualification-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--accent-soft);
+    }
+
+    .qualification-fallback {
+      aspect-ratio: 4 / 3;
+    }
+
+    .qualification-content {
+      padding: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .carousel-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 800;
+    }
+
+    .carousel-status::before {
+      content: "";
+      width: 34px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent-dark);
     }
 
     .chip-grid {
@@ -581,19 +783,19 @@
 
     .breath-ring {
       inset: 0;
-      background: rgba(79, 111, 104, 0.10);
+      background: rgba(79, 143, 191, 0.10);
     }
 
     .breath-large {
       width: 162px;
       height: 162px;
-      background: rgba(79, 111, 104, 0.18);
+      background: rgba(79, 143, 191, 0.18);
     }
 
     .breath-small {
       width: 112px;
       height: 112px;
-      background: rgba(154, 123, 97, 0.16);
+      background: rgba(215, 231, 243, 0.70);
     }
 
     .breathing .breath-circle {
@@ -763,7 +965,7 @@
     }
 
     footer {
-      padding: 40px 0 76px;
+      padding: 40px 0 calc(76px + env(safe-area-inset-bottom));
     }
 
     .footer-box {
@@ -788,30 +990,143 @@
       transform: translateY(0);
     }
 
+    .service-detail-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      place-items: end center;
+      padding: 18px;
+      padding-bottom: calc(18px + env(safe-area-inset-bottom));
+      background: rgba(30, 51, 66, 0.34);
+      backdrop-filter: blur(5px);
+    }
+
+    .service-detail-backdrop.open {
+      display: grid;
+    }
+
+    .service-detail-modal {
+      width: min(520px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--mist);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      transform: translateY(8px);
+      animation: serviceModalIn 0.22s ease forwards;
+    }
+
+    .service-detail-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .service-detail-modal h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .service-detail-modal p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    .service-detail-close {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--accent-dark);
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    @keyframes serviceModalIn {
+      to {
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 679px) {
       .wrap {
         width: min(100% - 28px, 1120px);
       }
 
       .section {
-        padding: 34px 0;
+        padding: 40px 0;
+      }
+
+      .site-header {
+        top: 0;
+      }
+
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .brand {
+        gap: 9px;
+        max-width: calc(100% - 64px);
+      }
+
+      .brand img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand strong {
+        font-size: clamp(15px, 4.8vw, 18px);
+      }
+
+      .menu-button {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        font-size: 26px;
+      }
+
+      .mobile-menu {
+        top: calc(74px + env(safe-area-inset-top));
+        padding: 12px;
+      }
+
+      .mobile-menu a {
+        min-height: 48px;
+        padding: 0 16px;
       }
 
       .hero {
-        padding: 32px 0 40px;
+        min-height: 78svh;
+        display: flex;
+        align-items: center;
+        padding: 28px 0 34px;
       }
 
       .hero h1 {
-        font-size: clamp(31px, 8vw, 40px);
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1.1;
       }
 
       .title {
-        font-size: clamp(24px, 6.2vw, 32px);
+        font-size: clamp(28px, 7vw, 32px);
       }
 
       .text {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.58;
+      }
+
+      .btn-row {
+        margin-top: 22px;
       }
 
       .btn-row .btn {
@@ -819,9 +1134,9 @@
       }
 
       .btn {
-        min-height: 46px;
-        padding: 11px 16px;
-        font-size: 14.5px;
+        min-height: 56px;
+        padding: 14px 18px;
+        font-size: 15px;
       }
 
       .quick-grid {
@@ -843,6 +1158,15 @@
         font-size: 17px;
       }
 
+      .about-layout {
+        gap: 22px;
+      }
+
+      .about-photo img {
+        min-height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
       .about-stats {
         gap: 9px;
       }
@@ -851,35 +1175,92 @@
         padding: 13px 14px;
       }
 
+      .about-stats .quick-item h3 {
+        font-size: 17px;
+      }
+
       .about-stats .quick-item p {
         font-size: 14px;
       }
 
-      .about-stats .support-line {
+      .about-stats .quick-item p.support-line,
+      .support-line {
         white-space: nowrap;
-      }
-
-      .two-col {
-        gap: 22px;
-      }
-
-      .service-info-grid {
-        gap: 11px;
-      }
-
-      .service-photo,
-      .service-fallback {
-        height: 136px;
-      }
-
-      .service-content {
-        padding: 13px;
       }
 
       .gallery-track {
         grid-auto-columns: 84%;
         gap: 12px;
         padding-bottom: 12px;
+      }
+
+      .service-info-grid {
+        grid-auto-columns: 86%;
+        gap: 16px;
+        scroll-padding-inline: 2px;
+        padding: 4px 14px 18px 2px;
+        scrollbar-width: none;
+      }
+
+      .service-info-grid::-webkit-scrollbar,
+      .qualification-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .service-info-card {
+        border-radius: 18px;
+        box-shadow: 0 12px 26px rgba(30, 51, 66, 0.09);
+        cursor: pointer;
+      }
+
+      .service-photo,
+      .service-fallback {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .service-content {
+        padding: 15px 16px 17px;
+      }
+
+      .service-content h3 {
+        font-size: 20px;
+      }
+
+      .service-content p {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .qualification-frame {
+        padding: 14px;
+        border-radius: 20px;
+      }
+
+      .qualification-track {
+        grid-auto-columns: 88%;
+        gap: 14px;
+        padding: 4px 2px 16px;
+        scrollbar-width: none;
+      }
+
+      .qualification-content {
+        padding: 15px 16px 17px;
+      }
+
+      .qualification-card h3 {
+        font-size: 20px;
+      }
+
+      .qualification-card p {
+        font-size: 14px;
       }
 
       .breath-box {
@@ -905,8 +1286,39 @@
         margin-top: 18px;
       }
 
+      #location .two-col,
+      #booking .two-col {
+        gap: 24px;
+      }
+
+      #location .btn,
+      #booking .btn {
+        width: 100%;
+      }
+
       .map-frame {
         height: 280px;
+        border-radius: 18px;
+      }
+
+      .booking-form {
+        gap: 14px;
+      }
+
+      input,
+      select,
+      textarea {
+        min-height: 54px;
+      }
+
+      .floating-whatsapp {
+        position: fixed;
+        left: 14px;
+        right: 14px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        z-index: 40;
+        display: inline-flex;
+        min-height: 54px;
       }
 
       .reveal {
@@ -921,8 +1333,8 @@
       }
 
       .brand img {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
       }
 
       .brand strong {
@@ -933,7 +1345,8 @@
         font-size: 9.5px;
       }
 
-      .about-stats .support-line {
+      .about-stats .quick-item p.support-line,
+      .support-line {
         white-space: normal;
         display: inline-block;
         max-width: 15ch;
@@ -942,7 +1355,8 @@
 
       .service-photo,
       .service-fallback {
-        height: 128px;
+        height: auto;
+        aspect-ratio: 4 / 3;
       }
     }
 
@@ -954,12 +1368,19 @@
 
       .quick-grid,
       .card-grid,
-      .chip-grid,
-      .service-info-grid {
+      .chip-grid {
         grid-template-columns: 1fr 1fr;
       }
 
       .gallery-track {
+        grid-auto-columns: 45%;
+      }
+
+      .qualification-track {
+        grid-auto-columns: 45%;
+      }
+
+      .service-info-grid {
         grid-auto-columns: 45%;
       }
 
@@ -1051,9 +1472,13 @@
         border-radius: 24px;
       }
 
-      .service-info-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+      .about-layout {
+        grid-template-columns: minmax(420px, 1fr) minmax(0, 1fr);
+        gap: 56px;
+      }
+
+      .about-photo img {
+        min-height: 500px;
       }
 
       .service-photo,
@@ -1086,12 +1511,27 @@
         gap: 18px;
       }
 
-      .vision-list {
-        margin-top: 0;
+      .qualification-frame {
+        padding: 24px;
       }
 
-      .about-photo img {
-        min-height: 500px;
+      .qualification-track {
+        grid-auto-columns: 31.5%;
+        gap: 18px;
+      }
+
+      .service-info-grid {
+        grid-auto-columns: 31.5%;
+        gap: 18px;
+      }
+
+      .qualification-head {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+      }
+
+      .vision-list {
+        margin-top: 0;
       }
 
       .map-frame {
@@ -1115,97 +1555,211 @@
         display: inline-flex;
       }
     }
-    /* About counsellor layout fix */
-.about-layout {
-  display: grid;
-  gap: 26px;
-  align-items: center;
-}
 
-.about-photo {
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--accent-soft);
-}
+    /* Minimal certificate section */
+    #qualifications .certificate-section {
+          display: grid;
+          gap: 15px;
+        }
+    
+        #qualifications .certificate-head {
+          display: grid;
+          gap: 10px;
+          text-align: center;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+    
+        #qualifications .label {
+          margin: 0;
+          color: var(--accent-dark);
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+        }
+    
+        #qualifications .title {
+          margin: 0;
+          font-size: clamp(24px, 4vw, 34px);
+          line-height: 1.14;
+          letter-spacing: 0;
+        }
+    
+        #qualifications .text {
+          margin: 0;
+          color: var(--muted);
+          font-size: 15px;
+          line-height: 1.62;
+        }
+    
+        #qualifications .certificate-title-row {
+          display: grid;
+          gap: 8px;
+          text-align: center;
+          max-width: 580px;
+          margin: 0 auto;
+        }
+    
+        #qualifications .certificate-count {
+          color: var(--accent-dark);
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.12em;
+        }
+    
+        #qualifications .certificate-title-row h3 {
+          margin: 0;
+          font-size: clamp(19px, 3.2vw, 23px);
+          line-height: 1.22;
+        }
+    
+        #qualifications .certificate-title-row p {
+          margin: 0;
+          color: var(--muted);
+          font-size: 15px;
+          line-height: 1.56;
+        }
+    
+        #qualifications .certificate-viewer {
+          display: grid;
+          gap: 16px;
+        }
+    
+        #qualifications .certificate-frame {
+          display: grid;
+          place-items: center;
+          min-height: 360px;
+          padding: clamp(10px, 2vw, 18px);
+          border: 1px solid var(--line);
+          border-radius: 18px;
+          background: var(--white);
+          box-shadow: 0 14px 34px rgba(30, 51, 66, 0.08);
+          touch-action: pan-y;
+        }
+    
+        #qualifications .certificate-slide {
+          display: none;
+          width: 100%;
+          animation: fadeIn 0.28s ease both;
+        }
+    
+        #qualifications .certificate-slide.active {
+          display: block;
+        }
+    
+        #qualifications .certificate-slide img {
+          width: 100%;
+          max-height: 460px;
+          object-fit: contain;
+          border-radius: 10px;
+          background: white;
+        }
+    
+        #qualifications .certificate-controls {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+        }
+    
+        #qualifications .certificate-arrow {
+          width: 40px;
+          height: 40px;
+          border: 1px solid var(--line);
+          border-radius: 999px;
+          background: var(--white);
+          color: var(--accent-dark);
+          font-size: 25px;
+          font-weight: 900;
+          line-height: 1;
+          cursor: pointer;
+          touch-action: manipulation;
+          transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+    
+        #qualifications .certificate-arrow:hover {
+          border-color: var(--accent);
+          transform: translateY(-1px);
+        }
+    
+        #qualifications .certificate-dots {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+    
+        #qualifications .certificate-dots button {
+          position: relative;
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border: 0;
+          border-radius: 999px;
+          background: rgba(52, 109, 154, 0.24);
+          cursor: pointer;
+          touch-action: manipulation;
+          transition: width 0.22s ease, background 0.22s ease;
+        }
 
-.about-photo img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  min-height: 320px;
-  object-fit: cover;
-  object-position: center;
-}
+        #qualifications .certificate-dots button::after {
+          content: "";
+          position: absolute;
+          inset: -15px;
+        }
+    
+        #qualifications .certificate-dots button.active {
+          width: 28px;
+          background: var(--accent-dark);
+        }
+    
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(6px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+    
+        @media (max-width: 679px) {
+          .wrap {
+            width: min(100% - 28px, 760px);
+          }
+    
+          .section {
+            padding: 24px 0;
+          }
+    
+          #qualifications .certificate-section {
+            gap: 14px;
+          }
+    
+          #qualifications .certificate-frame {
+            min-height: 0;
+            padding: 8px;
+            border-radius: 14px;
+          }
+    
+          #qualifications .certificate-slide img {
+            max-height: 42svh;
+            border-radius: 8px;
+          }
+    
+          #qualifications .certificate-arrow {
+            width: 48px;
+            height: 48px;
+          }
 
-.about-stats {
-  align-items: stretch;
-}
-
-.about-stats .quick-item {
-  min-width: 0;
-}
-
-.about-stats .quick-item p.support-line,
-.support-line {
-  white-space: nowrap;
-  text-wrap: balance;
-}
-
-@media (max-width: 679px) {
-  .about-layout {
-    gap: 22px;
-  }
-
-  .about-photo img {
-    min-height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .about-stats {
-    gap: 9px;
-  }
-
-  .about-stats .quick-item {
-    padding: 13px 14px;
-  }
-
-  .about-stats .quick-item h3 {
-    font-size: 17px;
-  }
-
-  .about-stats .quick-item p {
-    font-size: 14px;
-  }
-
-  .about-stats .quick-item p.support-line,
-  .support-line {
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 360px) {
-  .about-stats .quick-item p.support-line,
-  .support-line {
-    white-space: normal;
-    display: inline-block;
-    max-width: 15ch;
-    text-wrap: balance;
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-layout {
-    grid-template-columns: minmax(420px, 1fr) minmax(0, 1fr);
-    gap: 56px;
-  }
-
-  .about-photo img {
-    min-height: 500px;
-  }
-}
+          #qualifications .certificate-dots button {
+            width: 9px;
+            height: 9px;
+          }
+        }
   </style>
 </head>
-
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
@@ -1218,11 +1772,13 @@
       </a>
 
       <nav class="desktop-nav">
-        <a href="#vision">Why</a>
-        <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#vision">Why</a>
+        <a href="#qualifications">Qualifications</a>
         <a href="#approach">Approach</a>
         <a href="#services">Services</a>
+        <a href="#calm">Calm Tool</a>
         <a href="#mood">Support Finder</a>
         <a href="#location">Location</a>
         <a href="#faq">FAQ</a>
@@ -1238,11 +1794,13 @@
     <div id="mobileMenuBackdrop" class="mobile-backdrop" onclick="closeMenu()"></div>
 
     <nav id="mobileMenu" class="mobile-menu">
-      <a href="#vision" onclick="closeMenu()">Why We Exist</a>
-      <a href="#about" onclick="closeMenu()">About</a>
       <a href="#gallery" onclick="closeMenu()">Gallery</a>
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#vision" onclick="closeMenu()">Why We Exist</a>
+      <a href="#qualifications" onclick="closeMenu()">Qualifications</a>
       <a href="#approach" onclick="closeMenu()">Approach</a>
       <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#calm" onclick="closeMenu()">Calm Tool</a>
       <a href="#mood" onclick="closeMenu()">Support Finder</a>
       <a href="#location" onclick="closeMenu()">Location</a>
       <a href="#faq" onclick="closeMenu()">FAQ</a>
@@ -1283,6 +1841,113 @@
             <div class="quick-item">
               <h3>Gentle start</h3>
               <p>You can begin with a simple conversation and move at your own pace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section section-soft">
+      <div class="wrap">
+        <div class="gallery-frame">
+          <div class="gallery-head reveal">
+            <div>
+              <p class="label">Gallery</p>
+              <h2 class="title">A glimpse of the counselling space.</h2>
+              <p class="text">A warm look at the center, from the entrance to the calm spaces designed for comfort and privacy.</p>
+            </div>
+
+            <div class="gallery-controls">
+              <button class="gallery-arrow" onclick="scrollTrack('galleryTrack', -1)" aria-label="Previous photos">&#8249;</button>
+              <button class="gallery-arrow" onclick="scrollTrack('galleryTrack', 1)" aria-label="Next photos">&#8250;</button>
+            </div>
+          </div>
+
+          <div id="galleryTrack" class="gallery-track reveal">
+            <article class="gallery-card">
+              <img src="IMG_0727.JPG" alt="Rujal Counselling Center entrance gate and signboard" loading="lazy" decoding="async" />
+              <div class="gallery-caption">Center entrance</div>
+            </article>
+
+            <article class="gallery-card">
+              <img src="IMG_0857.JPG" alt="Comfortable counselling room with seating and plants" loading="lazy" decoding="async" />
+              <div class="gallery-caption">Counselling room</div>
+            </article>
+
+            <article class="gallery-card">
+              <img src="IMG_0896.JPG" alt="Reception and waiting area at Rujal Counselling Center" loading="lazy" decoding="async" />
+              <div class="gallery-caption">Reception and waiting area</div>
+            </article>
+
+            <article class="gallery-card">
+              <img src="IMG_0996.JPG" alt="In session privacy sign at the counselling room door" loading="lazy" decoding="async" />
+              <div class="gallery-caption">Quiet space</div>
+            </article>
+
+            <article class="gallery-card">
+              <img src="file_00000000defc71faae62d8ea2efacb36.png" alt="Plant-filled balcony corner at Rujal Counselling Center" loading="lazy" decoding="async" />
+              <div class="gallery-caption">Calm balcony corner</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap about-layout">
+        <div class="about-photo reveal">
+          <img src="IMG_0866.JPG" alt="Ms. Saloni Suryawanshi, Counselling Psychologist and Therapist at Rujal Counselling Center" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="reveal">
+          <p class="label">About The Counsellor</p>
+          <h2 class="title">Hi, I'm Saloni Suryawanshi — welcome to Rujal Counselling Centre.</h2>
+
+          <p class="text">
+            I'm a Counselling Psychologist and Relationship Therapist, and over the past 5+ years, I've had the privilege of sitting with people through some of their hardest moments — and some of their most important turning points.
+          </p>
+
+          <p class="text">
+            I started Rujal Counselling Centre because I believe therapy shouldn't feel clinical or intimidating. It should feel like a room where you can finally put down what you've been carrying — without judgement, without having to explain yourself twice, and without anyone rushing you.
+          </p>
+
+          <p class="text">
+            Whatever you're going through — anxiety, stress, depression, grief, relationship struggles, anger you don't know what to do with, low self-esteem, or just the sense that you're not quite yourself lately — I want you to know it's okay to ask for support. That's not weakness. That's the beginning of change.
+          </p>
+
+          <p class="text">
+            In our sessions, I draw on Family Therapy, Mindfulness-Based Therapy, Person-Centered Counselling, and Solution-Focused Brief Therapy — not as rigid techniques, but as tools I shape around you, because no two people, and no two stories, are the same.
+          </p>
+
+          <p class="text">
+            My hope for everyone who walks through this door is simple: that you leave feeling steadier, more like yourself, and a little more hopeful than when you came in.
+          </p>
+
+          <p class="text">
+            If you're ready to talk, I'm here.
+          </p>
+
+          <p class="about-signature serif">— Saloni</p>
+
+          <div class="quick-grid about-stats">
+            <div class="quick-item">
+              <h3>Counselling Psychologist</h3>
+              <p>Professional qualification</p>
+            </div>
+
+            <div class="quick-item">
+              <h3>Therapist</h3>
+              <p class="support-line">Mental Health Support</p>
+            </div>
+
+            <div class="quick-item">
+              <h3>5+ Years</h3>
+              <p>Counselling experience</p>
+            </div>
+
+            <div class="quick-item">
+              <h3>Warm approach</h3>
+              <p>Sessions are guided with patience, clarity, and care.</p>
             </div>
           </div>
         </div>
@@ -1337,112 +2002,49 @@
       </div>
     </section>
 
-   <section id="about" class="section">
-  <div class="wrap about-layout">
-    <div class="about-photo reveal">
-      <img
-        src="IMG_0866.JPG"
-        alt="Ms. Saloni Suryawanshi, Counselling Psychologist and Therapist at Rujal Counselling Center"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-
-    <div class="reveal">
-      <p class="label">About The Counsellor</p>
-      <h2 class="title">Meet Ms. Saloni Suryawanshi.</h2>
-      <p class="text">
-        Ms. Saloni Suryawanshi is a Counselling Psychologist and Therapist offering
-        compassionate psychological counselling focused on emotional well-being, stress
-        management, self-understanding, and personal growth.
-      </p>
-
-      <div class="quick-grid about-stats">
-        <div class="quick-item">
-          <h3>Counselling Psychologist</h3>
-          <p>Professional qualification</p>
-        </div>
-
-        <div class="quick-item">
-          <h3>Therapist</h3>
-          <p class="support-line">Mental Health Support</p>
-        </div>
-
-        <div class="quick-item">
-          <h3>5+ Years</h3>
-          <p>Counselling experience</p>
-        </div>
-
-        <div class="quick-item">
-          <h3>Warm approach</h3>
-          <p>Sessions are guided with patience, clarity, and care.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="gallery" class="section section-soft">
+    <section id="qualifications" class="section">
       <div class="wrap">
-        <div class="gallery-frame">
-          <div class="gallery-head reveal">
-            <div>
-              <p class="label">Gallery</p>
-              <h2 class="title">A glimpse of the counselling space.</h2>
-              <p class="text">Add your counselling center photos here so visitors can feel familiar with the space before they visit.</p>
-            </div>
-
-            <div class="gallery-controls">
-              <button class="gallery-arrow" onclick="scrollGallery(-1)" aria-label="Previous photos">&#8249;</button>
-              <button class="gallery-arrow" onclick="scrollGallery(1)" aria-label="Next photos">&#8250;</button>
-            </div>
+        <div class="certificate-section">
+          <div class="certificate-head">
+            <p class="label">Qualifications</p>
+            <h2 class="title">Credentials that support compassionate care.</h2>
+            <p class="text">A focused look at the certificates behind the counselling practice.</p>
           </div>
 
-<section id="gallery" class="section section-soft">
-  <div class="wrap">
-    <div class="gallery-frame">
-      <div class="gallery-head reveal">
-        <div>
-          <p class="label">Gallery</p>
-          <h2 class="title">A glimpse of the counselling space.</h2>
-          <p class="text">A warm look at the center, from the entrance to the calm spaces designed for comfort and privacy.</p>
-        </div>
+          <div class="certificate-title-row" aria-live="polite">
+            <span id="certificateCount" class="certificate-count">01 / 05</span>
+            <h3 id="certificateTitle">Diploma in Counselling Skills and Psychotherapies</h3>
+            <p id="certificateText">Completed a 6-month course in counselling skills and psychotherapies.</p>
+          </div>
 
-        <div class="gallery-controls">
-          <button class="gallery-arrow" onclick="scrollGallery(-1)" aria-label="Previous photos">&#8249;</button>
-          <button class="gallery-arrow" onclick="scrollGallery(1)" aria-label="Next photos">&#8250;</button>
+          <div class="certificate-viewer">
+            <div id="certificateFrame" class="certificate-frame">
+              <div class="certificate-slide active">
+                <img src="certificate-assets/counselling-skills-psychotherapies.jpg" alt="Diploma in Counselling Skills and Psychotherapies certificate" loading="eager" decoding="async" />
+              </div>
+              <div class="certificate-slide">
+                <img src="certificate-assets/ma-certificate.jpg" alt="MA Certificate for Saloni Suryawanshi" loading="lazy" decoding="async" />
+              </div>
+              <div class="certificate-slide">
+                <img src="certificate-assets/cbt-certificate.jpg" alt="CBT Certificate for Saloni Suryawanshi" loading="lazy" decoding="async" />
+              </div>
+              <div class="certificate-slide">
+                <img src="certificate-assets/relationship-counselling-certificate.jpg" alt="Relationship Counselling Certificate for Saloni Suryawanshi" loading="lazy" decoding="async" />
+              </div>
+              <div class="certificate-slide">
+                <img src="certificate-assets/ace-community-mentor-2023.jpg" alt="ACE Community Mentor Certificate 2023" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="certificate-controls">
+              <button type="button" class="certificate-arrow" onclick="moveCertificate(-1)" aria-label="Previous certificate">&#8249;</button>
+              <div id="certificateDots" class="certificate-dots" aria-label="Certificate selector"></div>
+              <button type="button" class="certificate-arrow" onclick="moveCertificate(1)" aria-label="Next certificate">&#8250;</button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div id="galleryTrack" class="gallery-track reveal">
-        <article class="gallery-card">
-          <img src="IMG_0727.JPG" alt="Rujal Counselling Center entrance gate and signboard" loading="lazy" decoding="async" />
-          <div class="gallery-caption">Center entrance</div>
-        </article>
-
-        <article class="gallery-card">
-          <img src="IMG_0857.JPG" alt="Comfortable waiting area with yellow chairs and plants" loading="lazy" decoding="async" />
-          <div class="gallery-caption">counselling room</div>
-        </article>
-
-        <article class="gallery-card">
-          <img src="IMG_0896.JPG" alt="Spacious counselling room with seating and calm interiors" loading="lazy" decoding="async" />
-          <div class="gallery-caption">Reception and waiting area</div>
-        </article>
-
-        <article class="gallery-card">
-          <img src="IMG_0996.JPG" alt="In session privacy sign at the counselling room door" loading="lazy" decoding="async" />
-          <div class="gallery-caption">Quiet space</div>
-        </article>
-        
-        <article class="gallery-card">
-          <img src="file_00000000defc71faae62d8ea2efacb36.png" alt="Plant-filled balcony corner at Rujal Counselling Center" loading="lazy" decoding="async" />
-          <div class="gallery-caption">Calm balcony corner</div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="approach" class="section">
       <div class="wrap two-col">
@@ -1479,123 +2081,95 @@
 
     <section id="services" class="section section-soft">
       <div class="wrap">
-        <div class="reveal" style="max-width: 760px;">
-          <p class="label">Services</p>
-          <h2 class="title">Areas where we provide support.</h2>
-          <p class="text">
-            Counselling support is available for emotional, personal, interpersonal, and everyday life concerns. Each area is approached with care, privacy, and practical guidance.
-          </p>
-        </div>
-
-        <div class="service-info-grid reveal">
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/5699424/pexels-photo-5699424.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Therapist and client seated in a calm professional counselling room" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Anxiety & Stress')" />
-            <div class="service-fallback">Anxiety & Stress</div>
-            <div class="service-content">
-              <h3>Anxiety & Stress</h3>
-              <p>Support for worry, pressure, racing thoughts, restlessness, panic-like feelings, and daily emotional overload.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Counsellor and client seated separately during a calm session" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Low Mood')" />
-            <div class="service-fallback">Low Mood</div>
-            <div class="service-content">
-              <h3>Low Mood</h3>
-              <p>Support for sadness, numbness, low motivation, tiredness, and difficulty managing regular routines.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/5699475/pexels-photo-5699475.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional counselling conversation in a quiet seated setting" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Grief & Emotional')" />
-            <div class="service-fallback">Grief & Emotional</div>
-            <div class="service-content">
-              <h3>Grief & Emotional</h3>
-              <p>A safe space to process loss, emotional pain, major changes, and the slow adjustment that follows.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/5699514/pexels-photo-5699514.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Therapist listening to a seated client in a professional office" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Relationship')" />
-            <div class="service-fallback">Relationship</div>
-            <div class="service-content">
-              <h3>Relationship</h3>
-              <p>Help with repeated conflicts, emotional distance, boundaries, trust concerns, and healthier ways to respond.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/5699497/pexels-photo-5699497.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Counselling session with two people seated and speaking professionally" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Communication')" />
-            <div class="service-fallback">Communication</div>
-            <div class="service-content">
-              <h3>Communication</h3>
-              <p>Help with expressing needs, managing difficult conversations, listening better, and reducing misunderstandings.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Calm professional therapy session with client and counsellor seated apart" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Anger Management')" />
-            <div class="service-fallback">Anger Management</div>
-            <div class="service-content">
-              <h3>Anger Management</h3>
-              <p>Help with understanding anger triggers, emotional reactions, communication patterns, and healthier responses.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Therapist and client seated naturally in a warm counselling setting" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Emotional Wellbeing')" />
-            <div class="service-fallback">Emotional Wellbeing</div>
-            <div class="service-content">
-              <h3>Emotional Wellbeing</h3>
-              <p>Support for emotional balance, self-understanding, stress recovery, and building steadier coping habits.</p>
-            </div>
-          </article>
-
-          <article class="service-info-card">
-            <img class="service-photo" src="https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional seated conversation focused on self growth and clarity" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Self Growth Support')" />
-            <div class="service-fallback">Self Growth Support</div>
-            <div class="service-content">
-              <h3>Self Growth Support</h3>
-              <p>Support for confidence, self-awareness, emotional maturity, boundaries, and personal growth.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="mood" class="section">
-      <div class="wrap two-col">
-        <div class="reveal">
-          <p class="label">Support Finder</p>
-          <h2 class="title">What would you like support with today?</h2>
-          <p class="text">
-            Choose the option that feels closest to your current experience. You will see a short explanation and a direct WhatsApp option for that concern.
-          </p>
-        </div>
-
-        <div class="plain-panel reveal">
-          <div class="chip-grid">
-            <button class="chip btn btn-secondary active" onclick="selectMood(0, this)">Anxiety & Stress</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(1, this)">Low Mood</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(2, this)">Grief & Emotional</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(3, this)">Relationship</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(4, this)">Communication</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(5, this)">Anger Management</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(6, this)">Emotional Wellbeing</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(7, this)">Self Growth Support</button>
+        <div class="gallery-head reveal">
+          <div style="max-width: 760px;">
+            <p class="label">Services</p>
+            <h2 class="title">Areas where we provide support.</h2>
+            <p class="text">
+              Counselling support is available for emotional, personal, interpersonal, and everyday life concerns.
+              Each area is approached with care, privacy, and practical guidance.
+            </p>
           </div>
 
-          <div class="result-box">
-            <p class="label">Suggested support</p>
-            <h3 id="moodTitle">Anxiety & Stress</h3>
-            <p id="moodText" class="text">
-              Counselling can help you slow down racing thoughts, understand your triggers,
-              and build calmer ways to respond to daily pressure.
-            </p>
+          <div class="gallery-controls">
+            <button class="gallery-arrow" onclick="scrollTrack('serviceTrack', -1)" aria-label="Previous services">&#8249;</button>
+            <button class="gallery-arrow" onclick="scrollTrack('serviceTrack', 1)" aria-label="Next services">&#8250;</button>
+          </div>
+        </div>
 
-            <button onclick="openMoodWhatsApp()" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
-              Get Support on WhatsApp
-            </button>
+        <div class="service-scroll reveal">
+          <div id="serviceTrack" class="service-info-grid">
+            <article class="service-info-card active" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Anxiety and Stress counselling">
+              <img class="service-photo" src="https://images.pexels.com/photos/5699455/pexels-photo-5699455.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Therapist and client in an anxiety counselling session" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Anxiety & Stress')" />
+              <div class="service-fallback">Anxiety & Stress</div>
+              <div class="service-content">
+                <h3>Anxiety & Stress</h3>
+                <p>Support for worry, pressure, racing thoughts, restlessness, panic-like feelings, and daily emotional overload.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Low Mood counselling">
+              <img class="service-photo" src="https://images.pexels.com/photos/236147/pexels-photo-236147.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Person sitting alone, appearing low and withdrawn" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Low Mood')" />
+              <div class="service-fallback">Low Mood</div>
+              <div class="service-content">
+                <h3>Low Mood</h3>
+                <p>Support for sadness, numbness, low motivation, tiredness, and difficulty managing regular routines.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Grief and Emotional support">
+              <img class="service-photo" src="https://images.pexels.com/photos/8963481/pexels-photo-8963481.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Comforting hands offering support, representing grief counselling" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Grief & Emotional')" />
+              <div class="service-fallback">Grief & Emotional</div>
+              <div class="service-content">
+                <h3>Grief & Emotional</h3>
+                <p>A safe space to process loss, emotional pain, major changes, and the slow adjustment that follows.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Relationship counselling">
+              <img class="service-photo" src="https://images.pexels.com/photos/3958384/pexels-photo-3958384.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Couple attending a relationship counselling session together" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Relationship')" />
+              <div class="service-fallback">Relationship</div>
+              <div class="service-content">
+                <h3>Relationship</h3>
+                <p>Help with repeated conflicts, emotional distance, boundaries, trust concerns, and healthier ways to respond.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Communication counselling">
+              <img class="service-photo" src="https://images.pexels.com/photos/6767004/pexels-photo-6767004.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Two people having an attentive, open conversation" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Communication')" />
+              <div class="service-fallback">Communication</div>
+              <div class="service-content">
+                <h3>Communication</h3>
+                <p>Help with expressing needs, managing difficult conversations, listening better, and reducing misunderstandings.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Anger Management counselling">
+              <img class="service-photo" src="https://images.pexels.com/photos/6998246/pexels-photo-6998246.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Person practicing calming techniques to manage anger" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Anger Management')" />
+              <div class="service-fallback">Anger Management</div>
+              <div class="service-content">
+                <h3>Anger Management</h3>
+                <p>Help with understanding anger triggers, emotional reactions, communication patterns, and healthier responses.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Emotional Wellbeing counselling">
+              <img class="service-photo" src="https://images.pexels.com/photos/4640840/pexels-photo-4640840.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Person appearing calm and emotionally balanced" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Emotional Wellbeing')" />
+              <div class="service-fallback">Emotional Wellbeing</div>
+              <div class="service-content">
+                <h3>Emotional Wellbeing</h3>
+                <p>Support for emotional balance, self-understanding, stress recovery, and building steadier coping habits.</p>
+              </div>
+            </article>
+
+            <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Self Growth Support">
+              <img class="service-photo" src="https://images.pexels.com/photos/3958416/pexels-photo-3958416.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Counselling conversation focused on self growth and clarity" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Self Growth Support')" />
+              <div class="service-fallback">Self Growth Support</div>
+              <div class="service-content">
+                <h3>Self Growth Support</h3>
+                <p>Support for confidence, self-awareness, emotional maturity, boundaries, and personal growth.</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -1623,6 +2197,44 @@
               <h3 id="breathText">Ready</h3>
               <p id="breathHint" class="text" style="font-size: 14px; margin-top: 6px;">4 seconds in, hold, 6 seconds out</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mood" class="section">
+      <div class="wrap two-col">
+        <div class="reveal">
+          <p class="label">Support Finder</p>
+          <h2 class="title">What would you like support with today?</h2>
+          <p class="text">
+            Choose the option that feels closest to your current experience. You will see a short explanation and a direct WhatsApp option for that concern.
+          </p>
+        </div>
+
+        <div class="plain-panel reveal">
+          <div class="chip-grid">
+            <button class="chip btn btn-secondary active" onclick="selectMood(0, this)">Anxiety & Stress</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(1, this)">Low Mood</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(2, this)">Grief & Emotional</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(3, this)">Relationship Counselling</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(4, this)">Communication Skills</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(5, this)">Anger Management</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(6, this)">Emotional Wellbeing</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(7, this)">Self Growth Support</button>
+          </div>
+
+          <div class="result-box">
+            <p class="label">Suggested support</p>
+            <h3 id="moodTitle">Anxiety & Stress</h3>
+            <p id="moodText" class="text">
+              Counselling can help you slow down racing thoughts, understand your triggers,
+              and build calmer ways to respond to daily pressure.
+            </p>
+
+            <button onclick="openMoodWhatsApp()" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+              Get Support on WhatsApp
+            </button>
           </div>
         </div>
       </div>
@@ -1665,7 +2277,7 @@
     <section class="section dark-band">
       <div class="wrap two-col reveal">
         <div>
-          <p class="label" style="color: #d9c7b6;">Reassurance</p>
+          <p class="label" style="color: #D7E7F3;">Reassurance</p>
           <h2 class="title">Support can begin before everything feels too heavy.</h2>
         </div>
         <div>
@@ -1857,6 +2469,16 @@
 
   <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="floating-whatsapp btn btn-primary">WhatsApp</a>
 
+  <div id="serviceDetailBackdrop" class="service-detail-backdrop" onclick="closeServiceDetail(event)" aria-hidden="true">
+    <div class="service-detail-modal" role="dialog" aria-modal="true" aria-labelledby="serviceDetailTitle" onclick="event.stopPropagation()">
+      <div class="service-detail-top">
+        <h3 id="serviceDetailTitle"></h3>
+        <button type="button" class="service-detail-close" onclick="closeServiceDetail()" aria-label="Close service details">&times;</button>
+      </div>
+      <p id="serviceDetailText"></p>
+    </div>
+  </div>
+
   <script>
     const moods = [
       {
@@ -1875,12 +2497,12 @@
         message: "Hello, I would like to get support for emotional pain, grief, or a difficult life situation. I want to understand how counselling can help me."
       },
       {
-        title: "Relationship",
+        title: "Relationship Counselling",
         text: "Counselling can help you understand relationship patterns, communicate with more clarity, and build healthier emotional boundaries.",
         message: "Hello, I would like to get support for relationship concerns. I want to understand how counselling can help me."
       },
       {
-        title: "Communication",
+        title: "Communication Skills",
         text: "If conversations often become difficult, counselling can help you express needs, listen clearly, and reduce misunderstandings.",
         message: "Hello, I would like to get support for communication difficulties. I want to understand how counselling can help me."
       },
@@ -1902,12 +2524,96 @@
     ];
 
     let selectedMoodIndex = 0;
+    let breathing = false;
+    let breathTimer = null;
+    let breathPhaseIndex = 0;
 
+    const breathPhases = [
+      { className: "phase-inhale", text: "Inhale slowly", hint: "Breathe in for 4 seconds", duration: 4000 },
+      { className: "phase-hold", text: "Hold softly", hint: "Hold for 4 seconds", duration: 4200 },
+      { className: "phase-exhale", text: "Exhale slowly", hint: "Breathe out for 6 seconds", duration: 6200 },
+      { className: "phase-rest", text: "Rest", hint: "Let your body settle", duration: 1800 }
+    ];
+
+    const certificateData = [
+          {
+            title: "Diploma in Counselling Skills and Psychotherapies",
+            text: "Completed a 6-month course in counselling skills and psychotherapies."
+          },
+          {
+            title: "Master's Qualification",
+            text: "Academic qualification supporting professional counselling practice."
+          },
+          {
+            title: "Cognitive Behaviour Therapy Certificate",
+            text: "Professional learning in CBT-based understanding and support."
+          },
+          {
+            title: "Relationship Counselling Certificate",
+            text: "Training focused on relationship concerns, communication, and emotional patterns."
+          },
+          {
+            title: "ACE Community Mentor Certificate 2023",
+            text: "Mentorship and community support recognition."
+          }
+        ];
+    
+        let certificateIndex = 0;
+        let certificateTimer = null;
+    
+        function renderDots() {
+          const dots = document.getElementById("certificateDots");
+          dots.innerHTML = certificateData.map((_, index) => (
+            `<button type="button" class="${index === 0 ? "active" : ""}" onclick="showCertificate(${index})" aria-label="Show certificate ${index + 1}"></button>`
+          )).join("");
+        }
+    
+        function showCertificate(index) {
+          const slides = document.querySelectorAll(".certificate-slide");
+          const dots = document.querySelectorAll("#certificateDots button");
+          certificateIndex = (index + slides.length) % slides.length;
+    
+          slides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === certificateIndex));
+          dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === certificateIndex));
+    
+          document.getElementById("certificateCount").textContent = `${String(certificateIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+          document.getElementById("certificateTitle").textContent = certificateData[certificateIndex].title;
+          document.getElementById("certificateText").textContent = certificateData[certificateIndex].text;
+        }
+    
+        function moveCertificate(direction) {
+          showCertificate(certificateIndex + direction);
+          restartCertificateTimer();
+        }
+    
+        function restartCertificateTimer() {
+          clearInterval(certificateTimer);
+          certificateTimer = setInterval(() => showCertificate(certificateIndex + 1), 4200);
+        }
+
+        function initCertificateSwipe() {
+          const frame = document.getElementById("certificateFrame");
+          if (!frame) return;
+          let touchStartX = 0;
+          let touchStartY = 0;
+
+          frame.addEventListener("touchstart", (event) => {
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+          }, { passive: true });
+
+          frame.addEventListener("touchend", (event) => {
+            const dx = event.changedTouches[0].clientX - touchStartX;
+            const dy = event.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+            moveCertificate(dx < 0 ? 1 : -1);
+          }, { passive: true });
+        }
+    
     function openMenu() {
       const menu = document.getElementById("mobileMenu");
       const backdrop = document.getElementById("mobileMenuBackdrop");
       const button = document.getElementById("menuButton");
-
       menu.classList.add("open");
       backdrop.classList.add("open");
       document.body.classList.add("menu-open");
@@ -1920,7 +2626,6 @@
       const menu = document.getElementById("mobileMenu");
       const backdrop = document.getElementById("mobileMenuBackdrop");
       const button = document.getElementById("menuButton");
-
       menu.classList.remove("open");
       backdrop.classList.remove("open");
       document.body.classList.remove("menu-open");
@@ -1934,23 +2639,19 @@
       menu.classList.contains("open") ? closeMenu() : openMenu();
     }
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeMenu();
-    });
-
-    function serviceImageFallback(image, label) {
-      image.style.display = "none";
-      const fallback = image.nextElementSibling;
-      fallback.textContent = label;
-      fallback.style.display = "grid";
+    function scrollTrack(trackId, direction) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      const slide = track.firstElementChild;
+      if (!slide) return;
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
+      track.scrollBy({ left: direction * (slide.offsetWidth + gap), behavior: "smooth" });
     }
 
     function selectMood(index, button) {
       selectedMoodIndex = index;
-
       document.querySelectorAll(".chip").forEach(chip => chip.classList.remove("active"));
       button.classList.add("active");
-
       const mood = moods[index];
       document.getElementById("moodTitle").textContent = mood.title;
       document.getElementById("moodText").textContent = mood.text;
@@ -1961,27 +2662,55 @@
       window.open(`https://wa.me/918108719701?text=${encodeURIComponent(message)}`, "_blank", "noopener");
     }
 
-    function scrollGallery(direction) {
-      const track = document.getElementById("galleryTrack");
-      const slide = track.querySelector(".gallery-card");
-      if (!track || !slide) return;
-
-      track.scrollBy({
-        left: direction * (slide.offsetWidth + 18),
-        behavior: "smooth"
-      });
+    function serviceImageFallback(image, label) {
+      image.style.display = "none";
+      const fallback = image.nextElementSibling;
+      fallback.textContent = label;
+      fallback.style.display = "grid";
     }
 
-    let breathing = false;
-    let breathTimer = null;
-    let breathPhaseIndex = 0;
+    function openServiceDetail(card) {
+      document.querySelectorAll("#serviceTrack .service-info-card").forEach(item => item.classList.remove("active"));
+      card.classList.add("active");
 
-    const breathPhases = [
-      { className: "phase-inhale", text: "Inhale slowly", hint: "Breathe in for 4 seconds", duration: 4000 },
-      { className: "phase-hold", text: "Hold softly", hint: "Hold for 4 seconds", duration: 4200 },
-      { className: "phase-exhale", text: "Exhale slowly", hint: "Breathe out for 6 seconds", duration: 6200 },
-      { className: "phase-rest", text: "Rest", hint: "Let your body settle", duration: 1800 }
-    ];
+      if (!window.matchMedia("(max-width: 679px)").matches) return;
+
+      const title = card.querySelector(".service-content h3")?.textContent || "Service";
+      const text = card.querySelector(".service-content p")?.textContent || "Counselling support is available with care, privacy, and practical guidance.";
+      const backdrop = document.getElementById("serviceDetailBackdrop");
+      document.getElementById("serviceDetailTitle").textContent = title;
+      document.getElementById("serviceDetailText").textContent = text;
+      backdrop.classList.add("open");
+      backdrop.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open");
+    }
+
+    function closeServiceDetail(event) {
+      if (event && event.target.id !== "serviceDetailBackdrop") return;
+      const backdrop = document.getElementById("serviceDetailBackdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("open");
+      backdrop.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("menu-open");
+    }
+
+    function handleServiceCardKey(event, card) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openServiceDetail(card);
+      }
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMenu();
+        closeServiceDetail();
+      }
+    });
+
+    renderDots();
+    restartCertificateTimer();
+    initCertificateSwipe();
 
     function clearBreathPhases(box) {
       box.classList.remove("phase-inhale", "phase-hold", "phase-exhale", "phase-rest");
@@ -1992,12 +2721,10 @@
       const text = document.getElementById("breathText");
       const hint = document.getElementById("breathHint");
       const phase = breathPhases[breathPhaseIndex];
-
       clearBreathPhases(box);
       box.classList.add("breathing", phase.className);
       text.textContent = phase.text;
       hint.textContent = phase.hint;
-
       clearTimeout(breathTimer);
       breathTimer = setTimeout(() => {
         breathPhaseIndex = (breathPhaseIndex + 1) % breathPhases.length;
@@ -2010,9 +2737,7 @@
       const text = document.getElementById("breathText");
       const hint = document.getElementById("breathHint");
       const button = document.getElementById("breathButton");
-
       breathing = !breathing;
-
       if (breathing) {
         button.textContent = "Pause Breathing";
         breathPhaseIndex = 0;
@@ -2034,7 +2759,6 @@
 
     function sendBooking(event) {
       event.preventDefault();
-
       const name = document.getElementById("nameInput").value.trim();
       const phone = document.getElementById("phoneInput").value.trim();
       const concern = document.getElementById("concernInput").value;
@@ -2042,34 +2766,23 @@
       const date = document.getElementById("dateInput").value || "Not selected";
       const time = document.getElementById("timeInput").value || "Not selected";
       const message = document.getElementById("messageInput").value.trim() || "No message";
-
-      const text =
-`Hello, my name is ${name}. I would like to book a counselling session.
-
-Phone: ${phone}
-Concern: ${concern}
-Preference: ${mode}
-Preferred date: ${date}
-Preferred time: ${time}
-Message: ${message}`;
-
+      const text = `Hello, my name is ${name}. I would like to book a counselling session. Phone: ${phone} Concern: ${concern} Preference: ${mode} Preferred date: ${date} Preferred time: ${time} Message: ${message}`;
       document.getElementById("bookingStatus").textContent = "Opening WhatsApp...";
       window.open(`https://wa.me/918108719701?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     }
 
     const revealItems = document.querySelectorAll(".reveal");
-
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       }, { threshold: 0.12 });
-
       revealItems.forEach(item => observer.observe(item));
     } else {
       revealItems.forEach(item => item.classList.add("visible"));
     }
+
   </script>
 </body>
 </html>
