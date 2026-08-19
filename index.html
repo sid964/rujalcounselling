@@ -10,6 +10,7 @@
   <style>
     :root {
       --ink: #173854;
+      --reassurance-accent: var(--ink);
       --muted: #4F7391;
       --accent: #3499D5;
       --accent-dark: #2678AC;
@@ -613,17 +614,35 @@
     }
 
     .chip.active {
-      background: var(--accent-dark);
+      background: var(--reassurance-accent);
       color: white;
-      border-color: var(--accent-dark);
+      border-color: var(--reassurance-accent);
+    }
+
+    .chip[data-support="low-mood"].active {
+      background: var(--reassurance-accent);
+      color: white;
+      border-color: var(--reassurance-accent);
+    }
+
+    .btn-reassurance-accent {
+      background: var(--reassurance-accent);
+      color: white;
+      box-shadow: 0 12px 24px rgba(23, 56, 84, 0.18);
+    }
+
+    .btn-reassurance-accent:focus-visible,
+    .chip[data-support="low-mood"]:focus-visible {
+      outline: 3px solid var(--reassurance-accent);
+      outline-offset: 3px;
     }
 
     .result-box {
       margin-top: 16px;
       padding: 16px;
       border-radius: 16px;
-      background: var(--mist);
-      border: 1px solid var(--line);
+      background: #ffffff;
+      border: 0;
     }
 
     .result-box h3 {
@@ -733,7 +752,7 @@
     }
 
     .dark-band {
-      background: var(--ink);
+      background: var(--reassurance-accent);
       color: white;
     }
 
@@ -848,6 +867,21 @@
 
     .floating-whatsapp {
       display: none;
+    }
+
+    .floating-whatsapp.btn-primary {
+      background: #25D366;
+      color: white;
+    }
+
+    .floating-whatsapp-footer.btn-primary {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp.btn-primary {
+      background: #25D366;
+      color: white;
     }
 
     .reveal {
@@ -1322,6 +1356,10 @@
         grid-template-columns: repeat(4, 1fr);
       }
 
+      .about-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .two-col {
         grid-template-columns: 1fr 1fr;
         gap: 56px;
@@ -1679,7 +1717,7 @@
         <a href="#faq">FAQ</a>
       </nav>
 
-      <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="desktop-book btn btn-primary">Book a Session</a>
+      <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="desktop-book btn btn-primary btn-reassurance-accent">Book a Session</a>
 
       <button onclick="toggleMenu()" id="menuButton" class="menu-button btn btn-secondary" aria-label="Open menu" aria-expanded="false">
         &#9776;
@@ -1716,7 +1754,7 @@
           </p>
 
           <div class="btn-row">
-            <a href="#booking" class="btn btn-primary">Book an Appointment</a>
+            <a href="#booking" class="btn btn-primary btn-reassurance-accent">Book an Appointment</a>
             <a href="#mood" class="btn btn-secondary">Find Support</a>
           </div>
 
@@ -2079,7 +2117,7 @@
             Inhale slowly, hold for a few seconds, and then breathe out even more slowly.
             This small pause can help your body feel steadier before the next step.
           </p>
-          <button onclick="toggleBreathing()" class="btn btn-primary" id="breathButton" style="margin-top: 22px;">Start Breathing</button>
+          <button onclick="toggleBreathing()" class="btn btn-primary btn-reassurance-accent" id="breathButton" style="margin-top: 22px;">Start Breathing</button>
         </div>
 
         <div id="breathBox" class="breath-box reveal">
@@ -2110,13 +2148,15 @@
         <div class="plain-panel reveal">
           <div class="chip-grid">
             <button class="chip btn btn-secondary active" onclick="selectMood(0, this)">Anxiety & Stress</button>
-            <button class="chip btn btn-secondary" onclick="selectMood(1, this)">Low Mood</button>
+            <button class="chip btn btn-secondary" data-support="low-mood" onclick="selectMood(1, this)">Low Mood</button>
             <button class="chip btn btn-secondary" onclick="selectMood(2, this)">Grief & Emotional</button>
             <button class="chip btn btn-secondary" onclick="selectMood(3, this)">Relationship Counselling</button>
             <button class="chip btn btn-secondary" onclick="selectMood(4, this)">Communication Skills</button>
             <button class="chip btn btn-secondary" onclick="selectMood(5, this)">Anger Management</button>
             <button class="chip btn btn-secondary" onclick="selectMood(6, this)">Emotional Wellbeing</button>
             <button class="chip btn btn-secondary" onclick="selectMood(7, this)">Self Growth Support</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(8, this)">Psychological Testing</button>
+            <button class="chip btn btn-secondary" onclick="selectMood(9, this)">Career Counseling and Guidance</button>
           </div>
 
           <div class="result-box">
@@ -2127,7 +2167,7 @@
               and build calmer ways to respond to daily pressure.
             </p>
 
-            <button onclick="openMoodWhatsApp()" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+            <button onclick="openMoodWhatsApp()" class="btn btn-primary btn-reassurance-accent btn-whatsapp" style="width: 100%; margin-top: 16px;">
               Get Support on WhatsApp
             </button>
           </div>
@@ -2191,7 +2231,7 @@
             Rujal Counselling Center offers counselling support in Pune.
             Use the map link to open the location and plan your visit with ease.
           </p>
-          <a href="https://maps.app.goo.gl/sLpWVTKZyiLoXn4L6" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 22px;">Open Location on Maps</a>
+          <a href="https://maps.app.goo.gl/sLpWVTKZyiLoXn4L6" target="_blank" rel="noopener" class="btn btn-primary btn-reassurance-accent" style="margin-top: 22px;">Open Location on Maps</a>
         </div>
 
         <div class="reveal">
@@ -2244,7 +2284,7 @@
             <span>I understand this form is for appointment requests only and not for emergency support.</span>
           </label>
 
-          <button id="bookingButton" class="btn btn-primary">Open WhatsApp</button>
+          <button id="bookingButton" class="btn btn-primary btn-reassurance-accent btn-whatsapp">Open WhatsApp</button>
           <p id="bookingStatus" class="text" style="font-weight: 800; font-size: 14px;"></p>
         </form>
       </div>
@@ -2358,7 +2398,7 @@
         <h2 style="margin: 0; font-size: clamp(28px, 7vw, 42px);">Rujal Counselling Center</h2>
         <p class="text">Confidential, compassionate, and professional counselling support in Pune. You are welcome to begin with a conversation.</p>
       </div>
-      <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="btn btn-primary">Chat on WhatsApp</a>
+      <a href="https://wa.me/918108719701" target="_blank" rel="noopener" class="btn btn-primary floating-whatsapp-footer btn-whatsapp">Chat on WhatsApp</a>
     </div>
   </footer>
 
@@ -2419,6 +2459,16 @@
         title: "Self Growth Support",
         text: "If you are struggling with confidence, boundaries, or self-doubt, counselling can help you understand patterns and move forward with more clarity.",
         message: "Hello, I would like to get support for self-doubt, confidence, and personal growth. I want to know how counselling can help me."
+      },
+      {
+        title: "Psychological Testing",
+        text: "Psychological testing can help clarify strengths, challenges, and patterns through a structured and supportive assessment process.",
+        message: "Hello, I would like to ask about psychological testing and understand how the assessment process can help me."
+      },
+      {
+        title: "Career Counseling and Guidance",
+        text: "Career counseling and guidance can help you explore your interests, strengths, options, and next steps with greater confidence and clarity.",
+        message: "Hello, I would like to get career counseling and guidance. I want to understand how it can help me explore my next steps."
       }
     ];
 
