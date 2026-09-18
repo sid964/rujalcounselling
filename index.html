@@ -565,7 +565,8 @@
 
     .service-photo {
       width: 100%;
-      height: 148px;
+      height: auto;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
       background: var(--accent-soft);
     }
@@ -598,7 +599,8 @@
     }
 
     .service-fallback {
-      height: 148px;
+      height: auto;
+      aspect-ratio: 4 / 3;
     }
 
     .chip-grid {
@@ -1395,7 +1397,7 @@
 
       .service-photo,
       .service-fallback {
-        height: 170px;
+        height: auto;
       }
 
       .service-content {
@@ -2027,7 +2029,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Grief and Emotional support">
-              <img class="service-photo" src="Relationship.jpg.jpeg" alt="Comforting hands offering support, representing grief counselling" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Grief & Emotional')" />
+              <img class="service-photo" src="Grief.webp" alt="Comforting hands offering support, representing grief counselling" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Grief & Emotional')" />
               <div class="service-fallback">Grief & Emotional</div>
               <div class="service-content">
                 <h3>Grief & Emotional</h3>
@@ -2036,7 +2038,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Relationship counselling">
-              <img class="service-photo service-photo--relationship" src="Grief.webp" alt="Couple attending a relationship counselling session together" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Relationship')" />
+              <img class="service-photo service-photo--relationship" src="Relationship.jpg.jpeg" alt="Couple attending a relationship counselling session together" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Relationship')" />
               <div class="service-fallback">Relationship</div>
               <div class="service-content">
                 <h3>Relationship</h3>
@@ -2090,7 +2092,7 @@
             </article>
 
             <article class="service-info-card" onclick="openServiceDetail(this)" onkeydown="handleServiceCardKey(event, this)" tabindex="0" role="button" aria-label="Read more about Career Counseling and Guidance">
-              <img class="service-photo" src="https://images.pexels.com/photos/9064787/pexels-photo-9064787.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional career counselling and guidance session" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Career Counseling and Guidance')" />
+              <img class="service-photo" src="https://images.pexels.com/photos/5989933/pexels-photo-5989933.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional career counselling and guidance session" loading="lazy" decoding="async" onerror="serviceImageFallback(this, 'Career Counseling and Guidance')" />
               <div class="service-fallback">Career Counseling and Guidance</div>
               <div class="service-content">
                 <h3>Career Counseling and Guidance</h3>
@@ -2593,7 +2595,7 @@
     
         function restartCertificateTimer() {
           clearInterval(certificateTimer);
-          certificateTimer = setInterval(() => showCertificate(certificateIndex + 1), 3000);
+          certificateTimer = setInterval(() => showCertificate(certificateIndex + 1), 2200);
         }
 
         function initCertificateAutoScroll() {
@@ -2708,7 +2710,7 @@
       };
 
       const start = () => {
-        if (!timer) timer = setInterval(advance, 3000);
+        if (!timer) timer = setInterval(advance, 2200);
       };
       const stop = () => {
         clearInterval(timer);
